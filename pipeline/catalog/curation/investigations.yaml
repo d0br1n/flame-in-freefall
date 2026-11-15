@@ -1,0 +1,846 @@
+{
+  "_meta": {
+    "issue": "DOB-61",
+    "status": "proposal: tags need one human read",
+    "written_by": "claude-sonnet-5-5",
+    "fields": "pillar (prevention|detection|suppression|related|fundamentals); stage derived from pillar (prevention=spread, detection=detect, suppression=suppress, else null); fuel_phase (solid|liquid|gas|aerosol); hardware_group; measurements; summary_plain (SI-written, from PSI objective and approach only); cannot_tell; every tag has a source",
+    "created": "2026-11-14"
+  },
+  "investigations": {
+    "PSI-10": {
+      "acronym": "ACME / Flame Design",
+      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
+      "psi_sub_area": "Flames of Gaseous Fuels",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "acme_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "soot-inception limits",
+          "flame temperatures",
+          "flow rate",
+          "inert gas amount (N2 or CO2)",
+          "pressure"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Round, ball-shaped flames of ethylene and methane burned in space, with the gas flowing out or in. The tests look for the point where a flame starts to make soot and measure how hot the flame is there. They vary the flow, the added inert gas (nitrogen or carbon dioxide) and the pressure.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Gas flames only: the table does not say how a solid material or a liquid droplet would behave.",
+      "review_note": ""
+    },
+    "PSI-20": {
+      "acronym": "ACME BRE",
+      "title": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
+      "psi_sub_area": "Flames of Gaseous Fuels",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "prevention",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "acme_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "burning behavior on porous burners (25 and 50 mm)",
+          "oxygen concentration",
+          "pressure",
+          "fuel flow"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Methane and ethylene mixed with nitrogen burn on flat round porous burners in still air in space. The aim is to describe when a material burns in calm microgravity in terms of its properties. Oxygen level and pressure are varied, including the atmosphere planned for human missions.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "A gas burner stands in for a solid material, so it shows burning conditions, not how a real material ignites or spreads fire.",
+      "review_note": "Pillar follows docs/01 (prevention); the challenge page only calls BRE a study of material flammability in still atmospheres."
+    },
+    "PSI-21": {
+      "acronym": "ACME CLD Flame",
+      "title": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
+      "psi_sub_area": "Flames of gaseous fuel",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "acme_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "flame shape",
+          "lift-off height",
+          "flame temperature",
+          "extinction limits",
+          "soot"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Weak methane and ethylene flames burn in a slow stream of air in space. The tests measure flame shape, how far the flame lifts off the burner, temperatures, the point where the flame goes out, and how much soot forms. The data are meant to test computer models of flames.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Gas flames in a coflow burner only; it does not measure fire growth or detection.",
+      "review_note": ""
+    },
+    "PSI-22": {
+      "acronym": "ACME E-FIELD Flames",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "psi_sub_area": "Laminar Flames",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "related",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "acme_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "electric field voltage",
+          "chemi-ion current",
+          "flame response",
+          "soot",
+          "near-limit lifted flames"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Gas flames burn in space while a strong electric field is applied across them. Without buoyancy, the effect of the field can be seen on its own. The tests link the voltage to the electric current in the flame and watch how the flame and its soot react.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "It studies electric fields on gas flames; it is not a fire-safety test of materials, smoke or suppressants.",
+      "review_note": "Tag follows docs/01 ('Partial-gravity proxy')."
+    },
+    "PSI-23": {
+      "acronym": "ACME s-Flame",
+      "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+      "psi_sub_area": "Flames of gaseous fuels",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "acme_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "transient flame structure",
+          "temperature and species distribution",
+          "burner and flame temperatures",
+          "radiative flux"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Mixtures of hydrogen, methane and inert gas flow out of a round porous burner in space and burn as a ball-shaped flame. Cameras and sensors record how the flame changes over time. The results are meant to be compared with detailed computer simulations.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Gas flames only, built for model comparison rather than for fire-safety decisions.",
+      "review_note": ""
+    },
+    "PSI-159": {
+      "acronym": "ACME CFI-G",
+      "title": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+      "psi_sub_area": "Flames of Gaseous Fuels",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "related",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "acme_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "conditions for cool diffusion flames",
+          "fuel and reactant dilution",
+          "flow rate",
+          "pressure"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Round gas flames of propane, n-butane and n-pentane are burned in space to find when a cool flame (a faint, low-temperature flame) can exist. The tests vary the fuel, the dilution, the flow and the pressure. Computer simulations support the flight tests.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "It maps cool flames of gases; it does not say how a spacecraft fire starts or how to stop one.",
+      "review_note": "Tag follows docs/01 ('High-oxygen atmospheres')."
+    },
+    "PSI-25": {
+      "acronym": "BASS-II",
+      "title": "Burning and Suppression of Solids - II",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "prevention",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "solid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "msg_flow_duct",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "ignition",
+          "flame growth and spread",
+          "extinction limits",
+          "airflow speed",
+          "oxygen concentration"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Samples of solid material burned in a small wind tunnel inside the space station's glovebox, with astronauts running the tests. The tests study how a flame starts, grows, spreads and goes out in slow airflow. The main things changed are the airflow speed and the oxygen level.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "The experimental table has no spread-rate or outcome column; those must come from the videos.",
+      "review_note": ""
+    },
+    "PSI-26": {
+      "acronym": "BASS",
+      "title": "Burning and Suppression of Solids",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "prevention",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "solid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "msg_flow_duct",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "flame spread",
+          "flammability in realistic (thicker) fuels",
+          "airflow speed",
+          "oxygen concentration",
+          "nitrogen suppression"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Fabric and plastic samples burned in the glovebox on the space station, in a flow of air. The goal is to close the gap between the standard NASA test for material flammability on the ground and what really happens in microgravity. Thicker, more realistic materials are used.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Outcomes are mostly free-text comments in the table, not a numeric result column.",
+      "review_note": ""
+    },
+    "PSI-39": {
+      "acronym": "CFI",
+      "title": "Cool Flames Investigation",
+      "psi_sub_area": "Droplets",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "liquid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "mdca_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "droplet combustion behavior",
+          "pressure (0.25 to 5 atm)",
+          "helium dilution",
+          "droplet size",
+          "extinction"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Tiny drops of dodecane fuel burn in space in a chamber where pressure and gas mix are controlled. The tests look at cool flames, which burn at low temperature, and how helium in the gas, drop size and pressure change when the flame goes out.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Droplets of one fuel family only; the table does not cover solids or smoke.",
+      "review_note": ""
+    },
+    "PSI-68": {
+      "acronym": "FLEX-2",
+      "title": "Flame Extinguishment Experiment - 2",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "suppression",
+        "source": "docs/01-psi-data-repository.md, section 'Mapping to the fire safety pillars'"
+      },
+      "stage": "suppress",
+      "fuel_phase": {
+        "value": "liquid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "mdca_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "bi-component droplet burning",
+          "pressure (0.5 to 3 atm)",
+          "oxygen fraction (0.1 to 0.4)",
+          "droplet size"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A follow-up to FLEX that burns droplets of fuel mixtures in space, in atmospheres closer to real engines. Pressure and oxygen level are varied and the rest of the gas is a diluent. The results are meant to check computer models of droplet burning.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "It extends FLEX to fuel mixtures; the page does not describe a suppressant comparison like FLEX's.",
+      "review_note": "Tag follows docs/01 (suppression with FLEX); the challenge page names only FLEX. Confirm."
+    },
+    "PSI-69": {
+      "acronym": "FLEX",
+      "title": "Flame Extinguishment Experiment",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "suppression",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "suppress",
+      "fuel_phase": {
+        "value": "liquid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "mdca_cir",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "limiting oxygen index vs pressure",
+          "effect of suppressant gas (CO2, He, SF6)",
+          "droplet size",
+          "burning rate"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Large droplets of liquid fuel are lit in space and the oxygen level is lowered until the flame no longer burns. This is repeated with carbon dioxide, helium or SF6 added to find how well each gas puts a fire out. The results feed models of when flames can exist.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Single liquid droplets in microgravity only; no test was run in Moon or Mars gravity.",
+      "review_note": ""
+    },
+    "PSI-98": {
+      "acronym": "SAFFIRE-I",
+      "title": "Spacecraft Fire Safety Experiment-I",
+      "psi_sub_area": "Spacecraft Fire, Smoke Distribution",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "prevention",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "solid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "saffire_cygnus",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "fire growth rate",
+          "flammability limits",
+          "flame images",
+          "thermocouple temperatures",
+          "SIBAL fabric 0.94 m long and 0.4 m wide, 20 cm/s flow"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A large sheet of cotton and fiberglass fabric is set on fire inside an unmanned cargo spacecraft after it left the space station. The tests ask how fast a big fire grows in low gravity and how the limits for burning compare with NASA's ground screening test.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "One material and size per run on one flight; tests are few and not repeated, so they give examples, not statistics.",
+      "review_note": ""
+    },
+    "PSI-99": {
+      "acronym": "SAFFIRE-II",
+      "title": "Spacecraft Fire Experiment-II",
+      "psi_sub_area": "Surface Combustion",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "prevention",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "solid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "saffire_cygnus",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "fire growth rate",
+          "flammability limits",
+          "flame images",
+          "thermocouple temperatures",
+          "several materials, flow duct with fans"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "The second large fire test, again run on a cargo spacecraft after it left the station. It adds more materials: fabric, silicone and several kinds of acrylic (PMMA). It asks how fast a large fire grows in low gravity and how burning limits compare with NASA's ground screening test.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "One material and size per run on one flight; tests are few and not repeated, so they give examples, not statistics.",
+      "review_note": ""
+    },
+    "PSI-100": {
+      "acronym": "SAFFIRE-III",
+      "title": "Spacecraft Fire Experiment-III",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "prevention",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "solid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "saffire_cygnus",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "fire growth rate",
+          "flammability limits",
+          "flame images",
+          "thermocouple temperatures",
+          "SIBAL fabric, 30 cm/s flow, concurrent or opposed"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "The third large fire test on a cargo spacecraft, using the same fabric as the first. The airflow is faster (30 cm/s instead of 20 cm/s) and runs with or against the flame. It asks how fast a large fire grows in low gravity and how burning limits compare with NASA's ground screening test.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "One material and size per run on one flight; tests are few and not repeated, so they give examples, not statistics.",
+      "review_note": ""
+    },
+    "PSI-101": {
+      "acronym": "SAME-R",
+      "title": "Smoke Aerosol Measurement Experiment-Reflight",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "detection",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "detect",
+      "fuel_phase": {
+        "value": "aerosol",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "smoke_diagnostics",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "smoke particle size",
+          "smoke generation and transport conditions",
+          "smoke detector alarms",
+          "particle counts"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Smoke from heated samples is measured in the space station's glovebox to learn how big the smoke droplets get in low gravity. This repeat flight changed the test material to a fire-retardant foam, widened the heating conditions and swapped one instrument for a new one.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Which detector sensed what, and at which particle size, is not stated in the metadata; an alarm that stays silent does not mean there was no smoke.",
+      "review_note": ""
+    },
+    "PSI-102": {
+      "acronym": "SAME",
+      "title": "Smoke and Aerosol Measurement Experiment",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "detection",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "detect",
+      "fuel_phase": {
+        "value": "aerosol",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "smoke_diagnostics",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "smoke particle size distribution",
+          "smoke detector self-diagnostics",
+          "soot sampler results"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Smoke is made by heating samples in the space station's glovebox, and the size of the smoke droplets is measured. A computer code was also planned to predict how smoke droplets grow. Two smoke detectors and thermal samplers were used.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Part of the samples were contaminated after return to Earth, which is why the experiment was flown again as SAME-R.",
+      "review_note": ""
+    },
+    "PSI-47": {
+      "acronym": "DAFT / DAFT-2",
+      "title": "Dust and Aerosol Measurement Feasibility Test",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "detection",
+        "source": "docs/00-challenge-description.md, section 'NASA's fire safety framework has three pillars'"
+      },
+      "stage": "detect",
+      "fuel_phase": {
+        "value": "aerosol",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "smoke_diagnostics",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "particle counts from a modified P-Trak counter",
+          "standard dust (Arizona Red Dust) in nitrogen"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A test that checks whether a particle counter changed for space still counts correctly in microgravity before it was used on real smoke. The counter was rebuilt so that it no longer relies on gravity, and a standard dust was blown through it as a reference.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "It tests an instrument with dust, not with smoke from a real fire.",
+      "review_note": "Challenge page: the SAME instrument was used for dust in DAFT; tagged detection."
+    },
+    "PSI-106": {
+      "acronym": "SLICE",
+      "title": "Structure and Liftoff In Combustion Experiment",
+      "psi_sub_area": "(blank in PSI)",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "msg_flow_duct",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "flame structure",
+          "liftoff velocity limits",
+          "fuel dilution with nitrogen",
+          "soot"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Gas flames from tubes of different sizes burn in a slow airflow in the space station's glovebox. The tests look at how the base of the flame is held in place and at what flow the flame lifts off the burner. Nitrogen is mixed into the fuel to see the effect on soot and stability.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Gas jet flames only; it does not look at solid materials or smoke detection.",
+      "review_note": ""
+    },
+    "PSI-107": {
+      "acronym": "SPICE",
+      "title": "Smoke Point In Co-flow Experiment",
+      "psi_sub_area": "Fire Safety",
+      "ground_investigation": false,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "msg_flow_duct",
+        "source": "docs/00-challenge-description.md, section 'Hardware groupings'"
+      },
+      "measurements": {
+        "value": [
+          "smoke point",
+          "luminous flame length",
+          "burner diameter (0.41, 0.76, 1.6 mm)",
+          "coflow velocity (5.4 to 65 cm/s)"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Small gas flames of methane, ethylene, propane and propylene burn in a flow of air in space. The fuel flow is raised until the flame starts to release smoke, the smoke point. The tests vary burner size and airflow speed.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "The smoke point of a gas flame is not the same as smoke from a burning material or a smoke detector alarm.",
+      "review_note": ""
+    },
+    "PSI-60": {
+      "acronym": "(ground)",
+      "title": "Computational and Experimental Analysis of SPICE Data Sets",
+      "psi_sub_area": "Gaseous",
+      "ground_investigation": true,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "PSI record field `subResearchArea`"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "gas",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "ground",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "soot temperature fields",
+          "soot volume fractions from over 1,600 images"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A ground study that re-uses the SPICE images. It turns the raw photos into maps of soot temperature and soot amount and compares them with a computer soot model. The aim is to explain why soot forms differently on Earth and in microgravity.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "A ground analysis of existing data; it adds no new flight test and has no experimental table of its own.",
+      "review_note": ""
+    },
+    "PSI-62": {
+      "acronym": "(ground)",
+      "title": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": true,
+      "pillar": {
+        "value": "prevention",
+        "source": "PSI record field `subResearchArea`"
+      },
+      "stage": "spread",
+      "fuel_phase": {
+        "value": "solid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "ground",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "modeled concurrent flame spread",
+          "comparison with BASS geometries (sheets, spheres, rods)"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A modeling study of flames that spread along solid material in the same direction as the airflow. It builds a faster computer method and compares it with the BASS experiments on sheets, spheres and PMMA rods.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "A simulation study; it does not add measurements and has no experimental table of its own.",
+      "review_note": "Pillar from PSI sub-area 'Spacecraft Fire Safety' plus the BASS link; not named on the challenge page."
+    },
+    "PSI-115": {
+      "acronym": "(ground)",
+      "title": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+      "psi_sub_area": "Smoke Aerosol, Combustion Simulation",
+      "ground_investigation": true,
+      "pillar": {
+        "value": "detection",
+        "source": "PSI record field `subResearchArea`"
+      },
+      "stage": "detect",
+      "fuel_phase": {
+        "value": "aerosol",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "ground",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "simulated smoke particle growth in microgravity vs Earth gravity"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A computer study of how smoke particles form and grow, with and without gravity. It simulates the pyrolysis smoke of the SAME experiments at two slow cross-flow speeds. The aim is to say how microgravity smoke differs from Earth smoke and why.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "A simulation of one smoke chemical (DBP); it is not a test of detectors.",
+      "review_note": ""
+    },
+    "PSI-117": {
+      "acronym": "(ground)",
+      "title": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+      "psi_sub_area": "Droplet",
+      "ground_investigation": true,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "PSI record field `subResearchArea`"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "liquid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "ground",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "simulated cool-flame stability",
+          "imposed heating and convection on droplets (1 to 4 mm)"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "A computer model of cool flames around fuel droplets in microgravity, checked against the FLEX flight data. It tests how added heat and small drifts in the gas change whether a cool flame survives.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "A simulation built on FLEX data; it does not test suppressants.",
+      "review_note": ""
+    },
+    "PSI-142": {
+      "acronym": "(ground)",
+      "title": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+      "psi_sub_area": "Spacecraft Fire Safety",
+      "ground_investigation": true,
+      "pillar": {
+        "value": "fundamentals",
+        "source": "PSI record field `subResearchArea`"
+      },
+      "stage": null,
+      "fuel_phase": {
+        "value": "liquid",
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "hardware_group": {
+        "value": "ground",
+        "source": "PSI record field `experimentHardware`"
+      },
+      "measurements": {
+        "value": [
+          "flammability limit diagram of cool flames",
+          "oxygen effect on cool-flame extinction"
+        ],
+        "source": "PSI record fields `objective` and `approach`"
+      },
+      "summary_plain": {
+        "text": "Simulations and ground experiments that use the FLEX conditions to study cool flames, which burn at low temperature. The goal is a new diagram of when such flames can exist and a link between their limits and those of ordinary hot flames.",
+        "written_by": "claude-sonnet-5-5",
+        "source": "PSI record fields `objective` and `approach` only"
+      },
+      "cannot_tell": "Ground work with ozone-assisted flames and models; it is not flight data.",
+      "review_note": ""
+    }
+  }
+}

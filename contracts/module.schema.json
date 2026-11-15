@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "module.schema.json",
+  "title": "module.json: what one engine folder is and what it holds",
+  "type": "object",
+  "required": ["id", "title", "stage", "psi_ids", "question", "summary", "cannot_tell", "status", "files"],
+  "properties": {
+    "id": {"$ref": "common.schema.json#/$defs/module_id"},
+    "title": {"type": "string", "minLength": 1},
+    "stage": {"description": "The fire stage this engine answers.", "enum": ["spread", "detect", "suppress"]},
+    "psi_ids": {
+      "description": "Every PSI investigation this engine reads.",
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"$ref": "common.schema.json#/$defs/psi_id"}
+    },
+    "question": {"description": "The pillar's question in plain words.", "type": "string", "minLength": 1},
+    "summary": {"type": "string", "minLength": 1},
+    "cannot_tell": {
+      "description": "What this data cannot tell. Shown on the pillar page.",
+      "type": "array", "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "status": {"description": "example: placeholder values, never shown as real. built: produced from PSI files.", "enum": ["example", "built"]},
+    "files": {
+      "description": "Every other file in the folder (grids, images, clips, tables). The backend serves only these.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "kind", "description"],
+        "properties": {
+          "name": {"$ref": "common.schema.json#/$defs/file_name"},
+          "kind": {"description": "For example table, grid, image, clip.", "type": "string", "minLength": 1},
+          "description": {"description": "One line.", "type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

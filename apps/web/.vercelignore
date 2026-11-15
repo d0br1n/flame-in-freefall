@@ -1,0 +1,9 @@
+# What is not uploaded to Vercel. The saved copy in public/snapshot/ IS uploaded (it is
+# git-ignored, and with this file present Vercel no longer reads .gitignore).
+node_modules
+.next
+/test-results
+/playwright-report
+/tests
+/fixtures
+.env*

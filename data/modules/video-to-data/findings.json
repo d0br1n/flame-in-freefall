@@ -1,0 +1,256 @@
+[
+  {
+    "id": "find-tests-measured",
+    "module": "video-to-data",
+    "kind": "headline",
+    "text": "18 of the 22 B-series tests in the PSI-25 table are measured from video (the count covers PSI-25 videos only).",
+    "value": 18,
+    "unit": "tests",
+    "n": 18,
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Experimental table_BASS-II.csv",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-B1-outcome",
+      "ev-B2-outcome",
+      "ev-B3-outcome",
+      "ev-B4-outcome",
+      "ev-B5-outcome",
+      "ev-B6-outcome",
+      "ev-B7-outcome",
+      "ev-B8-outcome",
+      "ev-B9-outcome",
+      "ev-B10-outcome",
+      "ev-B11-outcome",
+      "ev-B12-outcome",
+      "ev-B13-outcome",
+      "ev-B15-outcome",
+      "ev-B16-outcome",
+      "ev-B19-outcome",
+      "ev-B21-outcome",
+      "ev-B22-outcome"
+    ]
+  },
+  {
+    "id": "find-ended-before-video-end",
+    "module": "video-to-data",
+    "kind": "headline",
+    "text": "Of the 18 measured tests, 18 went out before the video ended and 0 were still burning at the end.",
+    "value": 18,
+    "unit": "tests",
+    "n": 18,
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Experimental table_BASS-II.csv",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-B1-outcome",
+      "ev-B2-outcome",
+      "ev-B3-outcome",
+      "ev-B4-outcome",
+      "ev-B5-outcome",
+      "ev-B6-outcome",
+      "ev-B7-outcome",
+      "ev-B8-outcome",
+      "ev-B9-outcome",
+      "ev-B10-outcome",
+      "ev-B11-outcome",
+      "ev-B12-outcome",
+      "ev-B13-outcome",
+      "ev-B15-outcome",
+      "ev-B16-outcome",
+      "ev-B19-outcome",
+      "ev-B21-outcome",
+      "ev-B22-outcome"
+    ]
+  },
+  {
+    "id": "find-unflagged-spread",
+    "module": "video-to-data",
+    "kind": "headline",
+    "text": "6 of the 18 measured tests show a steady spread with no warning flag; the rest are kept with their flags.",
+    "value": 6,
+    "unit": "tests",
+    "n": 18,
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Experimental table_BASS-II.csv",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-B1-spread_rate",
+      "ev-B2-spread_rate",
+      "ev-B4-spread_rate",
+      "ev-B5-spread_rate",
+      "ev-B6-spread_rate",
+      "ev-B9-spread_rate"
+    ]
+  },
+  {
+    "id": "find-flame-gone-vs-fan-drop",
+    "module": "video-to-data",
+    "kind": "headline",
+    "text": "In 7 of the 15 tests whose fan voltage was turned down at the end, the flame left the video within 3 s after the voltage began to fall (0.0 to 2.0 s). In 7 it had already gone before the fall began. In 1 the flame was still in the video more than 3 s after the fall began.",
+    "value": 7,
+    "unit": "tests",
+    "n": 15,
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Experimental table_BASS-II.csv",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-B1-flame_gone_minus_fan_drop",
+      "ev-B2-flame_gone_minus_fan_drop",
+      "ev-B3-flame_gone_minus_fan_drop",
+      "ev-B4-flame_gone_minus_fan_drop",
+      "ev-B5-flame_gone_minus_fan_drop",
+      "ev-B7-flame_gone_minus_fan_drop",
+      "ev-B8-flame_gone_minus_fan_drop",
+      "ev-B9-flame_gone_minus_fan_drop",
+      "ev-B10-flame_gone_minus_fan_drop",
+      "ev-B11-flame_gone_minus_fan_drop",
+      "ev-B12-flame_gone_minus_fan_drop",
+      "ev-B13-flame_gone_minus_fan_drop",
+      "ev-B16-flame_gone_minus_fan_drop",
+      "ev-B21-flame_gone_minus_fan_drop",
+      "ev-B22-flame_gone_minus_fan_drop"
+    ]
+  },
+  {
+    "id": "find-example-tracker-vs-hand",
+    "module": "video-to-data",
+    "kind": "check",
+    "text": "Tracker against hand measurement: no hand measurement has been made yet, so zero comparisons have been run (zero hand measurements exist).",
+    "value": 0,
+    "unit": "comparisons",
+    "n": 1,
+    "provenance": "HAND_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Experimental table_BASS-II.csv",
+      "link": "https://psi.nasa.gov"
+    },
+    "passed": false
+  },
+  {
+    "id": "find-b1-fall-vs-report",
+    "module": "video-to-data",
+    "kind": "check",
+    "text": "B1: the flame left the video 1.6 s after the fan voltage began to fall. NASA's report says the flame extinguished within 2 s of the flow being cut off (the report's first test, matched to B1 by its table note).",
+    "value": 1.601,
+    "unit": "s",
+    "n": 1,
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_147_TEST_B1.mp4",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-B1-flame_gone_minus_fan_drop"
+    ],
+    "passed": true
+  },
+  {
+    "id": "find-clock-is-real-time",
+    "module": "video-to-data",
+    "kind": "check",
+    "text": "Video time is real time: the on-screen clock advances 0.999 to 1.000 s per second of video in all 18 measured videos.",
+    "value": 0.999,
+    "unit": "clock s per video s",
+    "n": 18,
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Experimental table_BASS-II.csv",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-B1-clock_rate",
+      "ev-B2-clock_rate",
+      "ev-B3-clock_rate",
+      "ev-B4-clock_rate",
+      "ev-B5-clock_rate",
+      "ev-B6-clock_rate",
+      "ev-B7-clock_rate",
+      "ev-B8-clock_rate",
+      "ev-B9-clock_rate",
+      "ev-B10-clock_rate",
+      "ev-B11-clock_rate",
+      "ev-B12-clock_rate",
+      "ev-B13-clock_rate",
+      "ev-B15-clock_rate",
+      "ev-B16-clock_rate",
+      "ev-B19-clock_rate",
+      "ev-B21-clock_rate",
+      "ev-B22-clock_rate"
+    ],
+    "passed": true
+  },
+  {
+    "id": "find-t-series-si-grades-vs-table-7-1",
+    "module": "video-to-data",
+    "kind": "check",
+    "text": "A blind SI grader matched NASA's published outcome in 10 of the 11 T-series tests that have a plain video; 1 could not be decided and 0 contradicted NASA's table. The fan voltage history carries much of the answer.",
+    "value": 10,
+    "unit": "tests",
+    "n": 11,
+    "provenance": "SI_EXTRACTED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Reports_BASS-II Summary Report.pdf",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-T4-si-grade",
+      "ev-T9-si-grade",
+      "ev-T10-si-grade",
+      "ev-T12-si-grade",
+      "ev-T13-si-grade",
+      "ev-T14-si-grade",
+      "ev-T15-si-grade",
+      "ev-T17-si-grade",
+      "ev-T18-si-grade",
+      "ev-T21-si-grade",
+      "ev-T22-si-grade"
+    ],
+    "passed": true
+  },
+  {
+    "id": "find-t-series-person-check",
+    "module": "video-to-data",
+    "kind": "check",
+    "text": "One team member checked 11 of the SI grades of T-series tests against video brightened x6, without looking at NASA's outcomes (hidden on the review page; the checker states this, not supervised): agreed with 10, decided T12 as no ignition, where SI could not tell, changed 0. The checked grade matches NASA's Table 7.1 in 11 of 11 tests.",
+    "value": 11,
+    "unit": "tests",
+    "n": 11,
+    "provenance": "HAND_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Reports_BASS-II Summary Report.pdf",
+      "link": "https://psi.nasa.gov"
+    },
+    "evidence_ids": [
+      "ev-T4-checked-grade",
+      "ev-T9-checked-grade",
+      "ev-T10-checked-grade",
+      "ev-T12-checked-grade",
+      "ev-T13-checked-grade",
+      "ev-T14-checked-grade",
+      "ev-T15-checked-grade",
+      "ev-T17-checked-grade",
+      "ev-T18-checked-grade",
+      "ev-T21-checked-grade",
+      "ev-T22-checked-grade"
+    ],
+    "passed": true
+  }
+]

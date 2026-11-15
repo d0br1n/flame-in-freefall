@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Shared definitions for the Flame in Freefall hand-over contract",
+  "$defs": {
+    "module_id": {
+      "description": "Engine folder name under data/modules/, for example flame-temperature. _mock is the development example.",
+      "type": "string",
+      "pattern": "^[a-z0-9_][a-z0-9_-]*$"
+    },
+    "psi_id": {
+      "description": "A PSI investigation ID, for example PSI-69.",
+      "type": "string",
+      "pattern": "^PSI-[0-9]+$"
+    },
+    "test_id": {
+      "description": "<PSI ID>/<the table's own test number>, with #<row> appended where the table repeats a number. Examples: PSI-69/114, PSI-25/B1, PSI-101/57#58.",
+      "type": "string",
+      "pattern": "^PSI-[0-9]+/[^/#\\s]+(#[0-9]+)?$"
+    },
+    "provenance": {
+      "description": "How the number was obtained. Shown as a badge on every number.",
+      "enum": ["VIDEO_MEASURED", "PUBLISHED", "PSI_TABLE", "HAND_MEASURED", "SI_EXTRACTED", "MODEL"]
+    },
+    "source": {
+      "description": "Where the number comes from in the PSI repository.",
+      "type": "object",
+      "required": ["psi_id", "file"],
+      "properties": {
+        "psi_id": {"$ref": "#/$defs/psi_id"},
+        "file": {"description": "The PSI file name the number was read from.", "type": "string", "minLength": 1},
+        "link": {"description": "A link to the file or investigation on psi.nasa.gov.", "type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "value": {
+      "description": "The value itself. A number for measurements; a string or boolean only for categorical outcomes (for example 'Extinction').",
+      "type": ["number", "string", "boolean"]
+    },
+    "unit": {
+      "description": "Unit of the value. Use \"1\" for dimensionless numbers and \"\" for categorical values.",
+      "type": "string"
+    },
+    "n": {
+      "description": "How many tests or samples the value rests on.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "file_name": {
+      "description": "A path relative to the engine folder. No leading slash, no '..'.",
+      "type": "string",
+      "pattern": "^(?!/)(?!.*\\.\\.)[A-Za-z0-9._/-]+$"
+    },
+    "record_id": {
+      "description": "Unique within its file.",
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

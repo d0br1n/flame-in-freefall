@@ -1,0 +1,16 @@
+{
+  "id": "_mock",
+  "title": "Mock engine (fake values, for building pages)",
+  "stage": "spread",
+  "psi_ids": ["PSI-0"],
+  "question": "MOCK: how fast does a flame spread in this cabin air?",
+  "summary": "Fake records in the contract's shapes so the web app can be built before the real engines hand over. No value here comes from NASA data. PSI-0 does not exist.",
+  "cannot_tell": [
+    "Anything. Every value in this folder is made up for development.",
+    "The deployed site leaves this folder out unless FIF_DEV=1 is set."
+  ],
+  "status": "example",
+  "files": [
+    {"name": "mock_table.csv", "kind": "table", "description": "A fake per-test table, to test file serving."}
+  ]
+}

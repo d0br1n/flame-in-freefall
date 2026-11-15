@@ -1,0 +1,58 @@
+[
+  {
+    "id": "mock-ev-1",
+    "module": "_mock",
+    "test_id": "PSI-0/MOCK-1",
+    "quantity": "spread_rate",
+    "value": 123.4,
+    "unit": "mm/s",
+    "uncertainty": {"interval": [111.1, 135.7], "method": "MOCK: made-up interval"},
+    "n": 1,
+    "conditions": {"oxygen_mole_fraction": 0.99, "pressure_kpa": 999, "flow_cm_s": 99},
+    "provenance": "VIDEO_MEASURED",
+    "source": {"psi_id": "PSI-0", "file": "MOCK_FILE_1.csv", "link": "https://example.invalid/mock"},
+    "reference": {"value": 120.0, "citation": "MOCK: no such paper"},
+    "flags": ["MOCK"]
+  },
+  {
+    "id": "mock-ev-2",
+    "module": "_mock",
+    "test_id": "PSI-0/MOCK-1",
+    "segment": "flow-step-2",
+    "quantity": "spread_rate",
+    "value": 234.5,
+    "unit": "mm/s",
+    "n": 1,
+    "conditions": {"oxygen_mole_fraction": 0.99, "pressure_kpa": 999, "flow_cm_s": 88},
+    "provenance": "HAND_MEASURED",
+    "source": {"psi_id": "PSI-0", "file": "MOCK_FILE_1.csv"},
+    "flags": ["MOCK"]
+  },
+  {
+    "id": "mock-ev-3",
+    "module": "_mock",
+    "test_id": "PSI-0/MOCK-2",
+    "quantity": "spread_rate",
+    "value": 345.6,
+    "unit": "mm/s",
+    "n": 1,
+    "conditions": {"oxygen_mole_fraction": 0.98, "pressure_kpa": 998, "flow_cm_s": 77},
+    "provenance": "PSI_TABLE",
+    "source": {"psi_id": "PSI-0", "file": "MOCK_FILE_2.csv"},
+    "assets": ["mock_table.csv"],
+    "flags": ["MOCK"]
+  },
+  {
+    "id": "mock-ev-4",
+    "module": "_mock",
+    "test_id": "PSI-0/MOCK-2",
+    "quantity": "test_end",
+    "value": "MOCK-Extinction",
+    "unit": "",
+    "n": 1,
+    "conditions": {"oxygen_mole_fraction": 0.98, "pressure_kpa": 998, "flow_cm_s": 77},
+    "provenance": "MODEL",
+    "source": {"psi_id": "PSI-0", "file": "MOCK_FILE_2.csv"},
+    "flags": ["MOCK"]
+  }
+]

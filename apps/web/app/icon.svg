@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- burnrate mark, small form (24 px and below): brackets 21 units tall with 4.5-unit arms and a
+       thicker stroke, ring and dot merged into one solid ball. Blue 900 on a transparent ground.
+       Designed by the team with SI assistance; see apps/web/DESIGN.md. -->
+  <path d="M9 7H6V25H9" stroke="#0f2547" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter"/>
+  <path d="M23 7H26V25H23" stroke="#0f2547" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter"/>
+  <circle cx="16" cy="16" r="4.5" fill="#0f2547"/>
+</svg>

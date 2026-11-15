@@ -1,0 +1,249 @@
+{
+  "note": "Stored answers, written from the data on 2026-11-14 by scripts/make-stored-answers.mjs: the assistant's tools were run against the data service and their results filled sentence templates. No language model wrote these answers. Code written with SI assistance (Claude Code).",
+  "generated_on": "2026-11-14",
+  "answers": [
+    {
+      "id": "station-ranking",
+      "chip": "Station cabin",
+      "question": "Which investigations matter most for a station cabin, and why?",
+      "answer": "In station cabin air (about 21% oxygen at 14.7 psi, like air at sea level), the site's ranking puts BASS-II, BASS, SAFFIRE-I and SAFFIRE-III first, each with a score of 0.75 out of 1 [PSI-25, PSI-26, PSI-98, PSI-100]. Why: the challenge page names each one for fire prevention, PSI holds an experimental table and downloadable files for each and each burned a solid fuel, like cabin materials. But none of their tables states the oxygen and pressure needed to check station air, so none of them scores on tests run in this air. The first investigation with tests inside this air is FLEX at rank 6: 49 of its 274 tests [PSI-69]. The score adds four equally weighted parts: pillar, tests in this air, data available and fuel. The ranking orders how well PSI's data covers a fire question in this air, not how dangerous a material is.",
+      "sources": [
+        {
+          "kind": "investigation",
+          "id": "PSI-25",
+          "label": "BASS-II",
+          "href": "/investigations/PSI-25"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-26",
+          "label": "BASS",
+          "href": "/investigations/PSI-26"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-98",
+          "label": "SAFFIRE-I",
+          "href": "/investigations/PSI-98"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-100",
+          "label": "SAFFIRE-III",
+          "href": "/investigations/PSI-100"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-69",
+          "label": "FLEX",
+          "href": "/investigations/PSI-69"
+        }
+      ],
+      "tools": [
+        {
+          "name": "list_cabin_airs",
+          "label": "Reading the cabin air presets"
+        },
+        {
+          "name": "rank_investigations",
+          "label": "Ranking the investigations for this air"
+        }
+      ],
+      "saved_copy": false
+    },
+    {
+      "id": "droplets-moon-air",
+      "chip": "Moon-base air",
+      "question": "Was any droplet test run in a Moon-base-like air?",
+      "answer": "Taking the challenge page's exploration atmosphere as Moon-base-like air (30% oxygen or more, at 10.2 psi or less): no droplet test in PSI's tables ran in it. Of 369 droplet test rows, none falls inside this air. Per investigation: FLEX: 0 of 274 tests that state oxygen and pressure [PSI-69]; CFI: 0 of 87 tests that state oxygen and pressure [PSI-39]; FLEX-2: its table states no per-test oxygen and pressure [PSI-68]. This is about the gas mixture only. Microgravity only: no test was run in Moon or Mars gravity. [PSI-69]",
+      "sources": [
+        {
+          "kind": "investigation",
+          "id": "PSI-69",
+          "label": "FLEX",
+          "href": "/investigations/PSI-69"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-39",
+          "label": "CFI",
+          "href": "/investigations/PSI-39"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-68",
+          "label": "FLEX-2",
+          "href": "/investigations/PSI-68"
+        },
+        {
+          "kind": "analysis",
+          "id": "flame-temperature",
+          "label": "Flame temperature",
+          "href": "/suppress"
+        }
+      ],
+      "tools": [
+        {
+          "name": "list_cabin_airs",
+          "label": "Reading the cabin air presets"
+        },
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        },
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        },
+        {
+          "name": "cabin_air_coverage",
+          "label": "Checking what was tested in this air"
+        },
+        {
+          "name": "get_findings",
+          "label": "Reading the findings of an analysis"
+        }
+      ],
+      "saved_copy": false
+    },
+    {
+      "id": "video-analysis",
+      "chip": "Video analysis",
+      "question": "What does the video analysis measure on BASS-II, and has it been checked?",
+      "answer": "The video analysis follows the flame in NASA's BASS-II test videos [PSI-25]. 18 of the 22 B-series tests in the PSI-25 table are measured from video (the count covers PSI-25 videos only). [PSI-25] For each measured test it records when the flame lit, when it went out, how long it burned, how the test ended, how fast it spread and how far the flame front travelled. Rates without a reliable scale are in pixels per second. [PSI-25] Checks passed: B1: the flame left the video 1.6 s after the fan voltage began to fall. NASA's report says the flame extinguished within 2 s of the flow being cut off (the report's first test, matched to B1 by its table note). Video time is real time: the on-screen clock advances 0.999 to 1.000 s per second of video in all 18 measured videos. [PSI-25] Not passed yet: Tracker against hand measurement: no hand measurement has been made yet, so zero comparisons have been run (zero hand measurements exist). [PSI-25]",
+      "sources": [
+        {
+          "kind": "investigation",
+          "id": "PSI-25",
+          "label": "PSI-25",
+          "href": "/investigations/PSI-25"
+        },
+        {
+          "kind": "analysis",
+          "id": "video-to-data",
+          "label": "Video to data",
+          "href": "/spread"
+        }
+      ],
+      "tools": [
+        {
+          "name": "get_findings",
+          "label": "Reading the findings of an analysis"
+        },
+        {
+          "name": "get_evidence",
+          "label": "Reading the values of an analysis"
+        }
+      ],
+      "saved_copy": false
+    },
+    {
+      "id": "added-gas-oxygen",
+      "chip": "Added gases",
+      "question": "Which added gas was tested at the highest oxygen level?",
+      "answer": "Only 361 of the 2001 test rows in PSI's tables name the gas mixed into the air [PSI-69, PSI-39]. With carbon dioxide added, oxygen went up to 25% (6 tests at that level, for example [PSI-69/88]). With helium added, oxygen went up to 24% (3 tests at that level, for example [PSI-69/249]). So carbon dioxide was tested at the highest oxygen level of the added gases. For comparison, with nitrogen only it went up to 34% [PSI-69/19]. No test with an added gas ran above 25% oxygen, so the data cannot say how these gases act at higher oxygen levels.",
+      "sources": [
+        {
+          "kind": "investigation",
+          "id": "PSI-69",
+          "label": "FLEX",
+          "href": "/investigations/PSI-69"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-39",
+          "label": "CFI",
+          "href": "/investigations/PSI-39"
+        },
+        {
+          "kind": "test",
+          "id": "PSI-69/88",
+          "label": "FLEX",
+          "href": "/tests?test=PSI-69%2F88"
+        },
+        {
+          "kind": "test",
+          "id": "PSI-69/249",
+          "label": "FLEX",
+          "href": "/tests?test=PSI-69%2F249"
+        },
+        {
+          "kind": "test",
+          "id": "PSI-69/19",
+          "label": "FLEX",
+          "href": "/tests?test=PSI-69%2F19"
+        }
+      ],
+      "tools": [
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        },
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        },
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        },
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        },
+        {
+          "name": "query_tests",
+          "label": "Looking up tests"
+        }
+      ],
+      "saved_copy": false
+    },
+    {
+      "id": "limits",
+      "chip": "Limits of the data",
+      "question": "What can this data not tell me?",
+      "answer": "Some limits the data and the site's analyses state:\n- Microgravity only: no test was run in Moon or Mars gravity. [PSI-69]\n- Single liquid droplets only: nothing here says how a spreading fire on a solid surface behaves. [PSI-69]\n- The ceiling temperature is calculated, not measured. It is not the flame's real temperature. [PSI-69]\n- Results describe these BASS-II samples, not a cabin fire. [PSI-25]\n- Rates without a reliable scale are in pixels per second. [PSI-25]\n- The ranking orders how well PSI's data covers a fire question in this air, not how dangerous a material is.\nEach investigation's page also lists what its own record cannot tell.",
+      "sources": [
+        {
+          "kind": "investigation",
+          "id": "PSI-69",
+          "label": "FLEX",
+          "href": "/investigations/PSI-69"
+        },
+        {
+          "kind": "investigation",
+          "id": "PSI-25",
+          "label": "BASS-II",
+          "href": "/investigations/PSI-25"
+        },
+        {
+          "kind": "analysis",
+          "id": "flame-temperature",
+          "label": "Flame temperature",
+          "href": "/suppress"
+        },
+        {
+          "kind": "analysis",
+          "id": "video-to-data",
+          "label": "Video to data",
+          "href": "/spread"
+        }
+      ],
+      "tools": [
+        {
+          "name": "get_findings",
+          "label": "Reading the findings of an analysis"
+        },
+        {
+          "name": "get_findings",
+          "label": "Reading the findings of an analysis"
+        },
+        {
+          "name": "rank_investigations",
+          "label": "Ranking the investigations for this air"
+        }
+      ],
+      "saved_copy": false
+    }
+  ]
+}

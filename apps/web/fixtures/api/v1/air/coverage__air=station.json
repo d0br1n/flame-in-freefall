@@ -1,0 +1,30 @@
+{
+ "air": "station",
+ "stages": {
+  "spread": {
+   "status": "not_stated",
+   "inside": null,
+   "stated": 0,
+   "investigations": []
+  },
+  "detect": {
+   "status": "not_stated",
+   "inside": null,
+   "stated": 0,
+   "investigations": []
+  },
+  "suppress": {
+   "status": "tested",
+   "inside": 49,
+   "stated": 274,
+   "investigations": [
+    {
+     "psi_id": "PSI-69",
+     "status": "tested",
+     "inside": 49,
+     "stated": 274
+    }
+   ]
+  }
+ }
+}

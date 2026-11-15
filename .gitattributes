@@ -1,0 +1,3 @@
+# Append-only ledgers: keep both sides' rows when two branches add lines.
+submission/REFERENCES.md merge=union
+submission/SI_USAGE.md merge=union

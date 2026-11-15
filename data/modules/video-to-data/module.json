@@ -1,0 +1,969 @@
+{
+  "id": "video-to-data",
+  "title": "Video to data",
+  "stage": "spread",
+  "psi_ids": [
+    "PSI-25"
+  ],
+  "question": "Will it spread?",
+  "summary": "An offline engine follows the flame in NASA BASS-II videos (PSI-25) and turns each test into numbers, measured in pixels because no scale is visible: when the flame ignited, when it went out, whether it was still burning at the end, how the test ended, and how fast it spread. 18 of the 22 B-series tests are measured so far. The same data also speaks to the question \"Does cutting the air put the fire out?\", because some tests stop the fan. The fan voltage printed on the video (times ten) is read as a number, not an air speed. The T-series outcomes (fabric strips with dim flames) were graded by SI from brightened frames and the fan voltage history, not measured by the tracker.",
+  "cannot_tell": [
+    "There is no partial-gravity data in PSI-25.",
+    "A dim blue flame can vanish from video before it is truly out.",
+    "The FAN read-out is the fan voltage times ten, not an air speed.",
+    "Rates without a reliable scale are in pixels per second.",
+    "Results describe these BASS-II samples, not a cabin fire.",
+    "Positions and rates are in pixels because no scale reference is visible in the videos.",
+    "The last dim seconds of a flame can be below the tracker's threshold.",
+    "The AIR read-out is NASA's measured flow speed in cm/s, but the sensor takes about a minute to respond, so it lags behind any change.",
+    "The time between the fan voltage starting to fall and the flame leaving the video is good to about half a second: the read-out refreshes 5 times a second and the tracker loses the last dim half second of a flame.",
+    "Flame light is a relative brightness measure from uncalibrated 8-bit video with saturated flame cores; it is not a temperature.",
+    "The stage names follow NIST's description of a fuel-limited fire; where one stage ends and the next begins is our own rule, and it describes this small test flame, not the hazard of a cabin fire.",
+    "Ignition time is the first light in the video, the igniter spark included; it can be up to about 2.5 s before the flame is established.",
+    "The T-series outcomes were graded by SI from brightened frames and the fan voltage history, not measured by the tracker; the dim fabric flames are too faint for it.",
+    "Last faint light is the time after which the tracker sees no light above a low fixed threshold (8 brightness units above the dark frames, in a region of at least 150 pixels). It depends on that threshold and can follow an ember or a glowing sample holder; it is not the time the flame went out. It is given only for tests where a viewer saw a flame at that time."
+  ],
+  "status": "built",
+  "files": [
+    {
+      "name": "PSI-25_B10_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B10_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B10_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B10_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B10_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B10_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B10_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B10_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B10_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B11_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B11_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B11_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B11_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B11_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B11_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B11_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B11_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B11_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B12_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B12_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B12_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B12_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B12_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B12_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B12_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B12_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B12_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B13_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B13_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B13_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B13_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B13_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B13_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B13_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B13_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B13_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B15_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B15_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B15_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B15_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B15_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B15_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B15_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B15_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B15_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B16_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B16_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B16_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B16_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B16_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B16_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B16_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B16_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B16_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B19_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B19_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B19_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B19_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B19_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B19_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B19_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B19_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B19_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B1_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B1_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B1_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B1_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B1_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B1_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B1_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B1_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B1_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B21_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B21_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B21_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B21_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B21_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B21_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B21_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B21_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B21_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B22_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B22_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B22_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B22_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B22_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B22_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B22_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B22_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B22_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B2_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B2_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B2_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B2_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B2_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B2_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B2_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B2_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B2_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B3_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B3_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B3_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B3_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B3_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B3_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B3_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B3_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B3_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B4_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B4_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B4_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B4_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B4_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B4_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B4_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B4_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B4_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B5_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B5_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B5_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B5_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B5_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B5_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B5_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B5_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B5_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B6_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B6_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B6_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B6_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B6_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B6_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B6_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B6_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B6_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B7_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B7_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B7_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B7_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B7_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B7_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B7_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B7_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B7_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B8_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B8_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B8_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B8_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B8_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B8_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B8_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B8_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B8_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B9_curve.csv",
+      "kind": "table",
+      "description": "Leading edge, trailing edge, flame area (pixels), flame light (relative, uncalibrated) and stage against time over the lit range."
+    },
+    {
+      "name": "PSI-25_B9_kymograph.png",
+      "kind": "image",
+      "description": "Kymograph: brightness along the spread axis against time, with the two tracked edges."
+    },
+    {
+      "name": "PSI-25_B9_overlay.mp4",
+      "kind": "clip",
+      "description": "Short clip of the lit range with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B9_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_B9_steps.jpg",
+      "kind": "image",
+      "description": "Four panels of one sampled frame: the frame, the brightness signal, the flame mask, and the outline with the two edge lines."
+    },
+    {
+      "name": "PSI-25_B9_stepsclip.mp4",
+      "kind": "clip",
+      "description": "Detection steps as a clip with the same timing as the overlay clip: three panels side by side, NASA's frame with the tracked outline, the brightness signal the tracker thresholds (relative, not a temperature) and the flame mask."
+    },
+    {
+      "name": "PSI-25_B9_still1.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B9_still2.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_B9_still3.jpg",
+      "kind": "image",
+      "description": "Frame from the video with the tracked flame outline and edge lines drawn."
+    },
+    {
+      "name": "PSI-25_T10_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T10_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T12_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T12_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T13_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T14_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T14_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T15_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T15_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T17_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T17_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T18_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T18_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T21_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T21_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T22_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T22_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T4_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T4_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "PSI-25_T9_readout.csv",
+      "kind": "table",
+      "description": "On-screen numbers read from the video: the field labelled FUEL (by elimination NASA's N2 flow rate in cm3/min; the report does not name the label), FAN (fan voltage x10), AIR (NASA's measured flow speed, cm/s, slow sensor), RAD (NASA's radiometer, uncalibrated, relative) and the clock; empty cell where unreadable."
+    },
+    {
+      "name": "PSI-25_T9_review.mp4",
+      "kind": "clip",
+      "description": "T-series review clip: the video with the picture below row 90 brightened x6 (clipped at white) so the dim flame can be seen; NASA's on-screen numbers in the top rows are as recorded. A way to look, not a measurement."
+    },
+    {
+      "name": "README.md",
+      "kind": "doc",
+      "description": "File shapes, provenance tags, test ID rule and per-test file naming."
+    },
+    {
+      "name": "index.json",
+      "kind": "index",
+      "description": "One entry per measured test for the Spread page: conditions, events, rate with its fitted line, fan read-out, stages, clip timing, files and evidence ids."
+    },
+    {
+      "name": "not_measurable.csv",
+      "kind": "table",
+      "description": "B-series tests and config rows with no measurement, each with the reason."
+    },
+    {
+      "name": "results.csv",
+      "kind": "table",
+      "description": "One row per measured test with events, spread rate in pixels per second, flags and provenance."
+    },
+    {
+      "name": "validation.json",
+      "kind": "validation",
+      "description": "Comparison statistics of the tracker against hand and published values; pending, no comparison has been run."
+    }
+  ]
+}

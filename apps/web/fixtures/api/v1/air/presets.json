@@ -1,0 +1,80 @@
+{
+ "default": "station",
+ "presets": [
+  {
+   "id": "station",
+   "label": "Station cabin",
+   "plain": "About 21% oxygen at 14.7 psi, like air at sea level",
+   "window": {
+    "o2_min": 0.2,
+    "o2_max": 0.22,
+    "pressure_kpa_min": 96.29,
+    "pressure_kpa_max": 106.42,
+    "flow_cm_s_min": null,
+    "flow_cm_s_max": null
+   },
+   "tolerance_plain": "Counts a test within 1 point of oxygen and 5% of the pressure.",
+   "source": "PSI-20 (ACME BRE) record, objective 1: \"NASA-considered atmosphere for human space missions will be examined: 14.7 psia, 21 % oxygen: 10.2 psia, 26.5 %; and 8.2 psia, 34 % oxygen.\" Also the challenge page: Earth's sea-level pressure is 14.7 psi."
+  },
+  {
+   "id": "exploration",
+   "label": "Exploration atmosphere",
+   "plain": "30% oxygen or more, at 10.2 psi or less",
+   "window": {
+    "o2_min": 0.3,
+    "o2_max": null,
+    "pressure_kpa_min": null,
+    "pressure_kpa_max": 70.33,
+    "flow_cm_s_min": null,
+    "flow_cm_s_max": null
+   },
+   "tolerance_plain": "Used exactly as the source states it: no tolerance added.",
+   "source": "docs/00-challenge-description.md (challenge page): \"likely 30% oxygen or more at 10.2 psi or less\", for the Moon base and pressurized rovers."
+  },
+  {
+   "id": "intermediate_26_5",
+   "label": "26.5% oxygen at 10.2 psi",
+   "plain": "26.5% oxygen at 10.2 psi, a NASA-considered cabin atmosphere",
+   "window": {
+    "o2_min": 0.255,
+    "o2_max": 0.275,
+    "pressure_kpa_min": 66.81,
+    "pressure_kpa_max": 73.84,
+    "flow_cm_s_min": null,
+    "flow_cm_s_max": null
+   },
+   "tolerance_plain": "Counts a test within 1 point of oxygen and 5% of the pressure.",
+   "source": "PSI-20 (ACME BRE) record, objective 1: \"NASA-considered atmosphere for human space missions will be examined: 14.7 psia, 21 % oxygen: 10.2 psia, 26.5 %; and 8.2 psia, 34 % oxygen.\""
+  },
+  {
+   "id": "exploration_34",
+   "label": "34% oxygen at 8.2 psi",
+   "plain": "34% oxygen at 8.2 psi, a NASA-considered cabin atmosphere",
+   "window": {
+    "o2_min": 0.33,
+    "o2_max": 0.35,
+    "pressure_kpa_min": 53.71,
+    "pressure_kpa_max": 59.36,
+    "flow_cm_s_min": null,
+    "flow_cm_s_max": null
+   },
+   "tolerance_plain": "Counts a test within 1 point of oxygen and 5% of the pressure.",
+   "source": "PSI-20 (ACME BRE) record, objective 1: \"NASA-considered atmosphere for human space missions will be examined: 14.7 psia, 21 % oxygen: 10.2 psia, 26.5 %; and 8.2 psia, 34 % oxygen.\""
+  },
+  {
+   "id": "high_oxygen",
+   "label": "High oxygen",
+   "plain": "40% oxygen or more, at any pressure",
+   "window": {
+    "o2_min": 0.4,
+    "o2_max": null,
+    "pressure_kpa_min": null,
+    "pressure_kpa_max": null,
+    "flow_cm_s_min": null,
+    "flow_cm_s_max": null
+   },
+   "tolerance_plain": "Used exactly as the source states it: no tolerance added.",
+   "source": "docs/04-researchers-guide-iss-combustion.md: the ISS droplet hardware (MDCA) and SoFIE run up to 40% oxygen. A stress case, not a planned cabin."
+  }
+ ]
+}

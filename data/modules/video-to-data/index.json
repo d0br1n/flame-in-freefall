@@ -1,0 +1,2666 @@
+{
+  "module": "video-to-data",
+  "units": {
+    "position": "px",
+    "time": "s",
+    "rate": "px/s",
+    "light": "relative units, uncalibrated"
+  },
+  "stage_source": {
+    "citation": "NIST, Fire Dynamics (Fire Research Division), created 17 November 2010, updated 9 September 2025",
+    "link": "https://www.nist.gov/el/fire-research-division-73300/firegov-fire-service/fire-dynamics",
+    "note": "Stage names from NIST; the limits between stages are our own rule."
+  },
+  "tests": [
+    {
+      "test_id": "PSI-25/B1",
+      "label": "B1",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_147_TEST_B1.mp4",
+      "conditions": {
+        "material_text": "100 micron PMMA film 2 cm wide",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 22.2,
+        "fan_display": "62",
+        "air_display": "5",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start. Two-lobe flame spreads right and stays in frame, smooth real-time video. Bright flame is gone by about 38.5 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 10.41,
+        "extinction_time_s": 37.604,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 9.649,
+        "unit": "px/s",
+        "ci_low": 9.578,
+        "ci_high": 9.741,
+        "window_start_s": 13.213,
+        "window_end_s": 37.204,
+        "intercept_px": 92.523
+      },
+      "fan": {
+        "at_ignition": 62.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 39.006,
+            "from": 62,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 36.003,
+        "settled_time_s": 39.006,
+        "flame_gone_minus_fan_drop_s": 1.601
+      },
+      "air": {
+        "at_ignition": 5.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 10.41,
+          "end_s": 11.411
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 11.411,
+          "end_s": 36.203
+        },
+        {
+          "stage": "decay",
+          "start_s": 36.203,
+          "end_s": 37.604
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B1_overlay.mp4",
+        "start_s": 10.41,
+        "end_s": 37.604,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B1_kymograph.png",
+        "steps": "PSI-25_B1_steps.jpg",
+        "stills": [
+          "PSI-25_B1_still1.jpg",
+          "PSI-25_B1_still2.jpg",
+          "PSI-25_B1_still3.jpg"
+        ],
+        "curve": "PSI-25_B1_curve.csv",
+        "readout": "PSI-25_B1_readout.csv",
+        "steps_clip": "PSI-25_B1_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B1-air_speed_at_ignition",
+        "fan_settled_time": "ev-B1-fan_settled_time",
+        "ignition_time": "ev-B1-ignition_time",
+        "extinction_time": "ev-B1-extinction_time",
+        "burn_duration": "ev-B1-burn_duration",
+        "spread_rate": "ev-B1-spread_rate",
+        "leading_edge_travel": "ev-B1-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B1-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B1-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B1-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B1-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B2",
+      "label": "B2",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_155_TEST_B2.mp4",
+      "conditions": {
+        "material_text": "200 micron PMMA film 2 cm wide",
+        "thickness_mm": 0.2,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 1.6,
+        "fan_display": "62",
+        "air_display": "5",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start. Spark about 0.75 s before the ignition glow; the glow sits near the left of the frame for a few seconds, then the flame spreads right. Flame gone by about 51.5 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 10.41,
+        "extinction_time_s": 50.183,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 5.628,
+        "unit": "px/s",
+        "ci_low": 5.594,
+        "ci_high": 5.66,
+        "window_start_s": 14.815,
+        "window_end_s": 49.816,
+        "intercept_px": 133.927
+      },
+      "fan": {
+        "at_ignition": 62.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 51.585,
+            "from": 62,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 48.215,
+        "settled_time_s": 51.585,
+        "flame_gone_minus_fan_drop_s": 1.968
+      },
+      "air": {
+        "at_ignition": 5.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 10.41,
+          "end_s": 11.612
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 11.612,
+          "end_s": 48.615
+        },
+        {
+          "stage": "decay",
+          "start_s": 48.615,
+          "end_s": 50.183
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B2_overlay.mp4",
+        "start_s": 10.41,
+        "end_s": 50.183,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B2_kymograph.png",
+        "steps": "PSI-25_B2_steps.jpg",
+        "stills": [
+          "PSI-25_B2_still1.jpg",
+          "PSI-25_B2_still2.jpg",
+          "PSI-25_B2_still3.jpg"
+        ],
+        "curve": "PSI-25_B2_curve.csv",
+        "readout": "PSI-25_B2_readout.csv",
+        "steps_clip": "PSI-25_B2_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B2-air_speed_at_ignition",
+        "fan_settled_time": "ev-B2-fan_settled_time",
+        "ignition_time": "ev-B2-ignition_time",
+        "extinction_time": "ev-B2-extinction_time",
+        "burn_duration": "ev-B2-burn_duration",
+        "spread_rate": "ev-B2-spread_rate",
+        "leading_edge_travel": "ev-B2-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B2-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B2-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B2-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B2-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B4",
+      "label": "B4",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_159_TEST_B4.mp4",
+      "conditions": {
+        "material_text": "300 micron PMMA film 2 cm wide",
+        "thickness_mm": 0.3,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 22.2,
+        "fan_display": "61",
+        "air_display": "5",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Room lights on until about 15.75 s. Flame spreads right and stays in frame; gone by about 81 s (seen at 80 s, not at 82 s).",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 24.191,
+        "extinction_time_s": 81.014,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 3.964,
+        "unit": "px/s",
+        "ci_low": 3.932,
+        "ci_high": 3.997,
+        "window_start_s": 34.201,
+        "window_end_s": 80.614,
+        "intercept_px": 96.693
+      },
+      "fan": {
+        "at_ignition": 61.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 81.415,
+            "from": 61,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 79.212,
+        "settled_time_s": 81.415,
+        "flame_gone_minus_fan_drop_s": 1.802
+      },
+      "air": {
+        "at_ignition": 5.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 24.191,
+          "end_s": 24.992
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 24.992,
+          "end_s": 79.413
+        },
+        {
+          "stage": "decay",
+          "start_s": 79.413,
+          "end_s": 81.014
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B4_overlay.mp4",
+        "start_s": 24.191,
+        "end_s": 81.014,
+        "speed": 3.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B4_kymograph.png",
+        "steps": "PSI-25_B4_steps.jpg",
+        "stills": [
+          "PSI-25_B4_still1.jpg",
+          "PSI-25_B4_still2.jpg",
+          "PSI-25_B4_still3.jpg"
+        ],
+        "curve": "PSI-25_B4_curve.csv",
+        "readout": "PSI-25_B4_readout.csv",
+        "steps_clip": "PSI-25_B4_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B4-air_speed_at_ignition",
+        "fan_settled_time": "ev-B4-fan_settled_time",
+        "ignition_time": "ev-B4-ignition_time",
+        "extinction_time": "ev-B4-extinction_time",
+        "burn_duration": "ev-B4-burn_duration",
+        "spread_rate": "ev-B4-spread_rate",
+        "leading_edge_travel": "ev-B4-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B4-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B4-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B4-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B4-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B5",
+      "label": "B5",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_156_TEST_B5.mp4",
+      "conditions": {
+        "material_text": "200 micron 2 cm wide",
+        "thickness_mm": 0.2,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 21.9,
+        "fan_display": "59",
+        "air_display": "5",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Room lights on until about 20 s, dark from 20.25 s. Flame spreads right, stays in frame, fades out by about 73 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 29.997,
+        "extinction_time_s": 72.406,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 5.735,
+        "unit": "px/s",
+        "ci_low": 5.677,
+        "ci_high": 5.795,
+        "window_start_s": 33.8,
+        "window_end_s": 72.005,
+        "intercept_px": 25.121
+      },
+      "fan": {
+        "at_ignition": 59.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 73.006,
+            "from": 59,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 70.804,
+        "settled_time_s": 73.006,
+        "flame_gone_minus_fan_drop_s": 1.602
+      },
+      "air": {
+        "at_ignition": 5.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 29.997,
+          "end_s": 30.397
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 30.397,
+          "end_s": 60.594
+        },
+        {
+          "stage": "decay",
+          "start_s": 60.594,
+          "end_s": 72.406
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B5_overlay.mp4",
+        "start_s": 29.997,
+        "end_s": 72.406,
+        "speed": 2.2
+      },
+      "files": {
+        "kymograph": "PSI-25_B5_kymograph.png",
+        "steps": "PSI-25_B5_steps.jpg",
+        "stills": [
+          "PSI-25_B5_still1.jpg",
+          "PSI-25_B5_still2.jpg",
+          "PSI-25_B5_still3.jpg"
+        ],
+        "curve": "PSI-25_B5_curve.csv",
+        "readout": "PSI-25_B5_readout.csv",
+        "steps_clip": "PSI-25_B5_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B5-air_speed_at_ignition",
+        "fan_settled_time": "ev-B5-fan_settled_time",
+        "ignition_time": "ev-B5-ignition_time",
+        "extinction_time": "ev-B5-extinction_time",
+        "burn_duration": "ev-B5-burn_duration",
+        "spread_rate": "ev-B5-spread_rate",
+        "leading_edge_travel": "ev-B5-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B5-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B5-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B5-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B5-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B6",
+      "label": "B6",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_153_TESTB6.mp4",
+      "conditions": {
+        "material_text": "2 cm 0.1 mm PMMA film",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.9,
+        "fan_display": "0.9 1.3 2.75",
+        "air_display": "3 5 approaching 10",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start but the ignition glow comes at 2.75 s, so the lead-in is short; no spark was seen before the glow. Glow starts at the left frame edge; flame spreads right and stays in frame, gone by about 65 s. A thin dark wire crosses the flame from about 44 s to 54 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 2.803,
+        "extinction_time_s": 64.798,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 10.101,
+        "unit": "px/s",
+        "ci_low": 10.029,
+        "ci_high": 10.159,
+        "window_start_s": 5.005,
+        "window_end_s": 56.99,
+        "intercept_px": 38.999
+      },
+      "fan": {
+        "at_ignition": 47.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 23.59,
+            "from": 46,
+            "to": 49
+          },
+          {
+            "time_s": 43.61,
+            "from": 49,
+            "to": 53
+          },
+          {
+            "time_s": 46.413,
+            "from": 53,
+            "to": 55
+          },
+          {
+            "time_s": 55.789,
+            "from": 55,
+            "to": 58
+          },
+          {
+            "time_s": 57.991,
+            "from": 58,
+            "to": 61
+          }
+        ],
+        "drop_time_s": null,
+        "settled_time_s": null,
+        "flame_gone_minus_fan_drop_s": null
+      },
+      "air": {
+        "at_ignition": 4.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 2.803,
+          "end_s": 25.592
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 25.592,
+          "end_s": 52.986
+        },
+        {
+          "stage": "decay",
+          "start_s": 52.986,
+          "end_s": 64.798
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B6_overlay.mp4",
+        "start_s": 2.803,
+        "end_s": 64.798,
+        "speed": 3.2
+      },
+      "files": {
+        "kymograph": "PSI-25_B6_kymograph.png",
+        "steps": "PSI-25_B6_steps.jpg",
+        "stills": [
+          "PSI-25_B6_still1.jpg",
+          "PSI-25_B6_still2.jpg",
+          "PSI-25_B6_still3.jpg"
+        ],
+        "curve": "PSI-25_B6_curve.csv",
+        "readout": "PSI-25_B6_readout.csv",
+        "steps_clip": "PSI-25_B6_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B6-air_speed_at_ignition",
+        "ignition_time": "ev-B6-ignition_time",
+        "extinction_time": "ev-B6-extinction_time",
+        "burn_duration": "ev-B6-burn_duration",
+        "spread_rate": "ev-B6-spread_rate",
+        "leading_edge_travel": "ev-B6-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B6-fan_setting_at_ignition",
+        "peak_flame_light": "ev-B6-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B9",
+      "label": "B9",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_154_TESTB9.mp4",
+      "conditions": {
+        "material_text": "2 cm 0.1 mm PMMA film",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.9,
+        "fan_display": "0.6 0.35",
+        "air_display": "2 <1",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start but only about 1.5 s before the spark, so the dark range is shorter than 2 s. A tiny faint red speck near x 80, y 295 px is visible from 0 s. Flame spreads right and stays in frame, gone by about 30 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 1.602,
+        "extinction_time_s": 29.596,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 9.952,
+        "unit": "px/s",
+        "ci_low": 9.847,
+        "ci_high": 10.057,
+        "window_start_s": 7.207,
+        "window_end_s": 29.196,
+        "intercept_px": 40.402
+      },
+      "fan": {
+        "at_ignition": 44.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 28.595,
+            "from": 43,
+            "to": 41
+          }
+        ],
+        "drop_time_s": 28.595,
+        "settled_time_s": 28.595,
+        "flame_gone_minus_fan_drop_s": 1.001
+      },
+      "air": {
+        "at_ignition": 3.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 1.602,
+          "end_s": 2.202
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 2.202,
+          "end_s": 6.607
+        },
+        {
+          "stage": "decay",
+          "start_s": 6.607,
+          "end_s": 29.596
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B9_overlay.mp4",
+        "start_s": 1.602,
+        "end_s": 29.596,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B9_kymograph.png",
+        "steps": "PSI-25_B9_steps.jpg",
+        "stills": [
+          "PSI-25_B9_still1.jpg",
+          "PSI-25_B9_still2.jpg",
+          "PSI-25_B9_still3.jpg"
+        ],
+        "curve": "PSI-25_B9_curve.csv",
+        "readout": "PSI-25_B9_readout.csv",
+        "steps_clip": "PSI-25_B9_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B9-air_speed_at_ignition",
+        "fan_settled_time": "ev-B9-fan_settled_time",
+        "ignition_time": "ev-B9-ignition_time",
+        "extinction_time": "ev-B9-extinction_time",
+        "burn_duration": "ev-B9-burn_duration",
+        "spread_rate": "ev-B9-spread_rate",
+        "leading_edge_travel": "ev-B9-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B9-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B9-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B9-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B9-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B3",
+      "label": "B3",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_148_TEST_B3.mp4",
+      "conditions": {
+        "material_text": "100 micron film 2 cm wide",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 21.8,
+        "fan_display": "47",
+        "air_display": "2",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "doubtful",
+        "note": "Room lights on until about 11.75 s. Flame is bright only until about 27 s; a very dim red ring stays near the same place until about 50 s, so the bright flame is gone by 27.5 s but a dim one is still there.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_doubtful",
+        "negative_rate",
+        "no_scale",
+        "no_steady_window",
+        "short_travel",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 21.788,
+        "extinction_time_s": 26.593,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": 49.616
+      },
+      "rate": {
+        "value": -1.621,
+        "unit": "px/s",
+        "ci_low": -3.951,
+        "ci_high": 0.85,
+        "window_start_s": 21.788,
+        "window_end_s": 26.393,
+        "intercept_px": 277.406
+      },
+      "fan": {
+        "at_ignition": 47.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 50.784,
+            "from": 47,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 49.216,
+        "settled_time_s": 50.784,
+        "flame_gone_minus_fan_drop_s": -22.623
+      },
+      "air": {
+        "at_ignition": 2.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 21.788,
+          "end_s": 22.99
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 22.99,
+          "end_s": 24.992
+        },
+        {
+          "stage": "decay",
+          "start_s": 24.992,
+          "end_s": 26.593
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B3_overlay.mp4",
+        "start_s": 21.788,
+        "end_s": 26.593,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B3_kymograph.png",
+        "steps": "PSI-25_B3_steps.jpg",
+        "stills": [
+          "PSI-25_B3_still1.jpg",
+          "PSI-25_B3_still2.jpg",
+          "PSI-25_B3_still3.jpg"
+        ],
+        "curve": "PSI-25_B3_curve.csv",
+        "readout": "PSI-25_B3_readout.csv",
+        "steps_clip": "PSI-25_B3_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B3-air_speed_at_ignition",
+        "fan_settled_time": "ev-B3-fan_settled_time",
+        "ignition_time": "ev-B3-ignition_time",
+        "extinction_time": "ev-B3-extinction_time",
+        "burn_duration": "ev-B3-burn_duration",
+        "spread_rate": "ev-B3-spread_rate",
+        "leading_edge_travel": "ev-B3-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B3-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B3-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B3-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B3-peak_flame_light",
+        "last_faint_light_time": "ev-B3-last_faint_light_time"
+      }
+    },
+    {
+      "test_id": "PSI-25/B7",
+      "label": "B7",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_161_TEST_B7.mp4",
+      "conditions": {
+        "material_text": "400 micron film 2 cm wide",
+        "thickness_mm": 0.4,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 22.1,
+        "fan_display": "47",
+        "air_display": "2",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "no_spread",
+        "note": "Lights on at 0 to 2.5 s and again at 13.5 to 14.5 s, dark otherwise. Small ring-shaped flame that stays in one place and fades by about 27.5 s; dim blue-red flickers continue to about 105 s. No clear spread, so doubtful for a rate.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_no_spread",
+        "negative_rate",
+        "no_scale",
+        "reignition",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 21.989,
+        "extinction_time_s": 102.803,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": -9.843,
+        "unit": "px/s",
+        "ci_low": -21.731,
+        "ci_high": 1.651,
+        "window_start_s": 23.19,
+        "window_end_s": 27.194,
+        "intercept_px": 464.789
+      },
+      "fan": {
+        "at_ignition": 47.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 104.004,
+            "from": 47,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 102.803,
+        "settled_time_s": 104.004,
+        "flame_gone_minus_fan_drop_s": 0.0
+      },
+      "air": {
+        "at_ignition": 2.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "fully developed",
+          "start_s": 21.989,
+          "end_s": 102.002
+        },
+        {
+          "stage": "decay",
+          "start_s": 102.002,
+          "end_s": 102.803
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B7_overlay.mp4",
+        "start_s": 21.989,
+        "end_s": 102.803,
+        "speed": 4.2
+      },
+      "files": {
+        "kymograph": "PSI-25_B7_kymograph.png",
+        "steps": "PSI-25_B7_steps.jpg",
+        "stills": [
+          "PSI-25_B7_still1.jpg",
+          "PSI-25_B7_still2.jpg",
+          "PSI-25_B7_still3.jpg"
+        ],
+        "curve": "PSI-25_B7_curve.csv",
+        "readout": "PSI-25_B7_readout.csv",
+        "steps_clip": "PSI-25_B7_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B7-air_speed_at_ignition",
+        "fan_settled_time": "ev-B7-fan_settled_time",
+        "ignition_time": "ev-B7-ignition_time",
+        "extinction_time": "ev-B7-extinction_time",
+        "burn_duration": "ev-B7-burn_duration",
+        "spread_rate": "ev-B7-spread_rate",
+        "leading_edge_travel": "ev-B7-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B7-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B7-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B7-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B7-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B8",
+      "label": "B8",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_157_TESTB8.mp4",
+      "conditions": {
+        "material_text": "2 cm 0.2 mm PMMA film",
+        "thickness_mm": 0.2,
+        "width_mm": 20.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.5,
+        "fan_display": "1.4 incr to 10.0",
+        "air_display": "10 max",
+        "flow_restrictor": "0"
+      },
+      "viewing": {
+        "quality": "doubtful",
+        "note": "Dark from the start. Very bright flame spreads right and lights the room (sparks, lit equipment panel) from about 44 s; a separate bright blob stays near x 360 to 450 px from about 68 s to 100 s, which the tracker may confuse with the flame. Doubtful.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_doubtful",
+        "no_scale",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 5.405,
+        "extinction_time_s": 101.602,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 5.092,
+        "unit": "px/s",
+        "ci_low": 5.015,
+        "ci_high": 5.157,
+        "window_start_s": 22.389,
+        "window_end_s": 39.006,
+        "intercept_px": 60.388
+      },
+      "fan": {
+        "at_ignition": 51.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 38.605,
+            "from": 50,
+            "to": 59
+          },
+          {
+            "time_s": 41.408,
+            "from": 59,
+            "to": 68
+          },
+          {
+            "time_s": 43.81,
+            "from": 68,
+            "to": 76
+          },
+          {
+            "time_s": 45.812,
+            "from": 76,
+            "to": 84
+          },
+          {
+            "time_s": 48.015,
+            "from": 84,
+            "to": 93
+          },
+          {
+            "time_s": 50.384,
+            "from": 93,
+            "to": 102
+          },
+          {
+            "time_s": 52.986,
+            "from": 102,
+            "to": 110
+          },
+          {
+            "time_s": 55.188,
+            "from": 110,
+            "to": 118
+          },
+          {
+            "time_s": 57.19,
+            "from": 118,
+            "to": 122
+          },
+          {
+            "time_s": 100.6,
+            "from": 122,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 95.395,
+        "settled_time_s": 100.6,
+        "flame_gone_minus_fan_drop_s": 6.207
+      },
+      "air": {
+        "at_ignition": 11.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 5.405,
+          "end_s": 46.613
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 46.613,
+          "end_s": 90.991
+        },
+        {
+          "stage": "decay",
+          "start_s": 90.991,
+          "end_s": 101.602
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B8_overlay.mp4",
+        "start_s": 5.405,
+        "end_s": 101.602,
+        "speed": 5.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B8_kymograph.png",
+        "steps": "PSI-25_B8_steps.jpg",
+        "stills": [
+          "PSI-25_B8_still1.jpg",
+          "PSI-25_B8_still2.jpg",
+          "PSI-25_B8_still3.jpg"
+        ],
+        "curve": "PSI-25_B8_curve.csv",
+        "readout": "PSI-25_B8_readout.csv",
+        "steps_clip": "PSI-25_B8_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B8-air_speed_at_ignition",
+        "fan_settled_time": "ev-B8-fan_settled_time",
+        "ignition_time": "ev-B8-ignition_time",
+        "extinction_time": "ev-B8-extinction_time",
+        "burn_duration": "ev-B8-burn_duration",
+        "spread_rate": "ev-B8-spread_rate",
+        "leading_edge_travel": "ev-B8-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B8-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B8-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B8-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B8-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B10",
+      "label": "B10",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_173_TESTB10.mp4",
+      "conditions": {
+        "material_text": "1 cm 0.2 mm PMMA film",
+        "thickness_mm": 0.2,
+        "width_mm": 10.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.8,
+        "fan_display": "1.7 (52) 1.25 0.9 0.6 0.4 0.35",
+        "air_display": "5 4 3 2 1",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "doubtful",
+        "note": "Dark from the start. Small dim flame that moves little; red part is visible until about 68 s, a faint blue ring until about 90 s. The video ends with a camera playback screen from about 156.5 s, which is bright and is not flame.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_doubtful",
+        "no_scale",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 7.207,
+        "extinction_time_s": 58.792,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 3.793,
+        "unit": "px/s",
+        "ci_low": 3.234,
+        "ci_high": 4.451,
+        "window_start_s": 26.393,
+        "window_end_s": 33.6,
+        "intercept_px": 63.151
+      },
+      "fan": {
+        "at_ignition": 54.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 13.213,
+            "from": 54,
+            "to": 52
+          },
+          {
+            "time_s": 34.801,
+            "from": 52,
+            "to": 49
+          },
+          {
+            "time_s": 68.802,
+            "from": 49,
+            "to": 46
+          },
+          {
+            "time_s": 89.59,
+            "from": 46,
+            "to": 43
+          },
+          {
+            "time_s": 101.401,
+            "from": 43,
+            "to": 41
+          }
+        ],
+        "drop_time_s": 101.401,
+        "settled_time_s": 101.401,
+        "flame_gone_minus_fan_drop_s": -42.609
+      },
+      "air": {
+        "at_ignition": 6.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 7.207,
+          "end_s": 7.608
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 7.608,
+          "end_s": 13.013
+        },
+        {
+          "stage": "decay",
+          "start_s": 13.013,
+          "end_s": 58.792
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B10_overlay.mp4",
+        "start_s": 7.207,
+        "end_s": 58.792,
+        "speed": 2.6
+      },
+      "files": {
+        "kymograph": "PSI-25_B10_kymograph.png",
+        "steps": "PSI-25_B10_steps.jpg",
+        "stills": [
+          "PSI-25_B10_still1.jpg",
+          "PSI-25_B10_still2.jpg",
+          "PSI-25_B10_still3.jpg"
+        ],
+        "curve": "PSI-25_B10_curve.csv",
+        "readout": "PSI-25_B10_readout.csv",
+        "steps_clip": "PSI-25_B10_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B10-air_speed_at_ignition",
+        "fan_settled_time": "ev-B10-fan_settled_time",
+        "ignition_time": "ev-B10-ignition_time",
+        "extinction_time": "ev-B10-extinction_time",
+        "burn_duration": "ev-B10-burn_duration",
+        "spread_rate": "ev-B10-spread_rate",
+        "leading_edge_travel": "ev-B10-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B10-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B10-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B10-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B10-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B11",
+      "label": "B11",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_158_TESTB11.mp4",
+      "conditions": {
+        "material_text": "2 cm 0.2 mm PMMA film",
+        "thickness_mm": 0.2,
+        "width_mm": 20.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.7,
+        "fan_display": "2.5 (59) 1.3 0.7 0.5 0.35",
+        "air_display": "5 3 1 <1",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start. A small red spark dot is visible for about 2.5 s before the glow. Flame spreads right and is bright until about 46 s, red part gone by about 49 s, a faint crescent remains to about 96 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 7.207,
+        "extinction_time_s": 46.413,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": 97.197
+      },
+      "rate": {
+        "value": 4.777,
+        "unit": "px/s",
+        "ci_low": 4.621,
+        "ci_high": 4.945,
+        "window_start_s": 17.384,
+        "window_end_s": 34.801,
+        "intercept_px": 43.784
+      },
+      "fan": {
+        "at_ignition": 60.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 39.006,
+            "from": 59,
+            "to": 57
+          },
+          {
+            "time_s": 41.808,
+            "from": 57,
+            "to": 55
+          },
+          {
+            "time_s": 45.412,
+            "from": 55,
+            "to": 52
+          },
+          {
+            "time_s": 51.184,
+            "from": 52,
+            "to": 49
+          },
+          {
+            "time_s": 95.996,
+            "from": 49,
+            "to": 46
+          },
+          {
+            "time_s": 108.008,
+            "from": 46,
+            "to": 44
+          },
+          {
+            "time_s": 114.815,
+            "from": 44,
+            "to": 42
+          }
+        ],
+        "drop_time_s": 110.01,
+        "settled_time_s": 114.815,
+        "flame_gone_minus_fan_drop_s": -63.597
+      },
+      "air": {
+        "at_ignition": 5.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 7.207,
+          "end_s": 9.81
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 9.81,
+          "end_s": 15.415
+        },
+        {
+          "stage": "decay",
+          "start_s": 15.415,
+          "end_s": 46.413
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B11_overlay.mp4",
+        "start_s": 7.207,
+        "end_s": 46.413,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B11_kymograph.png",
+        "steps": "PSI-25_B11_steps.jpg",
+        "stills": [
+          "PSI-25_B11_still1.jpg",
+          "PSI-25_B11_still2.jpg",
+          "PSI-25_B11_still3.jpg"
+        ],
+        "curve": "PSI-25_B11_curve.csv",
+        "readout": "PSI-25_B11_readout.csv",
+        "steps_clip": "PSI-25_B11_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B11-air_speed_at_ignition",
+        "fan_settled_time": "ev-B11-fan_settled_time",
+        "ignition_time": "ev-B11-ignition_time",
+        "extinction_time": "ev-B11-extinction_time",
+        "burn_duration": "ev-B11-burn_duration",
+        "spread_rate": "ev-B11-spread_rate",
+        "leading_edge_travel": "ev-B11-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B11-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B11-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B11-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B11-peak_flame_light",
+        "last_faint_light_time": "ev-B11-last_faint_light_time"
+      }
+    },
+    {
+      "test_id": "PSI-25/B12",
+      "label": "B12",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_160_TEST_B12.mp4",
+      "conditions": {
+        "material_text": "300 micron film 2 cm wide",
+        "thickness_mm": 0.3,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 22.1,
+        "fan_display": "46.5",
+        "air_display": "2",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "no_spread",
+        "note": "Room lights on until about 9 s. Tiny flame that stays at one place (no clear direction, 1 is a default); red ember until about 31.5 s. Not measurable for a spread rate.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "estimates_disagree",
+        "eye_no_spread",
+        "negative_rate",
+        "no_scale",
+        "short_travel",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 18.986,
+        "extinction_time_s": 30.797,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": -2.305,
+        "unit": "px/s",
+        "ci_low": -2.651,
+        "ci_high": -1.653,
+        "window_start_s": 19.386,
+        "window_end_s": 24.791,
+        "intercept_px": 294.5
+      },
+      "fan": {
+        "at_ignition": 47.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 86.987,
+            "from": 47,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 85.986,
+        "settled_time_s": 86.987,
+        "flame_gone_minus_fan_drop_s": -55.189
+      },
+      "air": {
+        "at_ignition": 2.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 18.986,
+          "end_s": 21.788
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 21.788,
+          "end_s": 23.79
+        },
+        {
+          "stage": "decay",
+          "start_s": 23.79,
+          "end_s": 30.797
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B12_overlay.mp4",
+        "start_s": 18.986,
+        "end_s": 30.797,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B12_kymograph.png",
+        "steps": "PSI-25_B12_steps.jpg",
+        "stills": [
+          "PSI-25_B12_still1.jpg",
+          "PSI-25_B12_still2.jpg",
+          "PSI-25_B12_still3.jpg"
+        ],
+        "curve": "PSI-25_B12_curve.csv",
+        "readout": "PSI-25_B12_readout.csv",
+        "steps_clip": "PSI-25_B12_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B12-air_speed_at_ignition",
+        "fan_settled_time": "ev-B12-fan_settled_time",
+        "ignition_time": "ev-B12-ignition_time",
+        "extinction_time": "ev-B12-extinction_time",
+        "burn_duration": "ev-B12-burn_duration",
+        "spread_rate": "ev-B12-spread_rate",
+        "leading_edge_travel": "ev-B12-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B12-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B12-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B12-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B12-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B13",
+      "label": "B13",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_162_TESTB13.mp4",
+      "conditions": {
+        "material_text": "2 cm 0.4 mm thick film",
+        "thickness_mm": 0.4,
+        "width_mm": 20.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.5,
+        "fan_display": "3.5 (68) 1.7 1.25 0.9 0.6 0.4 0.35",
+        "air_display": "10 5 4 3 2 1",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "doubtful",
+        "note": "Dark from the start. Bright flame lights the room, starts at the left frame edge, spreads right slowly and then stalls near x 390 px; bright red flame gone by about 138 s, embers flicker to about 181 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_doubtful",
+        "no_scale",
+        "reignition",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 6.406,
+        "extinction_time_s": 180.814,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 2.22,
+        "unit": "px/s",
+        "ci_low": 2.14,
+        "ci_high": 2.3,
+        "window_start_s": 16.016,
+        "window_end_s": 35.002,
+        "intercept_px": 76.074
+      },
+      "fan": {
+        "at_ignition": 69.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 28.996,
+            "from": 68,
+            "to": 65
+          },
+          {
+            "time_s": 32.199,
+            "from": 65,
+            "to": 54
+          },
+          {
+            "time_s": 34.001,
+            "from": 54,
+            "to": 52
+          },
+          {
+            "time_s": 62.996,
+            "from": 52,
+            "to": 50
+          },
+          {
+            "time_s": 102.202,
+            "from": 50,
+            "to": 46
+          },
+          {
+            "time_s": 137.204,
+            "from": 46,
+            "to": 43
+          },
+          {
+            "time_s": 181.615,
+            "from": 43,
+            "to": 41
+          }
+        ],
+        "drop_time_s": 181.615,
+        "settled_time_s": 181.615,
+        "flame_gone_minus_fan_drop_s": -0.801
+      },
+      "air": {
+        "at_ignition": 11.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 6.406,
+          "end_s": 9.209
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 9.209,
+          "end_s": 100.6
+        },
+        {
+          "stage": "decay",
+          "start_s": 100.6,
+          "end_s": 180.814
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B13_overlay.mp4",
+        "start_s": 6.406,
+        "end_s": 180.814,
+        "speed": 8.8
+      },
+      "files": {
+        "kymograph": "PSI-25_B13_kymograph.png",
+        "steps": "PSI-25_B13_steps.jpg",
+        "stills": [
+          "PSI-25_B13_still1.jpg",
+          "PSI-25_B13_still2.jpg",
+          "PSI-25_B13_still3.jpg"
+        ],
+        "curve": "PSI-25_B13_curve.csv",
+        "readout": "PSI-25_B13_readout.csv",
+        "steps_clip": "PSI-25_B13_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B13-air_speed_at_ignition",
+        "fan_settled_time": "ev-B13-fan_settled_time",
+        "ignition_time": "ev-B13-ignition_time",
+        "extinction_time": "ev-B13-extinction_time",
+        "burn_duration": "ev-B13-burn_duration",
+        "spread_rate": "ev-B13-spread_rate",
+        "leading_edge_travel": "ev-B13-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B13-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B13-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B13-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B13-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B15",
+      "label": "B15",
+      "video_file": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_149_TESTB15.mp4",
+      "conditions": {
+        "material_text": "2 cm 0.1 mm PMMA film",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 21.0,
+        "o2_final_pct": 20.8,
+        "fan_display": "1.4 (50) incr to 10.0 pot",
+        "air_display": "10 max",
+        "flow_restrictor": "0"
+      },
+      "viewing": {
+        "quality": "doubtful",
+        "note": "Dark from the start, red spark dot from about 9 s. Flame spreads right and lights the room 32 to 46 s; red flame body is gone by about 55 s but a bright blob drifts right until about 70 s, last light at about 71 s. Doubtful.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_doubtful",
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 9.009,
+        "extinction_time_s": 70.604,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 11.055,
+        "unit": "px/s",
+        "ci_low": 10.709,
+        "ci_high": 11.349,
+        "window_start_s": 9.009,
+        "window_end_s": 34.001,
+        "intercept_px": -12.741
+      },
+      "fan": {
+        "at_ignition": 51.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 32.399,
+            "from": 50,
+            "to": 59
+          },
+          {
+            "time_s": 37.004,
+            "from": 59,
+            "to": 67
+          },
+          {
+            "time_s": 39.606,
+            "from": 67,
+            "to": 76
+          },
+          {
+            "time_s": 41.808,
+            "from": 76,
+            "to": 84
+          },
+          {
+            "time_s": 43.81,
+            "from": 84,
+            "to": 93
+          },
+          {
+            "time_s": 46.013,
+            "from": 93,
+            "to": 100
+          },
+          {
+            "time_s": 48.215,
+            "from": 100,
+            "to": 109
+          },
+          {
+            "time_s": 50.384,
+            "from": 109,
+            "to": 118
+          },
+          {
+            "time_s": 52.986,
+            "from": 118,
+            "to": 122
+          }
+        ],
+        "drop_time_s": null,
+        "settled_time_s": null,
+        "flame_gone_minus_fan_drop_s": null
+      },
+      "air": {
+        "at_ignition": 11.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 9.009,
+          "end_s": 22.99
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 22.99,
+          "end_s": 40.207
+        },
+        {
+          "stage": "decay",
+          "start_s": 40.207,
+          "end_s": 70.604
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B15_overlay.mp4",
+        "start_s": 9.009,
+        "end_s": 70.604,
+        "speed": 3.2
+      },
+      "files": {
+        "kymograph": "PSI-25_B15_kymograph.png",
+        "steps": "PSI-25_B15_steps.jpg",
+        "stills": [
+          "PSI-25_B15_still1.jpg",
+          "PSI-25_B15_still2.jpg",
+          "PSI-25_B15_still3.jpg"
+        ],
+        "curve": "PSI-25_B15_curve.csv",
+        "readout": "PSI-25_B15_readout.csv",
+        "steps_clip": "PSI-25_B15_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B15-air_speed_at_ignition",
+        "ignition_time": "ev-B15-ignition_time",
+        "extinction_time": "ev-B15-extinction_time",
+        "burn_duration": "ev-B15-burn_duration",
+        "spread_rate": "ev-B15-spread_rate",
+        "leading_edge_travel": "ev-B15-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B15-fan_setting_at_ignition",
+        "peak_flame_light": "ev-B15-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B16",
+      "label": "B16",
+      "video_file": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_150_TESTB16.mp4",
+      "conditions": {
+        "material_text": "2 cm 100 micron thick PMMA",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 17.3,
+        "o2_final_pct": 17.2,
+        "fan_display": "44 (pot 0.68)",
+        "air_display": "3 0.5 pot 0.4 pot",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "no_spread",
+        "note": "Dark from the start. Only a stationary red glow lights the room 5.5 to 15 s, then a small red dot to about 19 s; no spread, so not measurable for a rate. A camera playback screen fills the video from about 113.5 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "estimates_disagree",
+        "eye_no_spread",
+        "no_scale",
+        "short_travel",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 4.805,
+        "extinction_time_s": 17.384,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 0.348,
+        "unit": "px/s",
+        "ci_low": -0.015,
+        "ci_high": 0.793,
+        "window_start_s": 8.609,
+        "window_end_s": 13.413,
+        "intercept_px": 147.659
+      },
+      "fan": {
+        "at_ignition": 45.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 43.01,
+            "from": 45,
+            "to": 42
+          }
+        ],
+        "drop_time_s": 40.607,
+        "settled_time_s": 43.01,
+        "flame_gone_minus_fan_drop_s": -23.223
+      },
+      "air": {
+        "at_ignition": 4.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 4.805,
+          "end_s": 8.609
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 8.609,
+          "end_s": 15.215
+        },
+        {
+          "stage": "decay",
+          "start_s": 15.215,
+          "end_s": 17.384
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B16_overlay.mp4",
+        "start_s": 4.805,
+        "end_s": 17.384,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B16_kymograph.png",
+        "steps": "PSI-25_B16_steps.jpg",
+        "stills": [
+          "PSI-25_B16_still1.jpg",
+          "PSI-25_B16_still2.jpg",
+          "PSI-25_B16_still3.jpg"
+        ],
+        "curve": "PSI-25_B16_curve.csv",
+        "readout": "PSI-25_B16_readout.csv",
+        "steps_clip": "PSI-25_B16_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B16-air_speed_at_ignition",
+        "fan_settled_time": "ev-B16-fan_settled_time",
+        "ignition_time": "ev-B16-ignition_time",
+        "extinction_time": "ev-B16-extinction_time",
+        "burn_duration": "ev-B16-burn_duration",
+        "spread_rate": "ev-B16-spread_rate",
+        "leading_edge_travel": "ev-B16-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B16-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B16-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B16-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B16-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B19",
+      "label": "B19",
+      "video_file": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_151_TESTB19.mp4",
+      "conditions": {
+        "material_text": "2 cm 100 micron thick PMMA",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 17.3,
+        "o2_final_pct": 17.2,
+        "fan_display": "47 (pot 1.05) incr to pot 6.0",
+        "air_display": "10 blowoff",
+        "flow_restrictor": "0"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start but only about 2 s before the spark. Flame spreads right slowly, shrinks to a ball from about 74 s, red gone by about 79 s, a faint blue dot to about 84 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 2.202,
+        "extinction_time_s": 79.413,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 5.41,
+        "unit": "px/s",
+        "ci_low": 5.218,
+        "ci_high": 5.629,
+        "window_start_s": 42.609,
+        "window_end_s": 61.995,
+        "intercept_px": 53.149
+      },
+      "fan": {
+        "at_ignition": 48.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 67.2,
+            "from": 47,
+            "to": 55
+          },
+          {
+            "time_s": 71.605,
+            "from": 55,
+            "to": 63
+          },
+          {
+            "time_s": 76.009,
+            "from": 63,
+            "to": 72
+          },
+          {
+            "time_s": 81.815,
+            "from": 72,
+            "to": 80
+          },
+          {
+            "time_s": 85.986,
+            "from": 80,
+            "to": 88
+          }
+        ],
+        "drop_time_s": null,
+        "settled_time_s": null,
+        "flame_gone_minus_fan_drop_s": null
+      },
+      "air": {
+        "at_ignition": 11.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 2.202,
+          "end_s": 3.804
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 3.804,
+          "end_s": 71.004
+        },
+        {
+          "stage": "decay",
+          "start_s": 71.004,
+          "end_s": 79.413
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B19_overlay.mp4",
+        "start_s": 2.202,
+        "end_s": 79.413,
+        "speed": 4.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B19_kymograph.png",
+        "steps": "PSI-25_B19_steps.jpg",
+        "stills": [
+          "PSI-25_B19_still1.jpg",
+          "PSI-25_B19_still2.jpg",
+          "PSI-25_B19_still3.jpg"
+        ],
+        "curve": "PSI-25_B19_curve.csv",
+        "readout": "PSI-25_B19_readout.csv",
+        "steps_clip": "PSI-25_B19_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B19-air_speed_at_ignition",
+        "ignition_time": "ev-B19-ignition_time",
+        "extinction_time": "ev-B19-extinction_time",
+        "burn_duration": "ev-B19-burn_duration",
+        "spread_rate": "ev-B19-spread_rate",
+        "leading_edge_travel": "ev-B19-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B19-fan_setting_at_ignition",
+        "peak_flame_light": "ev-B19-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B21",
+      "label": "B21",
+      "video_file": "PSI-25_Raw Data_BASS_GMT216_SAMPLE_174_TEST_B21.mp4",
+      "conditions": {
+        "material_text": "1 cm wide 200 micron thick PMMA",
+        "thickness_mm": 0.2,
+        "width_mm": 10.0,
+        "o2_initial_pct": 20.8,
+        "o2_final_pct": 20.6,
+        "fan_display": "53 and down",
+        "air_display": "5 down to ext",
+        "flow_restrictor": "1"
+      },
+      "viewing": {
+        "quality": "no_spread",
+        "note": "Room lights on at 0 to 1 s, dark from 1.25 s. Long glow with sparkles 12 to 16.5 s, then a small red dot to about 18.5 s; no spread, not measurable for a rate. A camera playback screen fills the video from about 161.5 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_no_spread",
+        "negative_rate",
+        "no_scale",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 11.612,
+        "extinction_time_s": 18.385,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": -5.506,
+        "unit": "px/s",
+        "ci_low": -9.926,
+        "ci_high": -2.363,
+        "window_start_s": 12.212,
+        "window_end_s": 17.584,
+        "intercept_px": 313.604
+      },
+      "fan": {
+        "at_ignition": 55.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 16.416,
+            "from": 55,
+            "to": 53
+          },
+          {
+            "time_s": 75.008,
+            "from": 53,
+            "to": 51
+          },
+          {
+            "time_s": 79.212,
+            "from": 51,
+            "to": 49
+          },
+          {
+            "time_s": 84.384,
+            "from": 49,
+            "to": 46
+          },
+          {
+            "time_s": 95.596,
+            "from": 46,
+            "to": 43
+          },
+          {
+            "time_s": 105.005,
+            "from": 43,
+            "to": 41
+          },
+          {
+            "time_s": 121.788,
+            "from": 41,
+            "to": 50
+          },
+          {
+            "time_s": 131.198,
+            "from": 50,
+            "to": 122
+          }
+        ],
+        "drop_time_s": 94.795,
+        "settled_time_s": 105.005,
+        "flame_gone_minus_fan_drop_s": -76.41
+      },
+      "air": {
+        "at_ignition": 6.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 11.612,
+          "end_s": 13.814
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 13.814,
+          "end_s": 15.616
+        },
+        {
+          "stage": "decay",
+          "start_s": 15.616,
+          "end_s": 18.385
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B21_overlay.mp4",
+        "start_s": 11.612,
+        "end_s": 18.385,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B21_kymograph.png",
+        "steps": "PSI-25_B21_steps.jpg",
+        "stills": [
+          "PSI-25_B21_still1.jpg",
+          "PSI-25_B21_still2.jpg",
+          "PSI-25_B21_still3.jpg"
+        ],
+        "curve": "PSI-25_B21_curve.csv",
+        "readout": "PSI-25_B21_readout.csv",
+        "steps_clip": "PSI-25_B21_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B21-air_speed_at_ignition",
+        "fan_settled_time": "ev-B21-fan_settled_time",
+        "ignition_time": "ev-B21-ignition_time",
+        "extinction_time": "ev-B21-extinction_time",
+        "burn_duration": "ev-B21-burn_duration",
+        "spread_rate": "ev-B21-spread_rate",
+        "leading_edge_travel": "ev-B21-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B21-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B21-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B21-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B21-peak_flame_light"
+      }
+    },
+    {
+      "test_id": "PSI-25/B22",
+      "label": "B22",
+      "video_file": "PSI-25_Raw Data_BASS_GMT216_SAMPLE_176_TEST_B22.mp4",
+      "conditions": {
+        "material_text": "1 cm wide 200 micron thick PMMA",
+        "thickness_mm": 0.2,
+        "width_mm": 10.0,
+        "o2_initial_pct": 20.7,
+        "o2_final_pct": 20.5,
+        "fan_display": "53 42 41 40.5",
+        "air_display": "5 2 0",
+        "flow_restrictor": "1"
+      },
+      "viewing": {
+        "quality": "no_spread",
+        "note": "Dark from the start. Glow near the frame centre with a lit room 9 to 17 s, then a small crescent flame that moves slightly right until about 35.5 s. A camera playback screen fills the video from about 93 s. Short flame, doubtful for a rate.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "eye_no_spread",
+        "no_scale",
+        "short_travel",
+        "short_window",
+        "steady_under_20s"
+      ],
+      "events": {
+        "ignition_time_s": 7.207,
+        "extinction_time_s": 35.402,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": null
+      },
+      "rate": {
+        "value": 1.499,
+        "unit": "px/s",
+        "ci_low": 1.154,
+        "ci_high": 1.815,
+        "window_start_s": 27.794,
+        "window_end_s": 35.002,
+        "intercept_px": 448.85
+      },
+      "fan": {
+        "at_ignition": 54.0,
+        "unit": "V x10",
+        "changes": [
+          {
+            "time_s": 17.784,
+            "from": 54,
+            "to": 52
+          },
+          {
+            "time_s": 36.203,
+            "from": 52,
+            "to": 44
+          },
+          {
+            "time_s": 37.604,
+            "from": 44,
+            "to": 41
+          }
+        ],
+        "drop_time_s": 33.8,
+        "settled_time_s": 37.604,
+        "flame_gone_minus_fan_drop_s": 1.602
+      },
+      "air": {
+        "at_ignition": 6.0,
+        "unit": "cm/s",
+        "note": "NASA's duct flow sensor, slow to respond (about 1 min)"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 7.207,
+          "end_s": 10.01
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 10.01,
+          "end_s": 17.384
+        },
+        {
+          "stage": "decay",
+          "start_s": 17.384,
+          "end_s": 35.402
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B22_overlay.mp4",
+        "start_s": 7.207,
+        "end_s": 35.402,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B22_kymograph.png",
+        "steps": "PSI-25_B22_steps.jpg",
+        "stills": [
+          "PSI-25_B22_still1.jpg",
+          "PSI-25_B22_still2.jpg",
+          "PSI-25_B22_still3.jpg"
+        ],
+        "curve": "PSI-25_B22_curve.csv",
+        "readout": "PSI-25_B22_readout.csv",
+        "steps_clip": "PSI-25_B22_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "air_speed_at_ignition": "ev-B22-air_speed_at_ignition",
+        "fan_settled_time": "ev-B22-fan_settled_time",
+        "ignition_time": "ev-B22-ignition_time",
+        "extinction_time": "ev-B22-extinction_time",
+        "burn_duration": "ev-B22-burn_duration",
+        "spread_rate": "ev-B22-spread_rate",
+        "leading_edge_travel": "ev-B22-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B22-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B22-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B22-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B22-peak_flame_light"
+      }
+    }
+  ],
+  "not_measurable": [
+    {
+      "test_id": "",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_175_TESTB15.mp4",
+      "reason": "test identity not resolved (file named B15, sample and day of B17)"
+    },
+    {
+      "test_id": "PSI-25/B14",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_174_TESTB14.mp4",
+      "reason": "main video does not open (Not readable as downloaded from PSI: moov atom not found)"
+    },
+    {
+      "test_id": "PSI-25/B17",
+      "file_name": "",
+      "reason": "no main video in the manifest"
+    },
+    {
+      "test_id": "PSI-25/B18",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_176_TESTB18.mp4",
+      "reason": "main video does not open (Not readable as downloaded from PSI: moov atom not found)"
+    },
+    {
+      "test_id": "PSI-25/B20",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_152_TESTB20.mp4",
+      "reason": "main video does not open (Not readable as downloaded from PSI: moov atom not found)"
+    }
+  ],
+  "t_series": {
+    "note": "The T-series (fabric strips with dim blue flames) cannot be followed by the tracker. These outcomes were graded by SI from brightened frames and the fan voltage history, blind to NASA's outcomes, and compared afterwards with NASA's Table 7.1.",
+    "graded_by": "SI (Claude Sonnet) viewing brightened frames, blind to NASA's outcomes, 2026-11-14",
+    "checked_by": "Dobrin Alexandru, viewing brightened video, 2026-11-15",
+    "check_note": "One team member checked the SI grades against video brightened x6, without looking at NASA's outcomes (they were hidden on the review page; the checker states this, the check was not supervised).",
+    "tests": [
+      {
+        "test_id": "PSI-25/T4",
+        "label": "T4",
+        "video_file": "PSI-25_Raw Data_BASS_GMT45_SAMPLE_130_TEST_T4.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A bright ignition flash at 4-5 s is followed by a dim two-lobed crescent flame beside the wire. It faded as the fan was stepped down from 80 and was gone by about 13 s at FAN about 56. Weak flame and short life, so medium.",
+        "fan_history": "80 at ignition (to 7 s); 73 at 8 s; 67 at 10 s; 59 at 12 s; 54 at 16 s; 46 from 26 s",
+        "evidence_id": "ev-T4-si-grade",
+        "published_evidence_id": "ev-T4-PUB-17",
+        "si_times": {
+          "wire_glow_s": 2.0,
+          "flame_seen_from_s": 5.5,
+          "flame_gone_s": 13.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "quenched",
+          "flame_seen_from_s": 5.5,
+          "flame_gone_s": 15.0,
+          "note": "flame seems to be still very slightly visible after 13 s",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T4-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T4_review.mp4",
+          "start_s": 0.0,
+          "end_s": 63.764,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T4_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T9",
+        "label": "T9",
+        "video_file": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_133_TEST_T9.mp4",
+        "nasa_outcome": "no ignition",
+        "si_grade": "no_ignition",
+        "confidence": "high",
+        "match": "yes",
+        "reason": "Only a thin horizontal red wire glow with a faint reddish haze above it; no blue or separate flame at any time; fan never changed.",
+        "fan_history": "59-60 constant for the whole video",
+        "evidence_id": "ev-T9-si-grade",
+        "published_evidence_id": "ev-T9-PUB-26",
+        "si_times": {
+          "wire_glow_s": 32.0,
+          "flame_seen_from_s": null,
+          "flame_gone_s": null
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "no_ignition",
+          "flame_seen_from_s": null,
+          "flame_gone_s": null,
+          "note": "after initial ignition there seem to be a very small flame, very possible for it to be the wire",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T9-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T9_review.mp4",
+          "start_s": 0.0,
+          "end_s": 110.377,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T9_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T10",
+        "label": "T10",
+        "video_file": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_134_TEST_T10.mp4",
+        "nasa_outcome": "no ignition",
+        "si_grade": "no_ignition",
+        "confidence": "low",
+        "match": "yes",
+        "reason": "A large bright red glow burned 16-23 s and vanished within about 1 s with the fan unchanged; nothing was visible after 24 s, and when the fan was raised at 80 s nothing was burning. Could be a short-lived flame that died by itself; low confidence.",
+        "fan_history": "47-48 until about 78 s; 73 at 80 s; 105 at 82 s; 122 at 84 s",
+        "evidence_id": "ev-T10-si-grade",
+        "published_evidence_id": "ev-T10-PUB-27",
+        "si_times": {
+          "wire_glow_s": 15.0,
+          "flame_seen_from_s": null,
+          "flame_gone_s": null
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "no_ignition",
+          "flame_seen_from_s": null,
+          "flame_gone_s": null,
+          "note": "only wire glow",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T10-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T10_review.mp4",
+          "start_s": 0.0,
+          "end_s": 103.537,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T10_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T12",
+        "label": "T12",
+        "video_file": "PSI-25_Raw Data_BASS_GMT178_SAMPLE_136_TEST_T12.mp4",
+        "nasa_outcome": "no ignition",
+        "si_grade": "cannot_tell",
+        "confidence": "low",
+        "match": "undecided",
+        "reason": "A bright white-red glow starts at 12 s and is still there when the video ends at 45 s, with no fan change. I cannot separate wire glow from a flame, and no fan action is shown to tell the outcome.",
+        "fan_history": "46-47 constant for the whole video",
+        "evidence_id": "ev-T12-si-grade",
+        "published_evidence_id": "ev-T12-PUB-28",
+        "si_times": {
+          "wire_glow_s": 12.0,
+          "flame_seen_from_s": null,
+          "flame_gone_s": null
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "no_ignition",
+          "flame_seen_from_s": null,
+          "flame_gone_s": null,
+          "note": "multiple attempts at ignition most likely",
+          "agrees_with_si": "decided",
+          "match": "yes",
+          "evidence_id": "ev-T12-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T12_review.mp4",
+          "start_s": 0.0,
+          "end_s": 45.846,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T12_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T13",
+        "label": "T13",
+        "video_file": "PSI-25_Raw Data_BASS_GMT_100_sample137_test T13.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "low",
+        "match": "yes",
+        "reason": "After the wire flash a faint two-lobed flame sits at the wire from 32 s and fades by about 50 s while the fan eased from 46 to 42. It was already fading at constant fan, so the cause is uncertain. The later rise to 122 came with nothing burning. Low.",
+        "fan_history": "46 at ignition and to about 40 s; 44 at 46 s; 42 from 52 s to about 95 s; 47 at 100 s; 122 at 110 s (read by eye)",
+        "evidence_id": "ev-T13-si-grade",
+        "published_evidence_id": "ev-T13-PUB-18",
+        "si_times": {
+          "wire_glow_s": 24.0,
+          "flame_seen_from_s": 32.0,
+          "flame_gone_s": 50.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "quenched",
+          "flame_seen_from_s": 32.5,
+          "flame_gone_s": 50.0,
+          "note": "lots of noise",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T13-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T13_review.mp4",
+          "start_s": 0.0,
+          "end_s": 135.0,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": null
+      },
+      {
+        "test_id": "PSI-25/T14",
+        "label": "T14",
+        "video_file": "PSI-25_Raw Data_BASS_GMT178_SAMPLE_140_TEST_T14.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A very faint blue-green flame stays at the wire from 34 s to about 115 s while the fan creeps down 47 to 43 and RAD rises; it fades out and RAD collapses after 112 s. Fan changes are small and the flame is very faint, so medium.",
+        "fan_history": "46-47 to 60 s; 45 at 70 s; 44 at 76-100 s; 45 at 108 s; 43 from 130 s (AIR 6 to 4)",
+        "evidence_id": "ev-T14-si-grade",
+        "published_evidence_id": "ev-T14-PUB-20",
+        "si_times": {
+          "wire_glow_s": 11.0,
+          "flame_seen_from_s": 34.0,
+          "flame_gone_s": 118.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "quenched",
+          "flame_seen_from_s": 34.0,
+          "flame_gone_s": 125.0,
+          "note": "way too hard to spot towards the end",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T14-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T14_review.mp4",
+          "start_s": 0.0,
+          "end_s": 136.803,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T14_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T15",
+        "label": "T15",
+        "video_file": "PSI-25_Raw Data_BASS_GMT45_SAMPLE_138_TEST_T15.mp4",
+        "nasa_outcome": "no blowoff",
+        "si_grade": "no_blow_off",
+        "confidence": "high",
+        "match": "yes",
+        "reason": "A clear two-lobed flame lights as the fan is raised to 122, grows and travels along the strip for about 28 s, then shrinks and leaves the picture at about 38 s. It was not blown off.",
+        "fan_history": "80 at ignition; 98 at 8 s; 122 at 10 s; 122-127 to end",
+        "evidence_id": "ev-T15-si-grade",
+        "published_evidence_id": "ev-T15-PUB-24",
+        "si_times": {
+          "wire_glow_s": 4.0,
+          "flame_seen_from_s": 8.0,
+          "flame_gone_s": 38.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "no_blow_off",
+          "flame_seen_from_s": 8.0,
+          "flame_gone_s": 38.4,
+          "note": "",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T15-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T15_review.mp4",
+          "start_s": 0.0,
+          "end_s": 43.01,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T15_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T17",
+        "label": "T17",
+        "video_file": "PSI-25_Raw Data_BASS_GMT178_SAMPLE_142_TEST_T17.mp4",
+        "nasa_outcome": "no blowoff",
+        "si_grade": "no_blow_off",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A faint flame is present at fan 42 (48-54 s); when the fan is raised to 122 it brightens and travels left for about 12 s, then shrinks and is gone at about 70 s at the left of the picture. It lasted well past the rise and ended in the same way as the surviving flame in T15, so no blow-off; medium because the end could be a late blow-off.",
+        "fan_history": "42 until about 55 s; 62 at 56 s; 88 at 58 s; 112 at 60 s; 122 from 62 s",
+        "evidence_id": "ev-T17-si-grade",
+        "published_evidence_id": "ev-T17-PUB-25",
+        "si_times": {
+          "wire_glow_s": 18.0,
+          "flame_seen_from_s": 48.0,
+          "flame_gone_s": 70.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "no_blow_off",
+          "flame_seen_from_s": 48.0,
+          "flame_gone_s": 70.0,
+          "note": "",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T17-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T17_review.mp4",
+          "start_s": 0.0,
+          "end_s": 96.33,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T17_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T18",
+        "label": "T18",
+        "video_file": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_141_TEST_T18.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A very faint flame burned at the wire from 30 s to about 68 s while the fan was stepped down 46 to 41 (AIR falling to 0); it faded out at low flow. The later fan rise came with nothing burning.",
+        "fan_history": "46-47 to about 48 s; 45 at 50 s; 42 at 54 s; 41 from 58 s; 53 at 80 s; 96 at 82 s (after the flame was gone)",
+        "evidence_id": "ev-T18-si-grade",
+        "published_evidence_id": "ev-T18-PUB-19",
+        "si_times": {
+          "wire_glow_s": 22.0,
+          "flame_seen_from_s": 30.0,
+          "flame_gone_s": 68.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "quenched",
+          "flame_seen_from_s": 30.0,
+          "flame_gone_s": 67.9,
+          "note": "",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T18-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T18_review.mp4",
+          "start_s": 0.0,
+          "end_s": 107.641,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T18_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T20",
+        "label": "T20",
+        "video_file": null,
+        "nasa_outcome": "quenched",
+        "si_grade": null,
+        "confidence": null,
+        "match": "not_graded",
+        "reason": "no plain main video on PSI",
+        "fan_history": null,
+        "evidence_id": null,
+        "published_evidence_id": "ev-T20-PUB-21",
+        "si_times": {
+          "wire_glow_s": null,
+          "flame_seen_from_s": null,
+          "flame_gone_s": null
+        },
+        "checked": null,
+        "clip": null,
+        "readout": null
+      },
+      {
+        "test_id": "PSI-25/T21",
+        "label": "T21",
+        "video_file": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_145_TEST_T21.mp4",
+        "nasa_outcome": "blow-off",
+        "si_grade": "blow_off",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A faint flame (24-31 s) brightens as the fan is raised and travels left, then disappears between 34 and 35 s just as the fan reaches 122, with nothing after.",
+        "fan_history": "52-53 to 29 s; 56 at 30 s; 87 at 32 s; 122 at 34 s",
+        "evidence_id": "ev-T21-si-grade",
+        "published_evidence_id": "ev-T21-PUB-23",
+        "si_times": {
+          "wire_glow_s": 9.0,
+          "flame_seen_from_s": 24.0,
+          "flame_gone_s": 35.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "blow_off",
+          "flame_seen_from_s": 20.0,
+          "flame_gone_s": 35.0,
+          "note": "flame can be clearly seen while ignition glow is still visible",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T21-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T21_review.mp4",
+          "start_s": 0.0,
+          "end_s": 41.575,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T21_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T22",
+        "label": "T22",
+        "video_file": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_146_TEST_T22.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A faint blue flame (20-41 s) burns on while the fan is stepped down 67 to 52 and fades out at about 42 s at low flow.",
+        "fan_history": "67-68 to 28 s; 57 at 30 s; 53 at 32 s; 52 from 34 s",
+        "evidence_id": "ev-T22-si-grade",
+        "published_evidence_id": "ev-T22-PUB-22",
+        "si_times": {
+          "wire_glow_s": 6.0,
+          "flame_seen_from_s": 20.0,
+          "flame_gone_s": 42.0
+        },
+        "checked": {
+          "by": "Dobrin Alexandru",
+          "date": "2026-11-15",
+          "grade": "quenched",
+          "flame_seen_from_s": 16.0,
+          "flame_gone_s": 42.0,
+          "note": "",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T22-checked-grade"
+        },
+        "clip": {
+          "file": "PSI-25_T22_review.mp4",
+          "start_s": 0.0,
+          "end_s": 45.879,
+          "speed": 1.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T22_readout.csv"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+# Pulls origin/main into the deploy copy and restarts the API when it changed (update.sh).
+[Unit]
+Description=burnrate API: follow origin/main
+
+[Service]
+Type=oneshot
+User=opc
+ExecStart=/bin/bash /opt/burnrate-api/apps/api/deploy/update.sh

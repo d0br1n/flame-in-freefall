@@ -1,0 +1,53 @@
+{
+  "id": "flame-temperature",
+  "title": "Flame temperature",
+  "stage": "suppress",
+  "psi_ids": [
+    "PSI-69",
+    "PSI-10",
+    "PSI-39",
+    "PSI-68"
+  ],
+  "question": "What puts it out?",
+  "summary": "For every FLEX droplet test we compute how hot the flame could get in that gas (ceiling temperature) and how fast the gas spreads heat, then check how well those two numbers explain how much fuel burned before the flame went out. The check against NASA's own flame temperatures in PSI-10 and the checks on unseen tests are listed beside every number.",
+  "cannot_tell": [
+    "Single liquid droplets only: nothing here says how a spreading fire on a solid surface behaves.",
+    "Microgravity only: no test was run in Moon or Mars gravity.",
+    "Helium is supported by 50 tests but not proven: helium does not line up with nitrogen and carbon dioxide on temperature alone.",
+    "The ceiling temperature is calculated and idealised (adiabatic), not measured. It is not the flame's real temperature.",
+    "The FLEX column headed \"CO\" is assumed to be CO2.",
+    "Visible flame only: a flame that goes out of sight (for example a cool flame) counts as out.",
+    "Tested ranges only: oxygen 12 to 34%, carbon dioxide up to 70%, helium up to 45%, pressure 0.7 to 3.05 atm in the table (9 tests are above 1 atm); the fitted link uses 0.7 to 1 atm only.",
+    "The gap list says how far a condition is from the nearest real test. It is not a prediction of what a flame would do there.",
+    "The gap list checks only PSI's droplet tables (FLEX PSI-69, CFI PSI-39, FLEX-2 PSI-68). The ACME gas-flame tables were not checked.",
+    "FLEX-2 (PSI-68) lists only a planned range, no per-test rows, so PSI cannot say which FLEX-2 conditions flew."
+  ],
+  "status": "built",
+  "files": [
+    {
+      "name": "flex_tests.json",
+      "kind": "tests",
+      "description": "One row per FLEX test with both computed numbers and the measured outcome."
+    },
+    {
+      "name": "flex_grid.json",
+      "kind": "grid",
+      "description": "Slider grid with predictions and the nearest real tests."
+    },
+    {
+      "name": "flex_checks.json",
+      "kind": "checks",
+      "description": "The seven checks with counts and the 14 Nov trial-run values."
+    },
+    {
+      "name": "flex_gaps.json",
+      "kind": "table",
+      "description": "Next test to fly: grid cells at 30 to 34% oxygen and about 0.7 atm ranked by distance to the nearest real FLEX or CFI test, and the next tests picked as one designed batch."
+    },
+    {
+      "name": "flex_doe.json",
+      "kind": "checks",
+      "description": "Design-of-experiments checks on the fitted link: its error against the scatter of repeated tests, and the replay of batch picking on tests already flown."
+    }
+  ]
+}

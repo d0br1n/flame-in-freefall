@@ -1,0 +1,304 @@
+[
+  {
+    "id": "flame-temperature/check/air_temperatures",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "In normal air at 1 atm the computed flame temperatures are methane 2225 K, heptane 2274 K and methanol 2220 K.",
+    "value": 2220.4,
+    "unit": "K (methanol)",
+    "n": 3,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/psi10_tad",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "Against NASA's own flame temperatures in PSI-10 our values are off by 2.5 K at the median and 8.9 K at worst over 147 flames (mean 2456 K ours against 2454 K NASA's).",
+    "value": 2455.5,
+    "unit": "K (mean over compared flames)",
+    "n": 147,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-10",
+      "file": "PSI-10_Experimental table_Flame Design_Normal Flame.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-10"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/conduction",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "Heat conduction of pure nitrogen, carbon dioxide and helium at 300 K is within 10% of textbook values (0.0264, 0.0175 and 0.1545 W/(m K)).",
+    "value": 0.1545,
+    "unit": "W/(m K) (helium)",
+    "n": 3,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/fitted_link",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "On tests from days it never saw, the two numbers explain 72% of the variation in fuel burned (error about 13 points), against 4% for the oxygen level alone.",
+    "value": 0.724,
+    "unit": "R2",
+    "n": 194,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/carry_over_nitrogen_to_co2",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "Trained on nitrogen-only tests, ceiling temperature predicts burning rate in carbon dioxide tests (R2 0.47) better than the oxygen level does (R2 0.05).",
+    "value": 0.472,
+    "unit": "R2",
+    "n": 111,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/carry_over_helium",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "For methanol tests with helium, temperature alone fails (R2 -0.34); adding heat-spreading speed gives R2 0.16, so helium is not explained by temperature alone.",
+    "value": 0.16,
+    "unit": "R2",
+    "n": 22,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/repeatability",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "Near-identical tests end 7.1 points apart in share of fuel burned (median), the noise floor for any model.",
+    "value": 7.1,
+    "unit": "points",
+    "n": 24,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/headline/usable_tests",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "273 of the 274 FLEX tests have both computed numbers; one test (114) lists a pressure of 0 and is left out.",
+    "value": 273,
+    "unit": "tests",
+    "n": 274,
+    "provenance": "PSI_TABLE",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coldest_heptane_nitrogen_only",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The coldest heptane mixture (nitrogen only) that still gave a recorded test has a ceiling temperature of 1770 K; this is the edge of what was tested, not a measured limit.",
+    "value": 1770.5,
+    "unit": "K",
+    "n": 47,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coldest_heptane_with_carbon_dioxide",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The coldest heptane mixture (with carbon dioxide) that still gave a recorded test has a ceiling temperature of 1764 K; this is the edge of what was tested, not a measured limit.",
+    "value": 1763.8,
+    "unit": "K",
+    "n": 48,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coldest_heptane_with_helium",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The coldest heptane mixture (with helium) that still gave a recorded test has a ceiling temperature of 2092 K; this is the edge of what was tested, not a measured limit.",
+    "value": 2092.5,
+    "unit": "K",
+    "n": 22,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coldest_methanol_nitrogen_only",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The coldest methanol mixture (nitrogen only) that still gave a recorded test has a ceiling temperature of 1674 K; this is the edge of what was tested, not a measured limit.",
+    "value": 1674.2,
+    "unit": "K",
+    "n": 54,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coldest_methanol_with_carbon_dioxide",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The coldest methanol mixture (with carbon dioxide) that still gave a recorded test has a ceiling temperature of 1627 K; this is the edge of what was tested, not a measured limit.",
+    "value": 1627.3,
+    "unit": "K",
+    "n": 74,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coldest_methanol_with_helium",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The coldest methanol mixture (with helium) that still gave a recorded test has a ceiling temperature of 1916 K; this is the edge of what was tested, not a measured limit.",
+    "value": 1915.7,
+    "unit": "K",
+    "n": 28,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/link_error",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "The fitted link is off by about 13 points of fuel burned on unseen test days.",
+    "value": 12.7,
+    "unit": "points",
+    "n": 194,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/headline/coverage_diluted_oxygen",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "In PSI's per-test droplet tables (FLEX PSI-69, CFI PSI-39) no diluted test sits above 25% oxygen. FLEX-2 (PSI-68) lists helium mixtures up to 30% oxygen as its planned range, but PSI holds no per-test rows to say which flew. Carbon dioxide dilution above 25% oxygen appears in none of the three.",
+    "value": 0.25,
+    "unit": "mole fraction of oxygen (highest among diluted per-test rows)",
+    "n": 187,
+    "provenance": "PSI_TABLE",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "evidence_ids": [
+      "flame-temperature/PSI-69/88/ceiling_temperature",
+      "flame-temperature/PSI-69/89/ceiling_temperature",
+      "flame-temperature/PSI-69/90/ceiling_temperature",
+      "flame-temperature/PSI-69/91/ceiling_temperature",
+      "flame-temperature/PSI-69/92/ceiling_temperature",
+      "flame-temperature/PSI-69/93/share_burned"
+    ]
+  },
+  {
+    "id": "flame-temperature/headline/designed_batch",
+    "module": "flame-temperature",
+    "kind": "headline",
+    "text": "Flown as one designed batch, 6 tests would leave no condition at 30 to 34% oxygen farther than 0.24 of a slider width from a test (today: 0.76). The first 6 conditions of a one-by-one ranking would leave 0.45. This is coverage of the tested conditions, not a prediction of what a flame would do.",
+    "value": 0.24,
+    "unit": "slider widths (largest gap left after 6 tests)",
+    "n": 356,
+    "provenance": "PSI_TABLE",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    }
+  },
+  {
+    "id": "flame-temperature/check/lack_of_fit",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "On unseen test days the model misses by about 1.9 times the scatter between repeated tests (16.6 against 8.8 points; 95% interval 1.3 to 3.3, from 24 pairs). About 28% of its squared error is scatter no model could remove; the rest is something the two physical numbers do not capture.",
+    "value": 1.89,
+    "unit": "times the scatter between repeated tests",
+    "n": 24,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  },
+  {
+    "id": "flame-temperature/check/batch_replay",
+    "module": "flame-temperature",
+    "kind": "check",
+    "text": "Replayed on tests already flown: with the 94 tests with carbon dioxide treated as never flown, the model is 18.0 points off on them. Handed back as a designed batch they leave it 15.1 points off on average over batch sizes 1 to 30, against 17.1 for the top of a one-by-one ranking and 12.8 with every test handed back. The batch was ahead of the ranking in 2 of 3 replays; it was behind for tests with helium.",
+    "value": 15.1,
+    "unit": "points of fuel burned (mean error over batch sizes 1 to 30)",
+    "n": 94,
+    "provenance": "MODEL",
+    "source": {
+      "psi_id": "PSI-69",
+      "file": "PSI-69_Experimental table_FLEX.csv",
+      "link": "https://psi.nasa.gov/geode-py/ws/repo/investigations/PSI-69"
+    },
+    "passed": true
+  }
+]

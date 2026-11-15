@@ -1,0 +1,6 @@
+test_id,file_name,reason
+,PSI-25_Raw Data_BASS_GMT183_SAMPLE_175_TESTB15.mp4,"test identity not resolved (file named B15, sample and day of B17)"
+PSI-25/B14,PSI-25_Raw Data_BASS_GMT183_SAMPLE_174_TESTB14.mp4,main video does not open (Not readable as downloaded from PSI: moov atom not found)
+PSI-25/B17,,no main video in the manifest
+PSI-25/B18,PSI-25_Raw Data_BASS_GMT183_SAMPLE_176_TESTB18.mp4,main video does not open (Not readable as downloaded from PSI: moov atom not found)
+PSI-25/B20,PSI-25_Raw Data_BASS_GMT183_SAMPLE_152_TESTB20.mp4,main video does not open (Not readable as downloaded from PSI: moov atom not found)

@@ -1,0 +1,215 @@
+{
+ "status": "built",
+ "comparisons": [
+  {
+   "id": "val-published",
+   "name": "Tracker against published value",
+   "quantity": "spread_rate",
+   "unit": "mm/s",
+   "provenance": "PUBLISHED",
+   "reference": "NASA/TM-20210011385 (published.csv)",
+   "pairs": [],
+   "n": 0,
+   "mean_signed_error": null,
+   "mean_abs_error": null,
+   "mean_abs_percent_error": null,
+   "limits_of_agreement": null,
+   "flags": [
+    "no_pairs"
+   ]
+  },
+  {
+   "id": "val-hand",
+   "name": "Tracker against hand measurement (mean of the people)",
+   "quantity": "spread_rate",
+   "unit": "mm/s",
+   "provenance": "HAND_MEASURED",
+   "reference": "hand/ (DOB-43)",
+   "pairs": [],
+   "n": 0,
+   "mean_signed_error": null,
+   "mean_abs_error": null,
+   "mean_abs_percent_error": null,
+   "limits_of_agreement": null,
+   "flags": [
+    "no_pairs"
+   ]
+  },
+  {
+   "id": "val-human-human",
+   "name": "Hand measurement, person against person",
+   "quantity": "spread_rate",
+   "unit": "mm/s",
+   "provenance": "HAND_MEASURED",
+   "reference": "hand/ (DOB-43)",
+   "pairs": [],
+   "n": 0,
+   "mean_signed_error": null,
+   "mean_abs_error": null,
+   "mean_abs_percent_error": null,
+   "limits_of_agreement": null,
+   "flags": [
+    "no_pairs"
+   ]
+  },
+  {
+   "id": "val-hand-px",
+   "name": "Tracker against hand measurement, in pixels per second (mean of the people)",
+   "quantity": "spread_rate",
+   "unit": "px/s",
+   "provenance": "HAND_MEASURED",
+   "reference": "hand/ (DOB-43)",
+   "pairs": [],
+   "n": 0,
+   "mean_signed_error": null,
+   "mean_abs_error": null,
+   "mean_abs_percent_error": null,
+   "limits_of_agreement": null,
+   "flags": [
+    "no_scale",
+    "no_pairs"
+   ]
+  },
+  {
+   "id": "val-human-human-px",
+   "name": "Hand measurement in pixels per second, person against person",
+   "quantity": "spread_rate",
+   "unit": "px/s",
+   "provenance": "HAND_MEASURED",
+   "reference": "hand/ (DOB-43)",
+   "pairs": [],
+   "n": 0,
+   "mean_signed_error": null,
+   "mean_abs_error": null,
+   "mean_abs_percent_error": null,
+   "limits_of_agreement": null,
+   "flags": [
+    "no_scale",
+    "no_pairs"
+   ]
+  },
+  {
+   "id": "val-si-px",
+   "name": "Tracker against the SI markings, hand checked by a team member, in pixels per second",
+   "quantity": "spread_rate",
+   "unit": "px/s",
+   "provenance": "SI_EXTRACTED",
+   "reference": "hand/<TEST>_SI.csv (si_draft.py)",
+   "pairs": [
+    {
+     "test_id": "PSI-25/B1",
+     "measured": 9.649,
+     "reference": 9.768009768009767
+    },
+    {
+     "test_id": "PSI-25/B11",
+     "measured": 4.777,
+     "reference": 4.329004329004329
+    },
+    {
+     "test_id": "PSI-25/B13",
+     "measured": 2.22,
+     "reference": 2.250177007458561
+    },
+    {
+     "test_id": "PSI-25/B3",
+     "measured": -1.621,
+     "reference": 10.289710289710293
+    },
+    {
+     "test_id": "PSI-25/B4",
+     "measured": 3.964,
+     "reference": 3.960325388896818
+    }
+   ],
+   "n": 5,
+   "mean_signed_error": -2.321645356615954,
+   "mean_abs_error": 2.502313469455495,
+   "mean_abs_percent_error": 0.25750908970983877,
+   "limits_of_agreement": [
+    -12.836941300586442,
+    8.193650587354536
+   ],
+   "flags": [
+    "no_scale",
+    "hand_checked_by_team_member",
+    "si_draft_not_an_independent_human_measurement"
+   ]
+  }
+ ],
+ "skipped": [
+  {
+   "test_id": "PSI-25/B1",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B2",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B3",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B4",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B5",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B6",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B7",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B8",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B9",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B10",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B11",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B12",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B13",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B15",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B16",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B19",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B21",
+   "reason": "rate has no scale (not in mm/s)"
+  },
+  {
+   "test_id": "PSI-25/B22",
+   "reason": "rate has no scale (not in mm/s)"
+  }
+ ],
+ "pass_rule": "mean absolute percentage error at most 25% (a proposal, not a finding)"
+}

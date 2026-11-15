@@ -1,0 +1,102 @@
+{
+ "psi_id": "PSI-115",
+ "acronym": null,
+ "title": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+ "ground_investigation": true,
+ "pillar": "detection",
+ "stage": "detect",
+ "fuel_phase": "aerosol",
+ "hardware_group": "ground",
+ "hardware_group_label": "Ground investigation (re-uses PSI data)",
+ "psi_sub_area": "Smoke Aerosol, Combustion Simulation",
+ "summary_plain": "A computer study of how smoke particles form and grow, with and without gravity. It simulates the pyrolysis smoke of the SAME experiments at two slow cross-flow speeds. The aim is to say how microgravity smoke differs from Earth smoke and why.",
+ "data_kinds": [
+  "data_files",
+  "documents",
+  "archives"
+ ],
+ "table_count": 0,
+ "files_count": 47,
+ "files_bytes": 264404901,
+ "listed_bytes": 264404901,
+ "publications_count": 0,
+ "psi_url": "https://doi.org/10.60555/q0v5-1v28",
+ "psi_text": {
+  "objective": "The objective of this investigation was to use numerical simulation to explore the influence of gravity on pyrolysis smoke growth from a fundamental perspective. The intention of this effort is to quantify the differences between microgravity and Earth gravity smoke, and to identify the fluid dynamic mechanisms that cause the differences.",
+  "approach": "The formation and growth of dibutyl-phthalate (DBP) particles in Earth gravity and microgravity environments was simulated. Direct numerical simulation via a Navier-Stokes nodal approach was utlilized. The smoke originates from pyrolysis vapor expelled from a heated sample in a geometry similar to that considered in the SAME experiments. This study considered two cross-flow velocities of sufficiently low speed that buoyancy cannot be neglected in the presence of gravity. Simulations are presented to assess the dependence of particle size distributions on thermophoresis, particle settling, and flow geometry. The final report for this investigation introduces the simulation and modeling methodology, followed by a description of the flow geometry and the parameter space under consideration.The differences in the wake geometry attributable to buoyancy for the lower of two flow speeds was examined.  Instantaneous scalar fields were used to describe particle accumulation and growth in the buoyant and non-buoyant wakes that form downstream of the hot vapor source.",
+  "hypothesis": "Without buoyancy, mixing and heat transfer are reduced, the time-temperature history of the combustion vapors (or particle precursors) and particle trajectories are significantly altered, changing the composition of the smoke. The chemical composition of the burning material also affects the characteristics of the smoke generated.",
+  "research_impacts": "Models and tools that characterize particles generated as smoke can be used to ascertain how temperature, gravity, and material properties affect the smoke produced. This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life."
+ },
+ "summary_written_by": "claude-sonnet-5-5",
+ "tags": {
+  "pillar": {
+   "value": "detection",
+   "source": "PSI record field `subResearchArea`"
+  },
+  "fuel_phase": {
+   "value": "aerosol",
+   "source": "PSI record fields `objective` and `approach`"
+  },
+  "hardware_group": {
+   "value": "ground",
+   "source": "PSI record field `experimentHardware`"
+  },
+  "measurements": {
+   "value": [
+    "simulated smoke particle growth in microgravity vs Earth gravity"
+   ],
+   "source": "PSI record fields `objective` and `approach`"
+  }
+ },
+ "cannot_tell": [
+  "A simulation of one smoke chemical (DBP); it is not a test of detectors."
+ ],
+ "conditions": {
+  "hardware": null,
+  "hardware_link": null,
+  "flight_program": "Not Applicable",
+  "managing_center": "Glenn Research Center (GRC)",
+  "start_date": "01-30-2017",
+  "end_date": "12-31-2019",
+  "release_date": "18-Sep-2024"
+ },
+ "licence": {
+  "id": "CC0-1.0",
+  "name": "Creative Commons Zero v1.0 Universal",
+  "link": "https://spdx.org/licenses/CC0-1.0.html"
+ },
+ "doi": "10.60555/q0v5-1v28",
+ "files": {
+  "count": 47,
+  "bytes": 264404901,
+  "listed_bytes": 264404901,
+  "by_category": [
+   {
+    "category": "Analyzed Data",
+    "count": 44,
+    "bytes": 253683467
+   },
+   {
+    "category": "Reports",
+    "count": 1,
+    "bytes": 10617514
+   },
+   {
+    "category": "Science Documents",
+    "count": 1,
+    "bytes": 96899
+   },
+   {
+    "category": "metadata",
+    "count": 1,
+    "bytes": 7021
+   }
+  ],
+  "tables": []
+ },
+ "publications": [],
+ "related": [
+  "PSI-102"
+ ],
+ "engines": []
+}

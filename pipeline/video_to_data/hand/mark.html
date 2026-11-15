@@ -1,0 +1,213 @@
+<!doctype html>
+<!-- Hand-measurement page for Linear DOB-43. Written with SI assistance (Claude Code), reviewed by the team.
+     Runs offline in a browser. The video never leaves your computer. It reads no pipeline output. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hand-measure the flame edge</title>
+<style>
+  :root { --bg:#fafafa; --fg:#1b1b1f; --mut:#5b5b66; --line:#d8d8de; --acc:#0b57d0; --bad:#b3261e; --ok:#146c2e; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#16161a; --fg:#ececf1; --mut:#a0a0ac; --line:#34343c; --acc:#8ab4f8; --bad:#f2b8b5; --ok:#7bd88f; } }
+  body { margin:0; padding:16px; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, sans-serif; max-width:1000px; margin-inline:auto; }
+  h1 { font-size:1.25rem; margin:0 0 4px; } h2 { font-size:1rem; margin:20px 0 6px; }
+  .mut { color:var(--mut); } .bad { color:var(--bad); } .ok { color:var(--ok); }
+  .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:6px 0; }
+  input, select, button { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); }
+  button { cursor:pointer; } button.on { border-color:var(--acc); color:var(--acc); font-weight:600; } button:disabled { opacity:.45; cursor:default; }
+  #stage { position:relative; display:inline-block; max-width:100%; line-height:0; border:1px solid var(--line); }
+  video { max-width:100%; display:block; } canvas { position:absolute; inset:0; width:100%; height:100%; cursor:crosshair; }
+  #slider { width:100%; } table { border-collapse:collapse; } td, th { border-bottom:1px solid var(--line); padding:3px 10px; text-align:right; }
+  #marks { max-height:220px; overflow:auto; display:inline-block; }
+</style>
+</head>
+<body>
+<h1>Hand-measure the flame edge</h1>
+<p class="mut">Do this alone, and do not open the pipeline's numbers until you have saved your files. Steps: <code>PROTOCOL.md</code> in this folder.</p>
+
+<h2>1. Video</h2>
+<div class="row">
+  <label>Test <select id="test"></select></label>
+  <label>Your initials <input id="who" size="4" maxlength="4" placeholder="DG" autocomplete="off"></label>
+  <input id="file" type="file" accept="video/*">
+</div>
+<div id="fileNote" class="mut"></div>
+<div id="stage"><video id="vid" muted playsinline preload="auto"></video><canvas id="cv"></canvas></div>
+<div class="row"><input id="slider" type="range" min="0" max="0" value="0"></div>
+<div class="row">
+  <button id="b-30">&laquo; 30</button><button id="b-1">&lsaquo; 1</button>
+  <span id="where" class="mut">no video</span>
+  <button id="b+1">1 &rsaquo;</button><button id="b+30">30 &raquo;</button>
+  <span class="mut">Keys: &larr; &rarr; one frame, Shift + arrow 30 frames, Delete removes the mark on this frame.</span>
+</div>
+
+<h2>2. Scale (optional)</h2>
+<p class="mut">The B1, B4 and B13 videos show only the flame and a text overlay on black, so no known length is visible. Skip this step then:
+positions are saved in pixels, which is the unit the pipeline uses, and the comparison is done in pixels per second. Do not guess a scale.
+If a video does show a length you know (for example the sample width, 20 mm), click its two ends and type it.</p>
+<div class="row">
+  <button id="m-cal">Click 2 points</button>
+  <label>Known length (mm) <input id="calmm" type="number" min="0" step="any" size="6" style="width:90px"></label>
+  <span id="calOut" class="mut">not set</span>
+</div>
+
+<h2>3. Direction</h2>
+<p class="mut">Click the igniter end of the sample (zero), then a second point further along the sample, in the direction the flame spreads.</p>
+<div class="row"><button id="m-ax">Click 2 points</button><span id="axOut" class="mut">not set</span></div>
+
+<h2>4. Mark the leading edge</h2>
+<p class="mut">Go to a frame, then click the front of the visible flame sheet, toward the unburned film. About once per second, at least 15 points. If you cannot see the flame, skip that moment.</p>
+<div class="row"><button id="m-mark">Marking is on</button> <span id="count" class="mut"></span></div>
+<div id="marks"></div>
+
+<h2>5. Save</h2>
+<div class="row"><button id="save">Download <span id="fname">&lt;TEST&gt;_&lt;INITIALS&gt;.csv</span></button></div>
+<div id="msg"></div>
+<pre id="note" class="mut" style="white-space:pre-wrap"></pre>
+
+<script id="logic">
+// Pure functions: no page access, so they can be tested on their own.
+const FPS = 30000 / 1001;                    // all PSI-25 videos in the list run at 29.97 fps
+const FRAME = 1 / FPS;
+function frameTime(n) { return n * FRAME; }
+function dist(a, b) { return Math.hypot(b.x - a.x, b.y - a.y); }
+function pxPerMm(p1, p2, mm) { return dist(p1, p2) / mm; }
+function positionMm(pt, origin, along, ppm) {
+  const dx = along.x - origin.x, dy = along.y - origin.y, len = Math.hypot(dx, dy);
+  return ((pt.x - origin.x) * dx / len + (pt.y - origin.y) * dy / len) / ppm;
+}
+function validName(test, who) { return /^[A-Z]+\d+$/.test(test) && /^[A-Za-z]{2,4}$/.test(who); }
+function fileName(test, who) { return test + "_" + who.toUpperCase() + ".csv"; }
+function fileMatchesTest(name, test) {
+  return new RegExp("TEST_?" + test + "(?![0-9])").test(name) && !/Still_Sequence|2ND_VIEW/.test(name);
+}
+function positionPx(pt, origin, along) {
+  const dx = along.x - origin.x, dy = along.y - origin.y, len = Math.hypot(dx, dy);
+  return (pt.x - origin.x) * dx / len + (pt.y - origin.y) * dy / len;
+}
+// Always writes position_px. Writes position_mm too only when a real scale (px per mm) is known.
+function toCsv(marksByFrame, origin, along, ppm) {
+  const frames = Object.keys(marksByFrame).map(Number).sort((a, b) => a - b);
+  const withMm = ppm > 0;
+  const rows = frames.map(n => {
+    const px = positionPx(marksByFrame[n], origin, along);
+    return frameTime(n).toFixed(3) + "," + px.toFixed(1) + (withMm ? "," + (px / ppm).toFixed(2) : "");
+  });
+  return "time_s,position_px" + (withMm ? ",position_mm" : "") + "\n" + rows.join("\n") + "\n";
+}
+</script>
+
+<script>
+const TESTS = ["B1", "B3", "B4", "B11", "B13"];
+const $ = id => document.getElementById(id);
+const vid = $("vid"), cv = $("cv"), ctx = cv.getContext("2d");
+const st = { n: 0, frames: 0, mode: "mark", cal: [], ppm: null, axis: [], marks: {} };
+
+TESTS.forEach(t => { const o = document.createElement("option"); o.textContent = t; $("test").append(o); });
+
+const key = () => "dob43:" + $("test").value + ":" + $("who").value.toUpperCase();
+function save() { try { localStorage.setItem(key(), JSON.stringify({ cal: st.cal, ppm: st.ppm, axis: st.axis, marks: st.marks, mm: $("calmm").value })); } catch (e) {} }
+function load() {
+  try {
+    const s = JSON.parse(localStorage.getItem(key()) || "null");
+    if (s) { st.cal = s.cal; st.ppm = s.ppm; st.axis = s.axis; st.marks = s.marks; $("calmm").value = s.mm || ""; }
+    else { st.cal = []; st.ppm = null; st.axis = []; st.marks = {}; }
+  } catch (e) {}
+  render();
+}
+
+function seek(n) {
+  n = Math.max(0, Math.min(st.frames - 1, n));
+  st.n = n; vid.currentTime = (n + 0.5) * FRAME; $("slider").value = n; render();
+}
+function sizeCanvas() { cv.width = vid.videoWidth || 720; cv.height = vid.videoHeight || 480; }
+function cross(p, color, r) {
+  ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.beginPath();
+  ctx.moveTo(p.x - r, p.y); ctx.lineTo(p.x + r, p.y); ctx.moveTo(p.x, p.y - r); ctx.lineTo(p.x, p.y + r); ctx.stroke();
+}
+function render() {
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  st.cal.forEach(p => cross(p, "#00b3ff", 8));
+  if (st.cal.length === 2) { ctx.strokeStyle = "#00b3ff"; ctx.beginPath(); ctx.moveTo(st.cal[0].x, st.cal[0].y); ctx.lineTo(st.cal[1].x, st.cal[1].y); ctx.stroke(); }
+  if (st.axis.length === 2) { ctx.strokeStyle = "#22c55e"; ctx.beginPath(); ctx.moveTo(st.axis[0].x, st.axis[0].y); ctx.lineTo(st.axis[1].x, st.axis[1].y); ctx.stroke(); }
+  st.axis.forEach(p => cross(p, "#22c55e", 8));
+  Object.keys(st.marks).forEach(f => cross(st.marks[f], Number(f) === st.n ? "#ff2d2d" : "rgba(255,170,0,.55)", Number(f) === st.n ? 9 : 4));
+  const t = frameTime(st.n);
+  $("where").textContent = st.frames ? "frame " + st.n + " of " + (st.frames - 1) + "   time " + t.toFixed(3) + " s" : "no video";
+  const ready = st.axis.length === 2;
+  $("calOut").textContent = st.ppm ? st.ppm.toFixed(3) + " px per mm" : "not set (fine: pixels only)";
+  $("axOut").textContent = st.axis.length === 2 ? "set" : st.axis.length === 1 ? "click the second point" : "not set";
+  const frames = Object.keys(st.marks).map(Number).sort((a, b) => a - b);
+  $("count").textContent = frames.length + " marked" + (frames.length < 15 ? " (need at least 15)" : "");
+  $("marks").innerHTML = frames.length ? "<table><tr><th>frame</th><th>time_s</th><th>position_px</th>" + (st.ppm ? "<th>position_mm</th>" : "") + "</tr>" + frames.map(f => {
+    const px = ready ? positionPx(st.marks[f], st.axis[0], st.axis[1]) : null;
+    return "<tr><td>" + f + "</td><td>" + frameTime(f).toFixed(3) + "</td><td>" + (ready ? px.toFixed(1) : "set the direction") + "</td>" +
+      (st.ppm ? "<td>" + (ready ? (px / st.ppm).toFixed(2) : "") + "</td>" : "") + "</tr>"; }).join("") + "</table>" : "";
+  ["m-cal", "m-ax", "m-mark"].forEach(id => $(id).classList.remove("on"));
+  $(st.mode === "cal" ? "m-cal" : st.mode === "ax" ? "m-ax" : "m-mark").classList.add("on");
+  $("m-mark").textContent = st.mode === "mark" ? "Marking is on" : "Click here to mark";
+  $("fname").textContent = validName($("test").value, $("who").value) ? fileName($("test").value, $("who").value) : "<TEST>_<INITIALS>.csv";
+}
+
+cv.addEventListener("click", e => {
+  if (!st.frames) return;
+  const r = cv.getBoundingClientRect();
+  const p = { x: (e.clientX - r.left) * cv.width / r.width, y: (e.clientY - r.top) * cv.height / r.height };
+  if (st.mode === "cal") { st.cal.push(p); if (st.cal.length === 2) { st.mode = "mark"; recalc(); } }
+  else if (st.mode === "ax") { st.axis.push(p); if (st.axis.length === 2) st.mode = "mark"; }
+  else st.marks[st.n] = p;
+  save(); render();
+});
+function recalc() { const mm = parseFloat($("calmm").value); st.ppm = st.cal.length === 2 && mm > 0 ? pxPerMm(st.cal[0], st.cal[1], mm) : null; }
+$("calmm").addEventListener("input", () => { recalc(); save(); render(); });
+$("m-cal").onclick = () => { st.mode = "cal"; st.cal = []; st.ppm = null; render(); };
+$("m-ax").onclick = () => { st.mode = "ax"; st.axis = []; render(); };
+$("m-mark").onclick = () => { st.mode = "mark"; render(); };
+$("b-30").onclick = () => seek(st.n - 30); $("b-1").onclick = () => seek(st.n - 1);
+$("b+1").onclick = () => seek(st.n + 1); $("b+30").onclick = () => seek(st.n + 30);
+$("slider").addEventListener("input", e => seek(Number(e.target.value)));
+document.addEventListener("keydown", e => {
+  if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) && e.target.type !== "range") return;
+  if (e.key === "ArrowRight") { seek(st.n + (e.shiftKey ? 30 : 1)); e.preventDefault(); }
+  else if (e.key === "ArrowLeft") { seek(st.n - (e.shiftKey ? 30 : 1)); e.preventDefault(); }
+  else if (e.key === "Delete" || e.key === "Backspace") { delete st.marks[st.n]; save(); render(); e.preventDefault(); }
+});
+$("test").addEventListener("change", () => { checkFile(); load(); });
+$("who").addEventListener("input", () => { if (validName($("test").value, $("who").value)) load(); else render(); });
+
+let chosen = "";
+function checkFile() {
+  const ok = !chosen || fileMatchesTest(chosen, $("test").value);
+  $("fileNote").innerHTML = chosen ? (ok ? "<span class='ok'>File: " + chosen + "</span>" :
+    "<span class='bad'>This file name does not look like the main video of " + $("test").value + ": " + chosen + "</span>") : "";
+}
+$("file").addEventListener("change", e => {
+  const f = e.target.files[0]; if (!f) return;
+  chosen = f.name; checkFile();
+  vid.src = URL.createObjectURL(f);
+});
+vid.addEventListener("loadedmetadata", () => {
+  sizeCanvas(); st.frames = Math.floor(vid.duration / FRAME);
+  $("slider").max = st.frames - 1; load(); seek(0);
+});
+vid.addEventListener("seeked", render);
+
+$("save").onclick = () => {
+  const test = $("test").value, who = $("who").value, msg = $("msg");
+  msg.className = "bad";
+  if (!validName(test, who)) { msg.textContent = "Type your initials (2 to 4 letters)."; return; }
+  if (st.axis.length !== 2) { msg.textContent = "Set the direction first (step 3)."; return; }
+  const n = Object.keys(st.marks).length;
+  if (n < 2) { msg.textContent = "Mark the edge on some frames first."; return; }
+  if (n < 15 && !confirm("Only " + n + " points. The protocol asks for at least 15. Save anyway?")) return;
+  const csv = toCsv(st.marks, st.axis[0], st.axis[1], st.ppm);
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = fileName(test, who); a.click();
+  msg.className = "ok"; msg.textContent = "Saved " + fileName(test, who) + " (" + n + " points). Move it into pipeline/video_to_data/hand/.";
+  const scaleText = st.ppm ? "scale: " + $("calmm").value + " mm = " + dist(st.cal[0], st.cal[1]).toFixed(1) + " px (" + st.ppm.toFixed(3) + " px/mm)" : "scale: none (pixels only)";
+  $("note").textContent = "Line for NOTES.md:\n" + fileName(test, who) + " | " + scaleText + " | tool: hand/mark.html | video: " + (chosen || "?") + " | remarks: ";
+};
+render();
+</script>
+</body>
+</html>

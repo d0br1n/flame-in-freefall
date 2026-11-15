@@ -1,0 +1,7 @@
+# The one backend (apps/api/). Listed in submission/REFERENCES.md.
+fastapi==0.162.7
+uvicorn==0.54.0
+pydantic==2.14.3
+# tests
+pytest==9.2.0
+httpx==0.28.1

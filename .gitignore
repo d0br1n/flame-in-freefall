@@ -1,0 +1,20 @@
+oracle-nasa.key*
+env
+oracle-nasa.key
+oracle-nasa.key.pub
+data/raw
+from-server/
+.claude/settings.local.json
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Local junk and tool output
+.DS_Store
+node_modules/
+.next/
+.playwright-mcp/
+Claude outputs/
+.worktrees/
+from-modal/

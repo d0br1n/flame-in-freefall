@@ -1,0 +1,30 @@
+{
+ "air": "high_oxygen",
+ "stages": {
+  "spread": {
+   "status": "not_stated",
+   "inside": null,
+   "stated": 0,
+   "investigations": []
+  },
+  "detect": {
+   "status": "not_stated",
+   "inside": null,
+   "stated": 0,
+   "investigations": []
+  },
+  "suppress": {
+   "status": "never_tested",
+   "inside": 0,
+   "stated": 274,
+   "investigations": [
+    {
+     "psi_id": "PSI-69",
+     "status": "never_tested",
+     "inside": 0,
+     "stated": 274
+    }
+   ]
+  }
+ }
+}

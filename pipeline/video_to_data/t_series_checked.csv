@@ -1,0 +1,12 @@
+test,checked_by,checked_date,checked_grade,checked_flame_seen_from_s,checked_flame_gone_s,checked_note
+T4,Dobrin Alexandru,2026-11-15,quenched,5.5,15,flame seems to be still very slightly visible after 13 s
+T9,Dobrin Alexandru,2026-11-15,no_ignition,,,"after initial ignition there seem to be a very small flame, very possible for it to be the wire"
+T10,Dobrin Alexandru,2026-11-15,no_ignition,,,only wire glow
+T12,Dobrin Alexandru,2026-11-15,no_ignition,,,multiple attempts at ignition most likely
+T13,Dobrin Alexandru,2026-11-15,quenched,32.5,50,lots of noise
+T14,Dobrin Alexandru,2026-11-15,quenched,34,125,way too hard to spot towards the end
+T15,Dobrin Alexandru,2026-11-15,no_blow_off,8,38.4,
+T17,Dobrin Alexandru,2026-11-15,no_blow_off,48,70,
+T18,Dobrin Alexandru,2026-11-15,quenched,30,67.9,
+T21,Dobrin Alexandru,2026-11-15,blow_off,20,35,flame can be clearly seen while ignition glow is still visible
+T22,Dobrin Alexandru,2026-11-15,quenched,16,42,

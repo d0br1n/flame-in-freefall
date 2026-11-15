@@ -1,0 +1,5 @@
+# Pinned for the flame temperature engine (versions that ran on 2026-11-14, Python 3.12).
+cantera==3.2.0
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1

@@ -1,0 +1,52 @@
+# The merge gate. Branch protection on main requires the job `gate`, and pull requests merge
+# themselves when it is green (tools/land.sh and the landing bot arm that). Do not rename the
+# job id `gate`: protection reads it, and a renamed job leaves every open pull request waiting
+# forever.
+#
+# Trigger: every push to every branch. The required check is read from the head commit of a
+# pull request, so this covers pull requests opened by the landing bot and by hand alike.
+# (`pull_request` is not used: on a pull request opened by a workflow, GitHub holds such runs
+# for manual approval.) A branch needs this file to be checked: rebase old branches on main.
+#
+# Dependencies are not baked into the runners: the gate installs what the checked-out commit
+# declares (every requirements*.txt through uv, every package.json through npm), from a cache.
+# A pull request that adds a package is therefore tested with that package before it lands.
+# The runner itself only needs python3, uv, node/npm and git.
+#
+# Runner: the repository variable CI_RUNNER picks a self-hosted runner label (`oci-arm`, the
+# team's Oracle server). Delete the variable and every job runs on GitHub-hosted runners.
+# Do that before the repository becomes public: self-hosted runners and public repositories
+# do not mix.
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Integrity gate (same script as the pre-push hook)
+        run: |
+          # The team's runners have uv; a GitHub-hosted runner gets it here.
+          if ! command -v uv >/dev/null; then
+            curl -LsSf https://astral.sh/uv/install.sh | sh
+            export PATH="$HOME/.local/bin:$PATH"
+          fi
+          PY=$(command -v python3.12 || command -v python3)
+          echo "$("$PY" --version), $(uv --version), node $(node --version 2>/dev/null || echo missing)"
+          "$PY" tools/ci/gate.py --base origin/main --ci

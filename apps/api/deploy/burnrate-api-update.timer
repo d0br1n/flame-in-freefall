@@ -1,0 +1,10 @@
+# Runs burnrate-api-update.service every 5 minutes.
+[Unit]
+Description=burnrate API: follow origin/main every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target

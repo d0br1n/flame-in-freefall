@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence.schema.json",
+  "title": "evidence.json: one record per value per test",
+  "type": "array",
+  "items": {"$ref": "#/$defs/record"},
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["id", "module", "test_id", "quantity", "value", "unit", "n", "conditions", "provenance", "source", "flags"],
+      "properties": {
+        "id": {"$ref": "common.schema.json#/$defs/record_id"},
+        "module": {"$ref": "common.schema.json#/$defs/module_id"},
+        "test_id": {"$ref": "common.schema.json#/$defs/test_id"},
+        "segment": {"description": "Optional part of a test, for example a flow step.", "type": "string", "minLength": 1},
+        "quantity": {"description": "What was measured, snake_case, for example spread_rate.", "type": "string", "minLength": 1},
+        "value": {"$ref": "common.schema.json#/$defs/value"},
+        "unit": {"$ref": "common.schema.json#/$defs/unit"},
+        "uncertainty": {
+          "type": "object",
+          "required": ["interval", "method"],
+          "properties": {
+            "interval": {"description": "[low, high] in the record's unit.", "type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+            "method": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        "n": {"$ref": "common.schema.json#/$defs/n"},
+        "conditions": {"description": "Test conditions, for example oxygen, pressure, flow. Free keys.", "type": "object"},
+        "provenance": {"$ref": "common.schema.json#/$defs/provenance"},
+        "source": {"$ref": "common.schema.json#/$defs/source"},
+        "reference": {
+          "description": "A published value to check against.",
+          "type": "object",
+          "required": ["value", "citation"],
+          "properties": {
+            "value": {"$ref": "common.schema.json#/$defs/value"},
+            "citation": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        "assets": {"description": "Files in the engine folder that show this record (images, clips). Each must be listed in module.json.", "type": "array", "items": {"$ref": "common.schema.json#/$defs/file_name"}},
+        "flags": {"description": "Caveats, for example MOCK or OUTSIDE_TESTED_RANGE. Empty list when none.", "type": "array", "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

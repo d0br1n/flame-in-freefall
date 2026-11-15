@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ev-B3-fixture-last-faint-light",
+    "module": "video-to-data",
+    "test_id": "PSI-25/B3",
+    "quantity": "last_faint_light_time",
+    "value": 49.6,
+    "unit": "s",
+    "n": 1,
+    "conditions": {
+      "note": "Stub-only record for the interface tests: the time after which the tracker sees no light above a low fixed threshold."
+    },
+    "provenance": "VIDEO_MEASURED",
+    "source": {
+      "psi_id": "PSI-25",
+      "file": "PSI-25_Raw Data_BASS_TEST_B3.mp4",
+      "link": "https://psi.nasa.gov"
+    },
+    "flags": []
+  }
+]

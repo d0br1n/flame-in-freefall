@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>burnrate: project demo, The Overfitters, NASA Space Apps 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Geist+Mono:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b1230; --navy2:#111a3f; --ink:#e9edff; --mute:#9aa6d6; --dim:#6b77a8;
+    --blue:#3b5bff; --blue2:#6f8bff; --line:rgba(160,175,255,.18); --warn:#ffb547; --ok:#5ee0a0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#05081a}
+  body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .slide{
+    width:1920px;height:1080px;position:relative;overflow:hidden;
+    background:radial-gradient(1100px 800px at 85% 90%,rgba(59,91,255,.28),transparent 60%),
+               linear-gradient(160deg,#0d1538 0%,var(--navy) 55%,#070b20 100%);
+    padding:110px 130px;margin:0 auto 40px;page-break-after:always;break-after:page;
+  }
+  @media print{ .slide{margin:0} html,body{background:none} }
+  @page{size:1920px 1080px;margin:0}
+
+  /* full-bleed SI image, darkened on the left so text stays readable */
+  .bg{position:absolute;inset:0;background-size:cover;background-position:center right;z-index:0}
+  .bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(7,11,32,.97) 0%,rgba(7,11,32,.88) 38%,rgba(7,11,32,.25) 75%,rgba(7,11,32,.1) 100%)}
+  .bg.shift{left:34%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.15) 30%,#000 62%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.15) 30%,#000 62%)}
+  .bg.shift::after{background:linear-gradient(0deg,rgba(7,11,32,.35),rgba(7,11,32,.1))}
+  .bg.deep::after{background:linear-gradient(90deg,rgba(7,11,32,.97) 0%,rgba(7,11,32,.9) 45%,rgba(7,11,32,.7) 100%)}
+  .vid{position:absolute;right:0;bottom:0;width:1300px;height:731px;z-index:0;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%),linear-gradient(180deg,transparent 0%,#000 25%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent 0%,#000 30%),linear-gradient(180deg,transparent 0%,#000 25%);mask-composite:intersect}
+  .vid video{width:100%;height:100%;object-fit:contain;display:block}
+  @media print{ .vid{display:none} }
+  .content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column}
+  .si{position:absolute;right:28px;bottom:22px;z-index:3;font:600 18px/1 'Geist Mono',monospace;
+    color:#fff;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.35);padding:8px 12px;border-radius:6px;letter-spacing:.04em}
+
+  .kicker{font:600 22px/1 'Geist Mono',monospace;color:var(--blue2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:34px}
+  h1,h2,.stat .v,.card .big,.card h3,.quote{font-family:'Bricolage Grotesque',Figtree,sans-serif}
+  h1{font-size:150px;font-weight:800;letter-spacing:-.03em;line-height:.95}
+  h2{font-size:84px;font-weight:700;letter-spacing:-.02em;line-height:1.02;max-width:1300px}
+  h2 em,h1 em{font-style:normal;color:var(--blue2)}
+  .lead{font-size:38px;line-height:1.38;color:var(--mute);max-width:1050px;margin-top:36px;font-weight:400}
+  .lead b{color:var(--ink);font-weight:600}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-size:22px;color:var(--dim)}
+  .foot .src{font-family:'Geist Mono',monospace;font-size:19px;max-width:1300px;line-height:1.5}
+  .num{position:absolute;top:56px;right:130px;font:600 20px/1 'Geist Mono',monospace;color:var(--dim);z-index:2}
+  .brand{position:absolute;top:52px;left:130px;font-weight:700;font-size:26px;z-index:2;display:flex;gap:12px;align-items:center;color:var(--ink)}
+  .brand i{font-style:normal;font-family:'Geist Mono',monospace;color:var(--blue2)}
+  .tag{display:inline-block;font:600 19px/1 'Geist Mono',monospace;color:var(--blue2);border:1px solid var(--line);
+    background:rgba(59,91,255,.1);padding:9px 13px;border-radius:8px;margin-right:10px}
+
+  .stats{display:grid;gap:28px;margin-top:70px}
+  .stat{border-left:3px solid var(--blue);padding:6px 0 6px 30px}
+  .stat .v{font-size:96px;font-weight:800;letter-spacing:-.04em;line-height:1}
+  .stat .l{font-size:27px;color:var(--mute);margin-top:12px;line-height:1.35}
+  .stat .p{font:500 18px/1.4 'Geist Mono',monospace;color:var(--dim);margin-top:10px}
+
+  .cards{display:grid;gap:26px;margin-top:60px}
+  .card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:42px 44px}
+  .card h3{font-size:38px;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+  .card p{font-size:29px;line-height:1.42;color:var(--mute)}
+  .card .big{font-size:64px;font-weight:800;letter-spacing:-.035em;color:var(--ink);line-height:1;margin-bottom:16px}
+  .card .big small{font-size:30px;color:var(--mute);font-weight:600;letter-spacing:0}
+  .card .src{font:500 17px/1.4 'Geist Mono',monospace;color:var(--dim);margin-top:16px}
+
+  .shot{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 120px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
+  .shot img{display:block;width:100%}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
+
+  ul.plain{list-style:none;margin-top:46px}
+  ul.plain li{font-size:32px;line-height:1.35;color:var(--mute);padding:20px 0 20px 52px;border-top:1px solid var(--line);position:relative}
+  ul.plain li:last-child{border-bottom:1px solid var(--line)}
+  ul.plain li::before{content:"";position:absolute;left:8px;top:33px;width:14px;height:14px;border-radius:50%;background:var(--blue);box-shadow:0 0 18px var(--blue)}
+  ul.plain li b{color:var(--ink);font-weight:600}
+  ul.warn li::before{background:var(--warn);box-shadow:0 0 18px var(--warn)}
+
+  table.tiers{width:100%;border-collapse:collapse;margin-top:50px}
+  table.tiers th{font:600 19px/1 'Geist Mono',monospace;color:var(--dim);text-align:left;padding:0 0 18px;letter-spacing:.08em;text-transform:uppercase}
+  table.tiers td{font-size:28px;padding:26px 24px 26px 0;border-top:1px solid var(--line);color:var(--mute);vertical-align:top;line-height:1.35}
+  table.tiers td:first-child{color:var(--ink);font-weight:700;font-size:32px;width:230px}
+  table.tiers td.price{color:var(--ink);font-weight:700;white-space:nowrap}
+
+  .quote{font-size:46px;line-height:1.3;font-weight:600;letter-spacing:-.02em;max-width:1350px;margin-top:20px}
+  .quote span{color:var(--mute);font-weight:400}
+  .url{font:600 64px/1 'Geist Mono',monospace;color:var(--ink);letter-spacing:-.02em;margin-top:30px}
+  .glow{position:absolute;width:760px;height:760px;right:-120px;bottom:-200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(111,139,255,.95) 0%,rgba(59,91,255,.45) 25%,rgba(59,91,255,.08) 55%,transparent 70%);filter:blur(4px);z-index:0}
+  .ring{position:absolute;border:1px solid rgba(160,175,255,.18);border-radius:50%;z-index:0}
+
+  /* no frames around pictures */
+  .shot{border:none;box-shadow:none;border-radius:18px}
+  /* simplified dashboard cards, real numbers in HTML */
+  .dash{background:linear-gradient(160deg,#16205a 0%,#0f1844 100%);border-radius:28px;padding:44px 48px;position:relative;overflow:hidden;
+    box-shadow:0 30px 90px rgba(10,20,80,.45)}
+  .dash .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;z-index:0}
+  .dash .art + .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,24,68,.95) 0%,rgba(15,24,68,.6) 60%,rgba(15,24,68,.2) 100%);z-index:0}
+  .dash > *:not(.art):not(.shade):not(.src-tag):not(.si){position:relative;z-index:1}
+  .dash .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+  .dash .wm{font:700 30px/1 'Space Grotesk',Figtree,sans-serif;color:#fff;display:flex;gap:10px;align-items:center}
+  .dash .wm i{font-style:normal;font-family:'Geist Mono',monospace;color:var(--blue2)}
+  .pill{font:600 22px/1 'Geist Mono',monospace;color:#dfe5ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:14px 20px;border-radius:999px}
+  .dash .q{font:700 46px/1.05 'Bricolage Grotesque',sans-serif;color:#fff;margin-bottom:30px}
+  .dash .row{display:grid;gap:22px}
+  .dash .k{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:26px 28px}
+  .dash .k .v{font:800 72px/1 'Bricolage Grotesque',sans-serif;color:#fff;letter-spacing:-.02em}
+  .dash .k .v small{font-size:32px;color:#b9c3f2;font-weight:600}
+  .dash .k .l{font-size:24px;color:#b9c3f2;margin-top:10px;line-height:1.3}
+  .dash .k .c{display:inline-block;margin-top:12px;font:600 16px/1 'Geist Mono',monospace;color:var(--blue2);background:rgba(59,91,255,.15);padding:7px 10px;border-radius:6px}
+  .dash .ctl{display:flex;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  .slider{height:10px;border-radius:5px;background:rgba(255,255,255,.12);position:relative;margin:16px 0 4px}
+  .slider b{position:absolute;left:0;top:0;bottom:0;width:42%;background:var(--blue);border-radius:5px}
+  .slider b::after{content:"";position:absolute;right:-12px;top:-8px;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+  .src-tag{position:absolute;right:30px;top:30px;font:600 18px/1 'Geist Mono',monospace;color:#dfe5ff;background:rgba(59,91,255,.25);padding:9px 12px;border-radius:8px;z-index:2}
+
+  /* LIGHT THEME for bright projectors: add ?light to the URL or press L */
+  body.light{background:#e9ecf5;--ink:#0b1230;--mute:#3b4672;--dim:#6a7499;--blue2:#2a47e8}
+  .light #s1 .bg{filter:invert(1) hue-rotate(180deg)}
+  .light #s1 .bg::after{background:linear-gradient(90deg,rgba(0,0,0,.97) 0%,rgba(0,0,0,.85) 38%,rgba(0,0,0,0) 75%)}
+  .light .dash{--ink:#fff;--mute:#b9c3f2;--blue2:#8fa5ff}
+  .light .slide{background:radial-gradient(1100px 800px at 85% 90%,rgba(59,91,255,.12),transparent 60%),linear-gradient(160deg,#ffffff 0%,#f4f6fc 100%);color:#0b1230}
+  .light h1,.light h2,.light .brand,.light .stat .v,.light .card .big,.light .card h3,.light .quote,.light ul.plain li b,.light .lead b,.light table.tiers td:first-child,.light table.tiers td.price{color:#0b1230}
+  .light h2 em,.light h1 em,.light .kicker,.light .brand i{color:#2a47e8}
+  .light .lead,.light .stat .l,.light .card p,.light ul.plain li,.light table.tiers td,.light .quote span{color:#3b4672}
+  .light .foot,.light .num,.light .stat .p,.light .card .src,.light .foot .src{color:#6a7499}
+  .light .card{background:#fff;border-color:#d9def0;box-shadow:0 10px 30px rgba(20,30,80,.06)}
+  .light ul.plain li,.light table.tiers td{border-color:#d9def0}
+  .light .bg::after{background:linear-gradient(90deg,rgba(255,255,255,1) 0%,rgba(255,255,255,.92) 40%,rgba(255,255,255,.2) 75%,rgba(255,255,255,0) 100%)}
+  .light .bg.deep::after{background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 50%,rgba(255,255,255,.75) 100%)}
+  .light .vid{display:none}
+
+  /* images only: no panels, borders or boxes around them */
+  .dash{background:none !important;box-shadow:none;border-radius:0;overflow:visible}
+  .dash .art{opacity:1;object-fit:cover;border-radius:0}
+  .dash .k{background:none;border:none;padding:0 0 0 0}
+  .dash .pill,.pill{background:none;border:none;padding:0;color:var(--blue2)}
+  .src-tag{background:none;padding:0;color:var(--blue2)}
+  .dash .k .c{background:none;padding:0}
+  #s5 .dash{min-height:0 !important;background:none !important}
+  #s5 .dash img{border-radius:0 !important}
+  .pic{display:block;width:100%;height:auto;border:none;border-radius:0;box-shadow:none}
+  .pic.round{border-radius:24px}
+  table.cases td{padding:18px 24px 18px 0;font-size:28px}
+  table.cases td:first-child{width:820px}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:30px}
+  .feat div{border-left:3px solid var(--blue);padding:4px 0 4px 22px}
+  .feat b{display:block;font-size:26px;color:var(--ink);margin-bottom:6px}
+  .feat span{font-size:22px;line-height:1.4;color:var(--mute)}
+  /* slide 5: one video frame and the numbers read from it */
+  .vtd{display:grid;grid-template-columns:1080px 1fr;gap:60px;margin-top:34px;align-items:start}
+  .vtd figure{margin:0}
+  .vtd .frame{position:relative;border-radius:18px;overflow:hidden;background:#000}
+  .vtd .frame img{display:block;width:100%}
+  .vtd .lab{position:absolute;top:18px;transform:translateX(-50%);font:600 20px/1 'Geist Mono',monospace;background:rgba(0,0,0,.7);padding:6px 9px;border-radius:6px;white-space:nowrap}
+  .vtd .clock{position:absolute;right:18px;bottom:16px;font:600 20px/1 'Geist Mono',monospace;color:#fff;background:rgba(0,0,0,.7);padding:7px 10px;border-radius:6px}
+  .vtd figcaption{font:500 15px/1.4 'Geist Mono',monospace;color:var(--dim);margin-top:12px}
+  .vstats{display:grid;gap:26px}
+  .vstats .stat{padding:2px 0 2px 26px}
+  .vstats .stat .v{font-size:62px}
+  .vstats .stat .v small{font-size:28px;color:var(--mute);font-weight:600;letter-spacing:0}
+  .vstats .stat .l{font-size:24px;margin-top:8px}
+  .vstats .stat .p{font-size:17px;margin-top:6px}
+
+  /* 5-slide cut: big type, few words, each slide read in under two seconds */
+  .names{font:500 24px/1.5 Figtree,sans-serif;color:var(--mute);margin-top:10px}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+  .tile{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:38px 40px;min-height:230px}
+  .tile h3{font:700 48px/1.1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink)}
+  .tile p{font-size:33px;line-height:1.35;color:var(--mute)}
+  .tile p b{color:var(--ink);font-weight:600}
+  ul.pts{list-style:none;margin-top:8px}
+  ul.pts li{font-size:36px;line-height:1.3;color:var(--mute);padding:22px 0;border-top:1px solid var(--line)}
+  ul.pts li:last-child{border-bottom:1px solid var(--line)}
+  ul.pts li b{color:var(--ink);font-weight:600}
+</style>
+<style>
+  /* demo deck (5 slides): product steps, visible SI label, feature tiles */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:64px}
+  .member{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:46px 38px;min-height:230px;display:flex;gap:26px;align-items:flex-start}
+  .member .av{flex:none;width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font:800 34px/1 'Bricolage Grotesque',sans-serif;color:#fff;background:linear-gradient(140deg,var(--blue),#1b2a8a)}
+  .member b{display:block;font:700 36px/1.1 'Bricolage Grotesque',sans-serif;color:var(--ink);letter-spacing:-.02em;margin-bottom:12px}
+  .member span{display:block;font-size:25px;line-height:1.4;color:var(--mute)}
+  .steps{list-style:none;margin-top:10px;counter-reset:s}
+  .steps li{counter-increment:s;position:relative;padding:14px 0 14px 76px;border-top:1px solid var(--line);font-size:27px;line-height:1.35;color:var(--mute)}
+  .steps li:last-child{border-bottom:1px solid var(--line)}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:14px;width:46px;height:46px;border-radius:50%;
+    background:var(--blue);color:#fff;font:700 22px/46px 'Geist Mono',monospace;text-align:center}
+  .steps li b{color:var(--ink);font-weight:600}
+  .mini{display:flex;gap:36px;margin-top:24px}
+  .mini div{border-left:3px solid var(--blue);padding-left:20px}
+  .mini b{display:block;font:800 44px/1 'Bricolage Grotesque',sans-serif;color:var(--ink);letter-spacing:-.03em}
+  .mini span{font-size:20px;line-height:1.25;display:block;margin-top:4px;color:var(--mute)}
+</style>
+</head>
+<body>
+
+<!-- 1. INTRO: project, tagline, challenge, team -->
+<section class="slide" id="s1">
+  <div class="bg" style="background-image:url(../pitch-deck/img/si-hero.jpg)"></div>
+  <div class="si">SI-generated image</div>
+  <div class="content">
+    <div class="kicker">NASA Space Apps 2026 &middot; Challenge: Flame in Freefall</div>
+    <h1 style="margin-top:110px">burnrate</h1>
+    <p class="lead" style="font-size:48px;color:var(--ink);max-width:860px;font-weight:600">NASA lights fires in space on purpose. <em style="font-style:normal;color:var(--blue2)">We turn the results into answers.</em></p>
+    <div class="foot">
+      <div>
+        <div style="font-size:30px;color:var(--ink);font-weight:600">Team The Overfitters &middot; Cluj-Napoca, Romania</div>
+        <div class="names">Alexandru Dobrin &middot; Alexandru Florea &middot; David Codreanu &middot; Iustin Epanu &middot; Teodor Cotovanu &middot; Flavius Bobeanu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. THE PROBLEM AND THE SITUATIONS -->
+<section class="slide" id="s2">
+  <div class="bg deep" style="background-image:url(../pitch-deck/img/si-cabin.jpg)"></div>
+  <div class="si">SI-generated image</div>
+  <div class="brand"><i>[o]</i> burnrate</div><div class="num">02</div>
+  <div class="content">
+    <div class="kicker">The problem &middot; Two fires, 59 years apart</div>
+    <h2 style="font-size:80px;max-width:1700px">Every crew asks if the fire spreads <em>and what kills it.</em></h2>
+    <div class="cards" style="grid-template-columns:1fr 1fr;margin-top:46px">
+      <div class="card"><div class="big" style="font-size:56px">Apollo 1 &middot; 1967</div><p style="font-size:34px"><b style="color:var(--ink)">100% oxygen. 28 seconds</b> from the first electrical surge to silence.</p></div>
+      <div class="card"><div class="big" style="font-size:56px">Artemis II &middot; 2026</div><p style="font-size:34px"><b style="color:var(--ink)">A fire alarm far from Earth.</b> Orion shut down its fans on its own.</p></div>
+    </div>
+    <p class="lead" style="font-size:40px;max-width:1660px;margin-top:40px;color:var(--ink);font-weight:600">NASA's answers sit in 30 TB of experiments. <em style="font-style:normal;color:var(--blue2)">You can download them. You can't ask them.</em></p>
+    <div class="foot"><div class="src" style="max-width:1500px">Apollo 204 Review Board, 1967. Artemis II as reported by Scientific American, 16 Apr 2026; the alarm's cause was not published. NASA PSI archive: about 30 TB (NASA Science Data, 2025).</div></div>
+  </div>
+</section>
+
+<!-- 3. COMPUTER VISION: VIDEO TO DATA -->
+<section class="slide" id="s3">
+  <div class="brand"><i>[o]</i> burnrate</div><div class="num">03</div>
+  <div class="content">
+    <div class="kicker">Feature 1 &middot; Video to Data &middot; computer vision</div>
+    <h2 style="font-size:80px;max-width:1700px">We turn NASA's flame videos <em>into usable data.</em></h2>
+    <div class="vtd" style="margin-top:44px">
+      <figure>
+        <div class="frame">
+          <img src="../pitch-deck/img/b1-flame-30s.jpg" alt="NASA video of BASS-II test B1, 30 s into the test: two flame lobes on a plastic film, with the trailing and leading edges burnrate tracked">
+          <span class="lab" style="left:18.6%;color:#5ff2f2">trailing edge</span>
+          <span class="lab" style="left:57.9%;color:#ff6bf0">leading edge &rarr; spreading</span>
+          <span class="clock">30.0 s into the test</span>
+        </div>
+        <figcaption>NASA PSI-25 BASS-II &middot; test B1 &middot; Space Station, 20 Feb 2014 &middot; flame edge tracked by burnrate (SI-assisted code)</figcaption>
+      </figure>
+      <div class="vstats" style="gap:40px">
+        <div class="stat"><div class="v" style="font-size:84px">9.6 <small>px/s</small></div><div class="l" style="font-size:30px">how fast the flame front spread</div></div>
+        <div class="stat"><div class="v" style="font-size:84px">27.2 <small>s</small></div><div class="l" style="font-size:30px">of burning, from ignition to flame gone</div></div>
+        <div class="stat"><div class="v" style="font-size:84px">1.6 <small>s</small></div><div class="l" style="font-size:30px">from the fan slowing to the flame gone</div><div class="p" style="font-size:20px">NASA's report: within 2 s</div></div>
+      </div>
+    </div>
+    <div class="foot" style="margin-top:22px"><div class="src" style="max-width:1660px">The tracker follows the flame edge frame by frame. Speeds are in pixels per second: the videos have no ruler in frame.</div></div>
+  </div>
+</section>
+
+<!-- 4. THE GAS MIXTURE MODEL: SUPPRESSION TEST BENCH -->
+<section class="slide" id="s4">
+  <div class="brand"><i>[o]</i> burnrate</div><div class="num">04</div>
+  <div class="content">
+    <div class="kicker">Feature 2 &middot; Suppression test bench &middot; gas mixture model</div>
+    <h2 style="font-size:80px;max-width:1700px">Change the gas mixture. <em>See what puts the flame out.</em></h2>
+    <div class="split" style="grid-template-columns:1fr 860px;gap:60px;margin-top:40px;align-items:start;flex:none">
+      <ul class="pts">
+        <li><b>274 droplet flames</b> burned on the Space Station.</li>
+        <li><b>Set fuel, oxygen and added gas:</b> burnrate predicts how much of the droplet burns.</li>
+        <li><b>No real NASA test near your mixture?</b> No prediction.</li>
+      </ul>
+      <img class="pic round" src="../screenshots/07-suppression-try-a-mixture.png" alt="Try a mixture on the live site: fuel, oxygen, added gas and pressure controls beside the predicted share of the droplet burned" style="width:860px;max-height:560px;object-fit:cover;object-position:top">
+    </div>
+    <div class="foot"><div class="src">NASA PSI-69 FLEX, counted from its test table. Screenshot of the live site.</div></div>
+  </div>
+</section>
+
+<!-- 5. THE REST OF BURNRATE -->
+<section class="slide" id="s5">
+  <div class="brand"><i>[o]</i> burnrate</div><div class="num">05</div>
+  <div class="content">
+    <div class="kicker">What else burnrate does</div>
+    <h2 style="font-size:76px;max-width:1700px">One place to search, filter and <em>ask NASA's fire data.</em></h2>
+    <div class="tiles">
+      <div class="tile"><h3>Indexed catalog</h3><p>All <b>24</b> PSI fire experiments, <b>16,376</b> files.</p></div>
+      <div class="tile"><h3>AI assistant</h3><p>Plain English answers that <b>cite their NASA investigation.</b></p></div>
+      <div class="tile"><h3>Filters for your air</h3><p>Set oxygen, pressure, airflow: experiments <b>ranked for that air.</b></p></div>
+      <div class="tile"><h3>Compare</h3><p>Up to <b>four</b> experiments side by side.</p></div>
+      <div class="tile"><h3>Insights</h3><p><b>Six untested mixtures</b> proposed for the next flight.</p></div>
+      <div class="tile"><h3>Evidence and limits</h3><p>Click any number: <b>the NASA file behind it.</b></p></div>
+    </div>
+    <div class="foot"><div class="url" style="font-size:44px;margin-top:0">burnrate.website</div><div class="src" style="max-width:900px;text-align:right">Built on NASA open data: the PSI archive (PSI-25 BASS-II, PSI-69 FLEX, 24 combustion investigations). SI use is declared in the repository.</div></div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Geist+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;background:transparent;overflow:hidden}
+.band{position:absolute;left:0;right:0;bottom:0;height:150px;background:#070b20;border-top:4px solid #3b5bff;padding:20px 56px 0}
+.chip{display:inline-block;font:600 24px/1 'Geist Mono',monospace;letter-spacing:.1em;color:#fff;background:#3b5bff;padding:9px 14px;border-radius:8px}
+.page{display:inline-block;font:600 24px/1 'Geist Mono',monospace;letter-spacing:.1em;color:#8fa4ff;margin-left:16px}
+.txt{font:700 44px/1.15 Figtree,sans-serif;color:#fff;margin-top:16px;white-space:nowrap;letter-spacing:-.01em}
+.corner{position:absolute;right:0;top:0;font:600 22px/1 Figtree,sans-serif;color:#fff;background:#070b20;padding:14px 20px;border-bottom-left-radius:12px}
+</style></head><body>
+<div class="corner">Screen recording of the live site &middot; sped up 1.3x</div>
+<div class="band"><span class="chip" id="c"></span><span class="page" id="p"></span><div class="txt" id="t"></div></div>
+<script>
+const D=[
+["STEP 1","SCENARIOS","Open a real incident: the Artemis II fire alarm, April 2026."],
+["STEP 1","SCENARIOS","NASA's tests answer it: cut the fans. 7 of 8 burning flames went out within 2 s."],
+["STEP 2","VIDEO TO DATA · COMPUTER VISION","Our tracker follows the flame edge in NASA's own video and charts where it was."],
+["STEP 3","SUPPRESSION TEST BENCH · GAS MIXTURE MODEL","Add carbon dioxide to the air: less of the droplet is predicted to burn."],
+["STEP 3","SUPPRESSION TEST BENCH · GAS MIXTURE MODEL","Lower the oxygen: no real NASA test is near this mixture, so no prediction."],
+["TRY IT","BUILT ON NASA OPEN DATA","burnrate.website: opens in any browser, no login."]];
+const i=+new URLSearchParams(location.search).get("i");
+c.textContent=D[i][0];p.textContent=D[i][1];t.textContent=D[i][2];
+</script></body></html>

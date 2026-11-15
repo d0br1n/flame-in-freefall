@@ -1,0 +1,6 @@
+test,test_id,file_name,material,thickness_mm,sample_width_mm,fps,duration_s,time_base,why_chosen
+B1,PSI-25/B1,PSI-25_Raw Data_BASS_GMT50_SAMPLE_147_TEST_B1.mp4,100 micron PMMA film 2 cm wide,0.1,20,29.97,44.811,real_time,"100 um film. Report text ties 2.2 mm/s to this test (published.csv PUB-01, matched by us, not named in the report)"
+B3,PSI-25/B3,PSI-25_Raw Data_BASS_GMT50_SAMPLE_148_TEST_B3.mp4,100 micron film 2 cm wide,0.1,20,29.97,58.325,real_time,100 um film. Named in Figure 2.20 of the report
+B4,PSI-25/B4,PSI-25_Raw Data_BASS_GMT50_SAMPLE_159_TEST_B4.mp4,300 micron PMMA film 2 cm wide,0.3,20,29.97,89.489,real_time,300 um film. Named in Figure 2.20; the report says thicker film spreads slower
+B11,PSI-25/B11,PSI-25_Raw Data_BASS_GMT188_SAMPLE_158_TESTB11.mp4,2 cm 0.2 mm PMMA film,0.2,20,29.97,152.419,real_time,200 um film. Named in Figure 2.20
+B13,PSI-25/B13,PSI-25_Raw Data_BASS_GMT188_SAMPLE_162_TESTB13.mp4,2 cm 0.4 mm thick film,0.4,20,29.97,233.5,real_time,400 um film. Named in Figure 2.20

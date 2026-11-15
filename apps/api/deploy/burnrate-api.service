@@ -1,0 +1,19 @@
+# The burnrate backend (apps/api) as a system service: starts at boot, restarts if it stops.
+# Installed by apps/api/deploy/setup.sh. Code generated with SI assistance (Claude Code).
+[Unit]
+Description=burnrate API (read-only FastAPI over NASA PSI combustion data)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=opc
+WorkingDirectory=/opt/burnrate-api
+Environment=FIF_CORS_ORIGINS=*
+ExecStart=/opt/burnrate-api/.venv/bin/python -m uvicorn --app-dir apps/api app.main:app --host 0.0.0.0 --port 8000 --proxy-headers
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,63 @@
+#!/bin/sh
+# Pre-push hook: runs the integrity gate (tools/ci/gate.py) on the exact commit being pushed.
+# CI runs the same script as the required check `gate`, so this hook is only the fast answer:
+# skipping it with --no-verify gains nothing, the pull request will not merge while it is red.
+# Installed by tools/install-hooks.sh (Claude sessions run it at session start).
+# Code generated with SI assistance (Claude Code), reviewed by the team.
+
+ZERO=0000000000000000000000000000000000000000
+REMOTE=${1:-origin}
+PY=$(command -v python3.12 || command -v python3) || {
+    echo "pre-push: python3 is needed to run the gate" >&2
+    exit 1
+}
+
+TMP=$(mktemp -d "${TMPDIR:-/tmp}/gate-pre-push.XXXXXX") || exit 1
+cleanup() {
+    git worktree remove --force "$TMP/tree" >/dev/null 2>&1
+    rm -rf "$TMP"
+    git worktree prune >/dev/null 2>&1
+}
+trap cleanup EXIT HUP INT TERM
+
+BASE=
+if git rev-parse --verify --quiet "refs/remotes/$REMOTE/main" >/dev/null; then
+    BASE="refs/remotes/$REMOTE/main"
+fi
+
+SEEN=
+while read -r LOCAL_REF LOCAL_SHA REMOTE_REF REMOTE_SHA; do
+    [ "$LOCAL_SHA" = "$ZERO" ] && continue          # deleting a branch: nothing to check
+    if [ "$REMOTE_REF" = "refs/heads/main" ]; then
+        echo "pre-push: main only takes pull requests. Run tools/land.sh instead:" >&2
+        echo "          it opens the pull request and it merges itself when the gate is green." >&2
+        exit 1
+    fi
+    case " $SEEN " in *" $LOCAL_SHA "*) continue ;; esac
+    SEEN="$SEEN $LOCAL_SHA"
+
+    # Check the pushed commit itself, not the working tree, which may hold other changes.
+    git worktree remove --force "$TMP/tree" >/dev/null 2>&1
+    if ! git worktree add --detach --quiet "$TMP/tree" "$LOCAL_SHA"; then
+        echo "pre-push: cannot check out $LOCAL_SHA to run the gate" >&2
+        exit 1
+    fi
+    if [ ! -f "$TMP/tree/tools/ci/gate.py" ]; then
+        echo "pre-push: $LOCAL_REF predates the gate. Rebase on $REMOTE/main soon; CI will check the pull request."
+        continue
+    fi
+    echo "pre-push: running the gate on $(git rev-parse --short "$LOCAL_SHA") ($LOCAL_REF)"
+    # Git exports GIT_DIR and friends to hooks; drop them so the gate reads the temporary tree.
+    if ! (
+        # shellcheck disable=SC2046
+        unset $(git rev-parse --local-env-vars)
+        cd "$TMP/tree" && "$PY" tools/ci/gate.py ${BASE:+--base "$BASE"}
+    ); then
+        echo "" >&2
+        echo "pre-push: the gate is red, nothing was pushed. Fix the FAIL lines above." >&2
+        echo "          Reproduce with: python3 tools/ci/gate.py --base origin/main" >&2
+        exit 1
+    fi
+done
+
+exit 0

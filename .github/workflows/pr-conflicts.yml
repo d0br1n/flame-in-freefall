@@ -1,0 +1,78 @@
+# Flags pull requests that conflict with main, so a stuck one is never silent.
+#
+# A pull request that conflicts cannot merge, and auto-merge just waits. For every open pull
+# request to main this workflow keeps three things in step with GitHub's own verdict:
+#   - the red label `merge-conflict`,
+#   - a failing commit status `merge-conflict` on the head commit (the red X in the list),
+#   - one comment, when the conflict is first seen, saying how to fix it.
+# All three clear by themselves once the branch is rebased (tools/land.sh does that).
+#
+# It runs on every landing push, on every push to main, and every 5 minutes as a backstop:
+# a merge made by the landing bot does not start workflows, so main can move unseen.
+# The job itself stays green on purpose. The red belongs on the conflicting pull request,
+# not on main's latest commit or on somebody else's landing branch.
+name: "Guard: merge conflicts"
+
+on:
+  push:
+    branches: [main, 'land/**']
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  statuses: write
+
+concurrency:
+  group: pr-conflicts
+  cancel-in-progress: false
+
+jobs:
+  flag:
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 5
+    steps:
+      - name: Flag conflicting pull requests, clear resolved ones
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          HELP="Conflicts with main: rebase and run tools/land.sh again"
+          gh label create merge-conflict --repo "$REPO" --color D93F0B --description "$HELP" 2>/dev/null || true
+
+          list() {
+            gh pr list --repo "$REPO" --state open --base main --limit 100 \
+              --json number,mergeable,headRefOid,labels \
+              --jq '.[] | "\(.number) \(.mergeable) \(.headRefOid) \([.labels[].name] | index("merge-conflict") != null)"'
+          }
+          # GitHub works out mergeability on demand: ask again while any answer is UNKNOWN.
+          for _ in 1 2 3 4 5; do
+            PRS=$(list)
+            printf '%s\n' "$PRS" | grep -q ' UNKNOWN ' || break
+            sleep 4
+          done
+
+          CONFLICTS=0
+          while read -r NUM STATE SHA FLAGGED; do
+            [ -n "${NUM:-}" ] || continue
+            if [ "$STATE" = CONFLICTING ]; then
+              CONFLICTS=$((CONFLICTS + 1))
+              echo "::warning title=merge conflict::Pull request #$NUM conflicts with main"
+              gh api -X POST "repos/$REPO/statuses/$SHA" -f state=failure -f context=merge-conflict \
+                -f description="$HELP" >/dev/null
+              if [ "$FLAGGED" != true ]; then
+                gh pr edit "$NUM" --repo "$REPO" --add-label merge-conflict >/dev/null
+                gh pr comment "$NUM" --repo "$REPO" --body "**This pull request conflicts with \`main\`, so it cannot merge.** To fix it, run \`tools/land.sh\` again in your branch: it rebases on \`origin/main\` and stops at the conflict. Resolve it, run \`git rebase --continue\`, then \`tools/land.sh\` once more. The \`merge-conflict\` label and the red status clear by themselves." >/dev/null
+              fi
+            elif [ "$STATE" = MERGEABLE ] && [ "$FLAGGED" = true ]; then
+              gh pr edit "$NUM" --repo "$REPO" --remove-label merge-conflict >/dev/null
+              gh api -X POST "repos/$REPO/statuses/$SHA" -f state=success -f context=merge-conflict \
+                -f description="No conflict with main" >/dev/null
+              echo "Pull request #$NUM no longer conflicts: flag cleared."
+            fi
+          done <<< "$PRS"
+          echo "Open pull requests that conflict with main: $CONFLICTS"

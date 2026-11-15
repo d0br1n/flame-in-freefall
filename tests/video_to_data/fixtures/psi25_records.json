@@ -1,0 +1,119 @@
+{
+ "added": [
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_147_TEST_B1.mp4",
+   "file_size": 5803980.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B1"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_147_TEST_B1_Still_Sequence.mp4",
+   "file_size": 2831066.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B1"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_148_TEST_B3.mp4",
+   "file_size": 8005417.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B1"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_175_TESTB15.mp4",
+   "file_size": 21089860.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B17"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_175_TESTB15_2ND_VIEW.mp4",
+   "file_size": 31534268.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B17"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_149_TESTB15.mp4",
+   "file_size": 10743193.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B15"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_149_TESTB15_2ND_VIEW.mp4",
+   "file_size": 10258618.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B15"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_153_TESTB6.mp4",
+   "file_size": 7594452.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B6"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_153_TESTB6_2ND_VIEW.mp4",
+   "file_size": 8744904.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B6"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT188_SAMPLE_153_TESTB6_Still_Sequence.mp4",
+   "file_size": 1770296.0,
+   "subcategory": "Reduced Gravity/ Bhattacharjee/B6"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_039_TEST_F4.mp4",
+   "file_size": 43977075.0,
+   "subcategory": "Reduced Gravity/Ferkul/F4"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT167_SAMPLE_215_TEST_P3a.mp4",
+   "file_size": 60651360.0,
+   "subcategory": "Reduced Gravity/Fernandez-Pello/P3"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT167_SAMPLE_215_TEST_P3b.mp4",
+   "file_size": 109145356.0,
+   "subcategory": "Reduced Gravity/Fernandez-Pello/P3"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT51_SAMPLE_167_TEST_M5_Still_Sequence_1.mp4",
+   "file_size": 5039147.0,
+   "subcategory": "Reduced Gravity/Miller/M5"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT51_SAMPLE_167_TEST_M5_Still_Sequence_2.mp4",
+   "file_size": 10157907.0,
+   "subcategory": "Reduced Gravity/Miller/M5"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT202_SAMPLE_220_TEST_O5a_Part-1.mp4",
+   "file_size": 35877343.0,
+   "subcategory": "Reduced Gravity/Olson/O5"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT202_SAMPLE_220_TEST_O5a_Part-2.mp4",
+   "file_size": 65190674.0,
+   "subcategory": "Reduced Gravity/Olson/O5"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT_100_sample137_test T13.mp4",
+   "file_size": 65749185.0,
+   "subcategory": "Reduced Gravity/T'ien/T13"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_T13-post-burn-picture-camera-monitor.mp4",
+   "file_size": 166705.0,
+   "subcategory": "Reduced Gravity/T'ien/T13"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_133_TEST_T23.mp4",
+   "file_size": 5688672.0,
+   "subcategory": "Reduced Gravity/T'ien/T23"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_133_TEST_T23_Still_Sequence.mp4",
+   "file_size": 323810.0,
+   "subcategory": "Reduced Gravity/T'ien/T23"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_133_TEST_T23_2ND_VIEW.mp4",
+   "file_size": 7433909.0,
+   "subcategory": "Reduced Gravity/T'ien/T23"
+  },
+  {
+   "file_name": "PSI-25_Raw Data_vlc-record-2014-12-05-17h06m58s-BASS_GMT190_SAMPLE_145_TEST_T21.ts-.mp4",
+   "file_size": 253248.0,
+   "subcategory": "Reduced Gravity/T'ien/T21"
+  }
+ ]
+}

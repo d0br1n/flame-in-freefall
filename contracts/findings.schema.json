@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "findings.schema.json",
+  "title": "findings.json: the numbers a pillar page puts into words",
+  "type": "array",
+  "items": {"$ref": "#/$defs/finding"},
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "required": ["id", "module", "kind", "text", "value", "unit", "n", "provenance", "source"],
+      "properties": {
+        "id": {"$ref": "common.schema.json#/$defs/record_id"},
+        "module": {"$ref": "common.schema.json#/$defs/module_id"},
+        "kind": {"description": "headline: the answer on the page. check: a validation against a published value.", "enum": ["headline", "check"]},
+        "text": {"description": "One sentence.", "type": "string", "minLength": 1},
+        "value": {"$ref": "common.schema.json#/$defs/value"},
+        "unit": {"$ref": "common.schema.json#/$defs/unit"},
+        "n": {"$ref": "common.schema.json#/$defs/n"},
+        "provenance": {"$ref": "common.schema.json#/$defs/provenance"},
+        "source": {"$ref": "common.schema.json#/$defs/source"},
+        "evidence_ids": {"description": "Evidence records this finding rests on.", "type": "array", "items": {"$ref": "common.schema.json#/$defs/record_id"}},
+        "passed": {"description": "Checks only: did the check pass.", "type": "boolean"}
+      },
+      "additionalProperties": false,
+      "if": {"properties": {"kind": {"const": "check"}}},
+      "then": {"required": ["passed"]},
+      "else": {"not": {"required": ["passed"]}}
+    }
+  }
+}

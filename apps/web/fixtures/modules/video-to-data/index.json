@@ -1,0 +1,467 @@
+{
+  "module": "video-to-data",
+  "units": {
+    "position": "px",
+    "time": "s",
+    "rate": "px/s",
+    "light": "relative units, uncalibrated"
+  },
+  "stage_source": {
+    "citation": "NIST, Fire Dynamics (Fire Research Division), created 17 November 2010, updated 9 September 2025",
+    "link": "https://www.nist.gov/el/fire-research-division-73300/firegov-fire-service/fire-dynamics",
+    "note": "Stage names from NIST; the limits between stages are our own rule."
+  },
+  "tests": [
+    {
+      "test_id": "PSI-25/B3",
+      "label": "B3",
+      "video_file": "PSI-25_Raw Data_BASS_TEST_B3.mp4",
+      "conditions": {
+        "material_text": "200 micron PMMA film 2 cm wide",
+        "thickness_mm": 0.2,
+        "width_mm": 20,
+        "o2_initial_pct": 24.0,
+        "fan_display": "62",
+        "air_display": "5"
+      },
+      "viewing": {
+        "quality": "no_spread",
+        "note": "The flame stays near the igniter.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale",
+        "eye_no_spread",
+        "no_steady_window"
+      ],
+      "events": {
+        "ignition_time_s": 6.0,
+        "extinction_time_s": 9.5,
+        "censored": false,
+        "outcome": "unclassified",
+        "last_faint_light_s": 49.6
+      },
+      "rate": null,
+      "fan": {
+        "at_ignition": 62,
+        "changes": [],
+        "drop_time_s": null,
+        "flame_gone_minus_fan_drop_s": null,
+        "settled_time_s": null,
+        "unit": "V x10"
+      },
+      "stages": [],
+      "clip": null,
+      "files": {
+        "kymograph": null,
+        "steps": null,
+        "stills": [],
+        "curve": null,
+        "readout": null
+      },
+      "evidence_ids": {
+        "last_faint_light_time": "ev-B3-fixture-last-faint-light"
+      },
+      "air": {
+        "at_ignition": 5.0
+      }
+    },
+    {
+      "test_id": "PSI-25/B2",
+      "label": "B2",
+      "video_file": "PSI-25_Raw Data_BASS_TEST_B2.mp4",
+      "conditions": {
+        "material_text": "100 micron PMMA film 2 cm wide",
+        "thickness_mm": 0.1,
+        "width_mm": 20,
+        "o2_initial_pct": 21.0,
+        "fan_display": "30",
+        "air_display": "5"
+      },
+      "viewing": {
+        "quality": "doubtful",
+        "note": "Flame is faint; the edge is hard to follow.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale",
+        "eye_doubtful",
+        "short_window",
+        "unknown_new_flag"
+      ],
+      "events": {
+        "ignition_time_s": 5.0,
+        "extinction_time_s": null,
+        "censored": true,
+        "outcome": "unclassified"
+      },
+      "rate": null,
+      "fan": {
+        "at_ignition": 30,
+        "changes": [],
+        "drop_time_s": null,
+        "flame_gone_minus_fan_drop_s": null,
+        "settled_time_s": null,
+        "unit": "V x10"
+      },
+      "stages": [],
+      "clip": null,
+      "files": {
+        "kymograph": null,
+        "steps": null,
+        "stills": [],
+        "curve": null,
+        "readout": null
+      },
+      "evidence_ids": {},
+      "air": {
+        "at_ignition": 5.0
+      }
+    },
+    {
+      "test_id": "PSI-25/B1",
+      "label": "B1",
+      "video_file": "PSI-25_Raw Data_BASS_GMT50_SAMPLE_147_TEST_B1.mp4",
+      "conditions": {
+        "material_text": "100 micron PMMA film 2 cm wide",
+        "thickness_mm": 0.1,
+        "width_mm": 20.0,
+        "o2_initial_pct": 22.2,
+        "o2_final_pct": 22.2,
+        "fan_display": "62",
+        "air_display": "5",
+        "flow_restrictor": "2"
+      },
+      "viewing": {
+        "quality": "spreading",
+        "note": "Dark from the start. Two-lobe flame spreads right and stays in frame, smooth real-time video. Bright flame is gone by about 38.5 s.",
+        "viewed_by": "SI (Claude Sonnet) on contact sheets, 2026-11-14"
+      },
+      "flags": [
+        "no_scale"
+      ],
+      "events": {
+        "ignition_time_s": 10.41,
+        "extinction_time_s": 37.604,
+        "censored": false,
+        "outcome": "unclassified"
+      },
+      "rate": {
+        "value": 9.649,
+        "unit": "px/s",
+        "ci_low": 9.578,
+        "ci_high": 9.741,
+        "window_start_s": 13.213,
+        "window_end_s": 37.204,
+        "intercept_px": 92.523
+      },
+      "fan": {
+        "at_ignition": 62.0,
+        "changes": [
+          {
+            "time_s": 36.003,
+            "from": 62,
+            "to": 38
+          }
+        ],
+        "drop_time_s": 36.003,
+        "flame_gone_minus_fan_drop_s": 1.601,
+        "settled_time_s": 39.406,
+        "unit": "V x10"
+      },
+      "stages": [
+        {
+          "stage": "growth",
+          "start_s": 10.41,
+          "end_s": 11.411
+        },
+        {
+          "stage": "fully developed",
+          "start_s": 11.411,
+          "end_s": 36.203
+        },
+        {
+          "stage": "decay",
+          "start_s": 36.203,
+          "end_s": 37.604
+        }
+      ],
+      "clip": {
+        "file": "PSI-25_B1_overlay.mp4",
+        "start_s": 10.41,
+        "end_s": 37.604,
+        "speed": 2.0
+      },
+      "files": {
+        "kymograph": "PSI-25_B1_kymograph.png",
+        "steps": "PSI-25_B1_steps.jpg",
+        "stills": [
+          "PSI-25_B1_still1.jpg",
+          "PSI-25_B1_still2.jpg",
+          "PSI-25_B1_still3.jpg"
+        ],
+        "curve": "PSI-25_B1_curve.csv",
+        "readout": "PSI-25_B1_readout.csv",
+        "steps_clip": "PSI-25_B1_stepsclip.mp4"
+      },
+      "evidence_ids": {
+        "ignition_time": "ev-B1-ignition_time",
+        "extinction_time": "ev-B1-extinction_time",
+        "burn_duration": "ev-B1-burn_duration",
+        "spread_rate": "ev-B1-spread_rate",
+        "leading_edge_travel": "ev-B1-leading_edge_travel",
+        "fan_setting_at_ignition": "ev-B1-fan_setting_at_ignition",
+        "fan_drop_time": "ev-B1-fan_drop_time",
+        "flame_gone_minus_fan_drop": "ev-B1-flame_gone_minus_fan_drop",
+        "peak_flame_light": "ev-B1-peak_flame_light",
+        "air_speed_at_ignition": "ev-B1-air_speed_at_ignition"
+      },
+      "air": {
+        "at_ignition": 5.0
+      }
+    }
+  ],
+  "not_measurable": [
+    {
+      "test_id": null,
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_175_TESTB15.mp4",
+      "reason": "test identity not resolved (file named B15, sample and day of B17)"
+    },
+    {
+      "test_id": "PSI-25/B14",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_174_TESTB14.mp4",
+      "reason": "main video does not open (Not readable as downloaded from PSI: moov atom not found)"
+    },
+    {
+      "test_id": "PSI-25/B17",
+      "file_name": null,
+      "reason": "no main video in the manifest"
+    },
+    {
+      "test_id": "PSI-25/B18",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_176_TESTB18.mp4",
+      "reason": "main video does not open (Not readable as downloaded from PSI: moov atom not found)"
+    },
+    {
+      "test_id": "PSI-25/B20",
+      "file_name": "PSI-25_Raw Data_BASS_GMT183_SAMPLE_152_TESTB20.mp4",
+      "reason": "main video does not open (Not readable as downloaded from PSI: moov atom not found)"
+    }
+  ],
+  "t_series": {
+    "note": "The T-series (fabric strips with dim blue flames) cannot be followed by the tracker. These outcomes were graded by SI from brightened frames and the fan voltage history, blind to NASA's outcomes, and compared afterwards with NASA's Table 7.1.",
+    "graded_by": "SI (Claude Sonnet) viewing brightened frames, blind to NASA's outcomes, 2026-11-14",
+    "tests": [
+      {
+        "test_id": "PSI-25/T4",
+        "label": "T4",
+        "video_file": "PSI-25_Raw Data_BASS_GMT45_SAMPLE_130_TEST_T4.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A bright ignition flash at 4-5 s is followed by a dim two-lobed crescent flame beside the wire. It faded as the fan was stepped down from 80 and was gone by about 13 s at FAN about 56. Weak flame and short life, so medium.",
+        "fan_history": "80 at ignition (to 7 s); 73 at 8 s; 67 at 10 s; 59 at 12 s; 54 at 16 s; 46 from 26 s",
+        "evidence_id": "ev-T4-si-grade",
+        "published_evidence_id": "ev-T4-PUB-17",
+        "si_times": {
+          "wire_glow_s": null,
+          "flame_seen_from_s": 4,
+          "flame_gone_s": 13
+        },
+        "checked": {
+          "by": "Test fixture",
+          "date": "2026-11-15",
+          "grade": "quenched",
+          "flame_seen_from_s": 4.5,
+          "flame_gone_s": 12,
+          "note": "Fixture note: the flame faded with the fan.",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T4-check"
+        },
+        "clip": {
+          "file": "PSI-25_T4_review.mp4",
+          "start_s": 0.0,
+          "end_s": 60.0,
+          "speed": 4.0,
+          "gain": 6
+        },
+        "readout": "PSI-25_T4_readout.csv"
+      },
+      {
+        "test_id": "PSI-25/T9",
+        "label": "T9",
+        "video_file": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_133_TEST_T9.mp4",
+        "nasa_outcome": "no ignition",
+        "si_grade": "no_ignition",
+        "confidence": "high",
+        "match": "yes",
+        "reason": "Only a thin horizontal red wire glow with a faint reddish haze above it; no blue or separate flame at any time; fan never changed.",
+        "fan_history": "59-60 constant for the whole video",
+        "evidence_id": "ev-T9-si-grade",
+        "published_evidence_id": "ev-T9-PUB-26",
+        "si_times": {
+          "wire_glow_s": 3,
+          "flame_seen_from_s": null,
+          "flame_gone_s": null
+        },
+        "checked": {
+          "by": "Test fixture",
+          "date": "2026-11-15",
+          "grade": "no_ignition",
+          "flame_seen_from_s": null,
+          "flame_gone_s": null,
+          "note": "Fixture note: only the wire glowed, no flame was seen.",
+          "agrees_with_si": "yes",
+          "match": "yes",
+          "evidence_id": "ev-T9-check"
+        },
+        "clip": {
+          "file": "PSI-25_T9_review.mp4",
+          "start_s": 0.0,
+          "end_s": 60.0,
+          "speed": 4.0,
+          "gain": 6
+        },
+        "readout": null
+      },
+      {
+        "test_id": "PSI-25/T10",
+        "label": "T10",
+        "video_file": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_134_TEST_T10.mp4",
+        "nasa_outcome": "no ignition",
+        "si_grade": "no_ignition",
+        "confidence": "low",
+        "match": "yes",
+        "reason": "A large bright red glow burned 16-23 s and vanished within about 1 s with the fan unchanged; nothing was visible after 24 s, and when the fan was raised at 80 s nothing was burning. Could be a short-lived flame that died by itself; low confidence.",
+        "fan_history": "47-48 until about 78 s; 73 at 80 s; 105 at 82 s; 122 at 84 s",
+        "evidence_id": "ev-T10-si-grade",
+        "published_evidence_id": "ev-T10-PUB-27"
+      },
+      {
+        "test_id": "PSI-25/T12",
+        "label": "T12",
+        "video_file": "PSI-25_Raw Data_BASS_GMT178_SAMPLE_136_TEST_T12.mp4",
+        "nasa_outcome": "no ignition",
+        "si_grade": "cannot_tell",
+        "confidence": "low",
+        "match": "undecided",
+        "reason": "A bright white-red glow starts at 12 s and is still there when the video ends at 45 s, with no fan change. I cannot separate wire glow from a flame, and no fan action is shown to tell the outcome.",
+        "fan_history": "46-47 constant for the whole video",
+        "evidence_id": "ev-T12-si-grade",
+        "published_evidence_id": "ev-T12-PUB-28"
+      },
+      {
+        "test_id": "PSI-25/T13",
+        "label": "T13",
+        "video_file": "PSI-25_Raw Data_BASS_GMT_100_sample137_test T13.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "low",
+        "match": "yes",
+        "reason": "After the wire flash a faint two-lobed flame sits at the wire from 32 s and fades by about 50 s while the fan eased from 46 to 42. It was already fading at constant fan, so the cause is uncertain. The later rise to 122 came with nothing burning. Low.",
+        "fan_history": "46 at ignition and to about 40 s; 44 at 46 s; 42 from 52 s to about 95 s; 47 at 100 s; 122 at 110 s (read by eye)",
+        "evidence_id": "ev-T13-si-grade",
+        "published_evidence_id": "ev-T13-PUB-18"
+      },
+      {
+        "test_id": "PSI-25/T14",
+        "label": "T14",
+        "video_file": "PSI-25_Raw Data_BASS_GMT178_SAMPLE_140_TEST_T14.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A very faint blue-green flame stays at the wire from 34 s to about 115 s while the fan creeps down 47 to 43 and RAD rises; it fades out and RAD collapses after 112 s. Fan changes are small and the flame is very faint, so medium.",
+        "fan_history": "46-47 to 60 s; 45 at 70 s; 44 at 76-100 s; 45 at 108 s; 43 from 130 s (AIR 6 to 4)",
+        "evidence_id": "ev-T14-si-grade",
+        "published_evidence_id": "ev-T14-PUB-20"
+      },
+      {
+        "test_id": "PSI-25/T15",
+        "label": "T15",
+        "video_file": "PSI-25_Raw Data_BASS_GMT45_SAMPLE_138_TEST_T15.mp4",
+        "nasa_outcome": "no blowoff",
+        "si_grade": "no_blow_off",
+        "confidence": "high",
+        "match": "yes",
+        "reason": "A clear two-lobed flame lights as the fan is raised to 122, grows and travels along the strip for about 28 s, then shrinks and leaves the picture at about 38 s. It was not blown off.",
+        "fan_history": "80 at ignition; 98 at 8 s; 122 at 10 s; 122-127 to end",
+        "evidence_id": "ev-T15-si-grade",
+        "published_evidence_id": "ev-T15-PUB-24"
+      },
+      {
+        "test_id": "PSI-25/T17",
+        "label": "T17",
+        "video_file": "PSI-25_Raw Data_BASS_GMT178_SAMPLE_142_TEST_T17.mp4",
+        "nasa_outcome": "no blowoff",
+        "si_grade": "no_blow_off",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A faint flame is present at fan 42 (48-54 s); when the fan is raised to 122 it brightens and travels left for about 12 s, then shrinks and is gone at about 70 s at the left of the picture. It lasted well past the rise and ended in the same way as the surviving flame in T15, so no blow-off; medium because the end could be a late blow-off.",
+        "fan_history": "42 until about 55 s; 62 at 56 s; 88 at 58 s; 112 at 60 s; 122 from 62 s",
+        "evidence_id": "ev-T17-si-grade",
+        "published_evidence_id": "ev-T17-PUB-25"
+      },
+      {
+        "test_id": "PSI-25/T18",
+        "label": "T18",
+        "video_file": "PSI-25_Raw Data_BASS_GMT175_SAMPLE_141_TEST_T18.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A very faint flame burned at the wire from 30 s to about 68 s while the fan was stepped down 46 to 41 (AIR falling to 0); it faded out at low flow. The later fan rise came with nothing burning.",
+        "fan_history": "46-47 to about 48 s; 45 at 50 s; 42 at 54 s; 41 from 58 s; 53 at 80 s; 96 at 82 s (after the flame was gone)",
+        "evidence_id": "ev-T18-si-grade",
+        "published_evidence_id": "ev-T18-PUB-19"
+      },
+      {
+        "test_id": "PSI-25/T20",
+        "label": "T20",
+        "video_file": null,
+        "nasa_outcome": "quenched",
+        "si_grade": null,
+        "confidence": null,
+        "match": "not_graded",
+        "reason": "no plain main video on PSI",
+        "fan_history": null,
+        "evidence_id": null,
+        "published_evidence_id": "ev-T20-PUB-21",
+        "si_times": null,
+        "checked": null,
+        "clip": null,
+        "readout": null
+      },
+      {
+        "test_id": "PSI-25/T21",
+        "label": "T21",
+        "video_file": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_145_TEST_T21.mp4",
+        "nasa_outcome": "blow-off",
+        "si_grade": "blow_off",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A faint flame (24-31 s) brightens as the fan is raised and travels left, then disappears between 34 and 35 s just as the fan reaches 122, with nothing after.",
+        "fan_history": "52-53 to 29 s; 56 at 30 s; 87 at 32 s; 122 at 34 s",
+        "evidence_id": "ev-T21-si-grade",
+        "published_evidence_id": "ev-T21-PUB-23"
+      },
+      {
+        "test_id": "PSI-25/T22",
+        "label": "T22",
+        "video_file": "PSI-25_Raw Data_BASS_GMT190_SAMPLE_146_TEST_T22.mp4",
+        "nasa_outcome": "quenched",
+        "si_grade": "quenched",
+        "confidence": "medium",
+        "match": "yes",
+        "reason": "A faint blue flame (20-41 s) burns on while the fan is stepped down 67 to 52 and fades out at about 42 s at low flow.",
+        "fan_history": "67-68 to 28 s; 57 at 30 s; 53 at 32 s; 52 from 34 s",
+        "evidence_id": "ev-T22-si-grade",
+        "published_evidence_id": "ev-T22-PUB-22"
+      }
+    ],
+    "checked_by": "Test fixture, viewing brightened video, 2026-11-15",
+    "check_note": "Fixture text: checked by one team member against brightened x6 video, without looking at NASA's outcomes (they were hidden on the review page; the checker states this, the check was not supervised)."
+  }
+}

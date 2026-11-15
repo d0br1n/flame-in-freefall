@@ -1,0 +1,89 @@
+# The landing bot. `tools/land.sh` pushes your commits to a branch `land/<who>-<branch>`; this
+# workflow opens the pull request to main and arms auto-merge, so the change merges by itself
+# when the required check `gate` is green. Nobody needs the GitHub CLI or clicks merge.
+#
+# One exception: a change that edits the gate itself (workflows, tools/ci, tools/hooks,
+# tools/land.sh, the judging checker) gets its pull request but is NOT armed. A human reads
+# it and merges it. That keeps "make the gate green by weakening it" from landing unseen.
+#
+# Needs the repository setting "Allow GitHub Actions to create and approve pull requests"
+# and `gh` on the runner (GitHub-hosted runners have it).
+name: "Bot: auto-land"
+
+on:
+  push:
+    branches: ['land/**']
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-land-${{ github.ref }}
+
+jobs:
+  land:
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 5
+    steps:
+      - name: Open the pull request and arm auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          HEAD_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+          number() {
+            gh pr list --repo "$REPO" --head "$BRANCH" --base main --state open \
+              --json number --jq '.[0].number // empty'
+          }
+          COMPARE=$(gh api "repos/$REPO/compare/main...$BRANCH")
+          if [ "$(printf '%s' "$COMPARE" | jq '.ahead_by')" = 0 ]; then
+            echo "Nothing ahead of main on $BRANCH, nothing to land."
+            exit 0
+          fi
+          GATE_EDITS=$(printf '%s' "$COMPARE" | jq -r '.files[].filename' | grep -E \
+            '^(\.github/workflows/|tools/ci/|tools/hooks/|tools/land\.sh$|\.claude/skills/space-apps-judging/scripts/check\.py$)' || true)
+
+          PR=$(number)
+          if [ -z "$PR" ]; then
+            TITLE=$(printf '%s' "$HEAD_MESSAGE" | head -n 1 | cut -c1-120)
+            BODY=$(printf 'Opened by the landing bot for `%s`.\n\n%s\n' "$BRANCH" \
+              "$(printf '%s' "$COMPARE" | jq -r '.commits[] | "- " + (.commit.message | split("\n")[0])')")
+            if [ -n "$GATE_EDITS" ]; then
+              BODY=$(printf '%s\n\n**This change edits the gate itself, so it is not armed for auto-merge. A human reads it and merges it.**\n\n%s\n' \
+                "$BODY" "$(printf '%s\n' "$GATE_EDITS" | sed 's/^/- `/; s/$/`/')")
+            fi
+            gh pr create --repo "$REPO" --base main --head "$BRANCH" \
+              --title "${TITLE:-Land $BRANCH}" --body "$BODY"
+            PR=$(number)
+          fi
+
+          if [ -n "$GATE_EDITS" ]; then
+            gh pr merge "$PR" --repo "$REPO" --disable-auto 2>/dev/null || true
+            echo "::warning title=needs a human::Pull request #$PR edits the gate and waits for a human to merge it."
+            exit 0
+          fi
+          gh pr merge "$PR" --repo "$REPO" --auto --rebase
+          echo "Pull request #$PR merges itself when the gate is green."
+
+      - name: Delete landing branches that have merged
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          # A landing branch is deleted only if it still points at the commit that was merged
+          # and no open pull request uses it, so a branch reused for new work is left alone.
+          gh pr list --repo "$REPO" --state merged --base main --limit 40 \
+            --json headRefName,headRefOid --jq '.[] | select(.headRefName | startswith("land/")) | "\(.headRefName) \(.headRefOid)"' |
+          while read -r NAME OID; do
+            NOW=$(gh api "repos/$REPO/git/ref/heads/$NAME" --jq '.object.sha' 2>/dev/null) || continue
+            [ "$NOW" = "$OID" ] || continue
+            OPEN=$(gh pr list --repo "$REPO" --head "$NAME" --state open --json number --jq 'length')
+            [ "$OPEN" = 0 ] || continue
+            gh api -X DELETE "repos/$REPO/git/refs/heads/$NAME" >/dev/null 2>&1 && echo "deleted merged branch $NAME"
+          done
+          exit 0

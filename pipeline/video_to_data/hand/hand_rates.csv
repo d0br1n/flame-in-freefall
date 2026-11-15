@@ -1,0 +1,6 @@
+test_id,who,provenance,n_marked,rate_px_s,px_ci_low,px_ci_high,rate_mm_s,ci_low,ci_high,window_start_s,window_end_s,flags,file
+PSI-25/B11,SI,SI_EXTRACTED,84,4.329004329004329,4.262183764620793,4.399392871010022,,,,8.008,96.096,no_scale;no_steady_window;hand_checked_by_team_member,B11_SI.csv
+PSI-25/B13,SI,SI_EXTRACTED,174,2.250177007458561,2.1882100577606205,2.3121435897110425,,,,7.007,180.18,no_scale;no_steady_window;hand_checked_by_team_member,B13_SI.csv
+PSI-25/B1,SI,SI_EXTRACTED,27,9.768009768009767,9.594817504441675,9.921816033528152,,,,11.011,37.037,no_scale;no_steady_window;hand_checked_by_team_member,B1_SI.csv
+PSI-25/B3,SI,SI_EXTRACTED,27,10.289710289710293,9.720855070150101,10.772338841031459,,,,22.022,49.049,no_scale;no_steady_window;hand_checked_by_team_member,B3_SI.csv
+PSI-25/B4,SI,SI_EXTRACTED,56,3.960325388896818,3.889661997782753,4.040782606051959,,,,25.025,80.08,no_scale;no_steady_window;hand_checked_by_team_member,B4_SI.csv

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "mock-headline",
+    "module": "_mock",
+    "kind": "headline",
+    "text": "MOCK: in this made-up air the flame spreads at 123.4 mm/s.",
+    "value": 123.4,
+    "unit": "mm/s",
+    "n": 1,
+    "provenance": "VIDEO_MEASURED",
+    "source": {"psi_id": "PSI-0", "file": "MOCK_FILE_1.csv"},
+    "evidence_ids": ["mock-ev-1"]
+  },
+  {
+    "id": "mock-check",
+    "module": "_mock",
+    "kind": "check",
+    "text": "MOCK: the measured spread rate is within 3% of the made-up published value.",
+    "value": 2.8,
+    "unit": "%",
+    "n": 1,
+    "provenance": "VIDEO_MEASURED",
+    "source": {"psi_id": "PSI-0", "file": "MOCK_FILE_1.csv"},
+    "evidence_ids": ["mock-ev-1"],
+    "passed": true
+  }
+]

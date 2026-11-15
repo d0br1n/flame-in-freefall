@@ -1,0 +1,143 @@
+{
+ "note": "Real overlay strips (rows 28 to 83, x 150 to 719 of the frame, so the strip origin is (150, 28)) cut from PSI-25 Bhattacharjee main-view videos. The expected text was typed by a person (SI session) after looking at each strip, not taken from the reader. rad is what is visible; the last RAD character is cut by the frame edge, so the reader may return None for rad but must never return another number. lit_room: the room lights are on behind the text. reader_none lists fields that a person can read on the strip but the reader returns as None (two pixel-phase cases: a 9 that scores close to an 8 in the clock, a 6 close to a 4 in FAN); the test pins that the reader gives None there and never another number.",
+ "strips": {
+  "B1_t13_89.png": {
+   "video": "B1",
+   "t_s": 13.89,
+   "fuel": -1,
+   "air": 5,
+   "fan": 62,
+   "rad": 1.17,
+   "date": "02/20/14",
+   "clock": "10:09:48",
+   "lit_room": false,
+   "reader_none": [
+    "clock"
+   ]
+  },
+  "B1_t40_33.png": {
+   "video": "B1",
+   "t_s": 40.33,
+   "fuel": -2,
+   "air": 5,
+   "fan": 38,
+   "rad": 0.57,
+   "date": "02/20/14",
+   "clock": "10:10:15",
+   "lit_room": false
+  },
+  "B3_t7_0.png": {
+   "video": "B3",
+   "t_s": 7.0,
+   "fuel": -2,
+   "air": 2,
+   "fan": 47,
+   "rad": 0.04,
+   "date": "02/20/14",
+   "clock": "12:26:17",
+   "lit_room": true
+  },
+  "B3_t52_49.png": {
+   "video": "B3",
+   "t_s": 52.49,
+   "fuel": -2,
+   "air": 2,
+   "fan": 38,
+   "rad": 0.56,
+   "date": "02/20/14",
+   "clock": "12:27:03",
+   "lit_room": false
+  },
+  "B6_t22_32.png": {
+   "video": "B6",
+   "t_s": 22.32,
+   "fuel": -1,
+   "air": 3,
+   "fan": 47,
+   "rad": 0.26,
+   "date": "07/08/14",
+   "clock": "08:43:00",
+   "lit_room": false
+  },
+  "B6_t64_8.png": {
+   "video": "B6",
+   "t_s": 64.8,
+   "fuel": -2,
+   "air": 6,
+   "fan": 61,
+   "rad": 0.11,
+   "date": "07/08/14",
+   "clock": "08:43:42",
+   "lit_room": false
+  },
+  "B7_t0_6.png": {
+   "video": "B7",
+   "t_s": 0.6,
+   "fuel": -2,
+   "air": 2,
+   "fan": 47,
+   "rad": 0.04,
+   "date": "02/20/14",
+   "clock": "12:42:02",
+   "lit_room": true
+  },
+  "B11_t18_29.png": {
+   "video": "B11",
+   "t_s": 18.29,
+   "fuel": -2,
+   "air": 5,
+   "fan": 59,
+   "rad": 0.04,
+   "date": "07/08/14",
+   "clock": "10:58:36",
+   "lit_room": false
+  },
+  "B11_t103_64.png": {
+   "video": "B11",
+   "t_s": 103.64,
+   "fuel": -3,
+   "air": 0,
+   "fan": 46,
+   "rad": 0.2,
+   "date": "07/08/14",
+   "clock": "11:00:01",
+   "lit_room": false,
+   "reader_none": [
+    "fan"
+   ]
+  },
+  "B12_t4_0.png": {
+   "video": "B12",
+   "t_s": 4.0,
+   "fuel": -1,
+   "air": 2,
+   "fan": 47,
+   "rad": 0.04,
+   "date": "02/20/14",
+   "clock": "12:51:49",
+   "lit_room": true
+  },
+  "B13_t28_02.png": {
+   "video": "B13",
+   "t_s": 28.02,
+   "fuel": -1,
+   "air": 10,
+   "fan": 68,
+   "rad": 0.06,
+   "date": "07/08/14",
+   "clock": "12:20:23",
+   "lit_room": false
+  },
+  "B21_t149_7.png": {
+   "video": "B21",
+   "t_s": 149.7,
+   "fuel": -2,
+   "air": 19,
+   "fan": 122,
+   "rad": 0.5,
+   "date": "08/05/14",
+   "clock": "12:50:48",
+   "lit_room": false
+  }
+ }
+}
